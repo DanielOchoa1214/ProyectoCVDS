@@ -1,0 +1,13 @@
+edu/eci/proyectoCVDS/services/ServiciosRecursoFactory$1.class
+edu/eci/proyectoCVDS/entities/TipoRecurso.class
+edu/eci/proyectoCVDS/entities/Recurso.class
+edu/eci/proyectoCVDS/services/ExcepcionServiciosRecurso.class
+edu/eci/proyectoCVDS/services/ServiciosRecurso.class
+edu/eci/proyectoCVDS/entities/HorarioReserva.class
+edu/eci/proyectoCVDS/services/ServiciosRecursoFactory.class
+edu/eci/proyectoCVDS/persistence/DAORecurso.class
+edu/eci/proyectoCVDS/persistence/mybatisimpl/mappers/RecursoMapper.class
+edu/eci/proyectoCVDS/managedBeans/hoi.class
+edu/eci/proyectoCVDS/persistence/PersistenceException.class
+edu/eci/proyectoCVDS/persistence/mybatisimpl/MyBatisDAORecurso.class
+edu/eci/proyectoCVDS/services/impl/ServiciosRecursoImpl.class

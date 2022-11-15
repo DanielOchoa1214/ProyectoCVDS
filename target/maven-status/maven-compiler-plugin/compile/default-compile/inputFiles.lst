@@ -1,0 +1,11 @@
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/persistence/DAORecurso.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/services/ExcepcionServiciosRecurso.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/services/ServiciosRecursoFactory.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/services/ServiciosRecurso.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/entities/TipoRecurso.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/managedBeans/RecursoBean.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/services/impl/ServiciosRecursoImpl.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/persistence/mybatisimpl/MyBatisDAORecurso.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/entities/Recurso.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/persistence/mybatisimpl/mappers/RecursoMapper.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/persistence/PersistenceException.java

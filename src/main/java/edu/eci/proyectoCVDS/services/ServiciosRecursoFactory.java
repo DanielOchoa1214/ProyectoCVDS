@@ -13,7 +13,6 @@ public class ServiciosRecursoFactory {
     private static ServiciosRecursoFactory instance = new ServiciosRecursoFactory();
 
     private static Injector injector;
-    private static Injector testingInjector;
 
     private ServiciosRecursoFactory() {
         injector = createInjector(new XMLMyBatisModule() {
@@ -32,10 +31,6 @@ public class ServiciosRecursoFactory {
 
     public ServiciosRecurso getForumsServices() {
         return injector.getInstance(ServiciosRecurso.class);
-    }
-
-    public ServiciosRecurso getTestingForumServices() {
-        return testingInjector.getInstance(ServiciosRecurso.class);
     }
 
     public static ServiciosRecursoFactory getInstance() {

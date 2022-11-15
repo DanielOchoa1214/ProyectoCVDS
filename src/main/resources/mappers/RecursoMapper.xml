@@ -15,6 +15,24 @@
         <result property='bookingScheduleEnd' column='booking_schedule_end'/>
     </resultMap>
 
+    <!--    PROBAR CUANDO HAYA DB   -->
+    <select id="getResource" resultMap="RecursoResult">
+        SELECT
+            r.name AS name,
+            r.location AS location,
+            r.type AS type,
+            r.capacity AS capacity,
+            r.id AS id,
+            r.booking_schedule_start AS booking_schedule_start,
+            r.booking_schedule_end AS booking_schedule_start
+        FROM
+            Recurso as r
+        WHERE
+            r.name = #{name} AND t.type = #{type} ADN
+            (#{capacity} = '' OR  r.capacity = #{capacity}) AND
+            (#{location} = '' OR  r.location = #{location})
+    </select>
+
     <insert id="setNewRecurso">
         insert into Recurso (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end)
         values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd})

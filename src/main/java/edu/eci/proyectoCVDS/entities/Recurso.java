@@ -1,6 +1,7 @@
 package edu.eci.proyectoCVDS.entities;
 
 import java.sql.Date;
+import java.time.LocalTime;
 
 public class Recurso {
     private String name;
@@ -8,10 +9,10 @@ public class Recurso {
     private TipoRecurso type;
     private int capacity;
     private String id;
-    private Date bookingScheduleStart;
-    private Date bookingScheduleEnd;
+    private LocalTime bookingScheduleStart;
+    private LocalTime bookingScheduleEnd;
 
-    public Recurso(String name, String location, TipoRecurso type, int capacity, String id, Date bookingScheduleStart, Date bookingScheduleEnd){
+    public Recurso(String name, String location, TipoRecurso type, int capacity, String id, LocalTime bookingScheduleStart, LocalTime bookingScheduleEnd){
         this.name = name;
         this.location = location;
         this.type = type;
@@ -21,11 +22,11 @@ public class Recurso {
         this.bookingScheduleEnd = bookingScheduleEnd;
     }
 
-    public Date getBookingScheduleEnd() {
+    public LocalTime getBookingScheduleEnd() {
         return bookingScheduleEnd;
     }
 
-    public Date getBookingScheduleStart() {
+    public LocalTime getBookingScheduleStart() {
         return bookingScheduleStart;
     }
 
@@ -49,11 +50,11 @@ public class Recurso {
         return type;
     }
 
-    public void setBookingScheduleEnd(Date bookingScheduleEnd) {
+    public void setBookingScheduleEnd(LocalTime bookingScheduleEnd) {
         this.bookingScheduleEnd = bookingScheduleEnd;
     }
 
-    public void setBookingScheduleStart(Date bookingScheduleStart) {
+    public void setBookingScheduleStart(LocalTime bookingScheduleStart) {
         this.bookingScheduleStart = bookingScheduleStart;
     }
 

@@ -1,5 +1,6 @@
 package edu.eci.proyectoCVDS.persistence.mybatisimpl.mappers;
 
+import edu.eci.proyectoCVDS.entities.Recurso;
 import edu.eci.proyectoCVDS.entities.TipoRecurso;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -8,9 +9,14 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 import java.sql.Date;
+import java.time.LocalTime;
+import java.util.List;
 
 public interface RecursoMapper {
     void setNewRecurso(@Param("name") String name, @Param("location") String location, @Param("type") TipoRecurso type,
-                       @Param("capacity")int capacity, @Param("id") String id, @Param("bookingScheduleStart") Date bookingScheduleStart,
-                       @Param("bookingScheduleEnd") Date bookingScheduleEnd);
+                       @Param("capacity")int capacity, @Param("id") String id, @Param("bookingScheduleStart") LocalTime bookingScheduleStart,
+                       @Param("bookingScheduleEnd") LocalTime bookingScheduleEnd);
+
+    List<Recurso> getResource(@Param("name") String name, @Param("location") String location, @Param("type") TipoRecurso type,
+                              @Param("capacity") int capacity);
 }

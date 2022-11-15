@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Recursos de la Biblioteca</title>
+    <link rel="stylesheet" href="insertRecurso.css"/>
+</h:head>
+<h:body>
+    <h:form>
+        <div class="form-div">
+            <h1 class="register-title">Ingresa un nuevo recurso</h1>
+            <label>
+                Nombre del recurso:
+                <p:inputText id="nombre_recurso" class="form-inputs" binding="#{name}"/>
+            </label>
+            <label>
+                Tipo del recurso:
+                <p:selectOneMenu value="#{mb.tipoRecurso}" >
+                    <f:selectItems value="#{mb.tiposRecurso}" />
+                </p:selectOneMenu>
+            </label>
+            <label>
+                Ubicación del recurso en la biblioteca:
+                <p:inputText id="ubicacion_recurso" class="form-inputs" binding="#{location}"/>
+            </label>
+            <label>
+                Numero de recursos ingresados:
+                <p:inputText id="capacidad_recurso" class="form-inputs" binding="#{capacity}"/>
+            </label>
+            <label>
+                Identificador del recurso:
+                <p:inputText id="id_recurso" class="form-inputs" binding="#{id}"/>
+            </label>
+            <label>
+                Hora de inicio de horario de reservas:
+                <p:inputText id="horario_inicio_recurso" class="form-inputs" binding="#{bookingScheduleStart}"/>
+            </label>
+            <label>
+                Hora de fin de horario de reservas:
+                <p:inputText id="horario_fin_recurso" class="form-inputs" binding="#{bookingScheduleEnd}"/>
+            </label>
+            <p:commandButton class="register-btn" action="#{mb.saveRecurso(name.value, location.value, capacity.value, id.value, bookingScheduleStart.value, bookingScheduleEnd.value)}" value="Registrar"/>
+        </div>
+    </h:form>
+    <h:form>
+        <div class="form-div">
+            <h1 class="register-title">Busca un recurso en biblioteca</h1>
+            <p:inputText id="busqueda_recurso" class="search-input" binding="#{resourceSearch}"/>
+            <label>
+                Tipo del recurso:
+                <p:selectOneMenu value="#{mb.tipoRecurso}" >
+                    <f:selectItems value="#{mb.tiposRecurso}" />
+                </p:selectOneMenu>
+            </label>
+            <label>
+                [OPCIONAL] Ubicación del recurso en la biblioteca:
+                <p:inputText id="ubicacion_busqueda_recurso" class="form-inputs" binding="#{locationSearch}"/>
+            </label>
+            <label>
+                [OPCIONAL] Numero de recursos ingresados:
+                <p:inputText id="capacidad_busqueda_recurso" class="form-inputs" binding="#{capacitySearch}"/>
+            </label>
+            <p:commandButton class="register-btn" update="recursos" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" value="Buscar"/>
+            <p:dataTable id="recursos" var="recurso" value="#{mb.getSearchedRecursos()}">
+                <f:facet name="header">
+                    Recursos encontrados en la biblioteca
+                </f:facet>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{recurso.getName()}" />
+                </p:column>
+                <p:column headerText="Ubicación">
+                    <h:outputText value="#{recurso.getLocation()}" />
+                </p:column>
+                <p:column headerText="Tipo de Recurso">
+                    <h:outputText value="#{recurso.getType()}" />
+                </p:column>
+                <p:column headerText="Capacidad">
+                    <h:outputText value="#{recurso.getCapacity()}" />
+                </p:column>
+                <p:column headerText="Identificador">
+                    <h:outputText value="#{recurso.getId()}" />
+                </p:column>
+                <p:column>
+                    <p:commandButton class="register-btn" value="Reservar"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
+</h:body>
+</html>

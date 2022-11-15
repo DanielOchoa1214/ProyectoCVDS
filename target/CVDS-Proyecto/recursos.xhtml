@@ -11,6 +11,50 @@
 </h:head>
 <h:body>
     <h:form>
+        <div class="search-div form-div">
+            <h1 class="register-title">Busca un recurso en biblioteca</h1>
+            <p:inputText id="busqueda_recurso" class="search-input" binding="#{resourceSearch}"/>
+            <label>
+                Tipo del recurso:
+                <p:selectOneMenu value="#{mb.tipoRecurso}" >
+                    <f:selectItems value="#{mb.tiposRecurso}" />
+                </p:selectOneMenu>
+            </label>
+            <label>
+                [OPCIONAL] Ubicación del recurso en la biblioteca:
+                <p:inputText id="ubicacion_busqueda_recurso" class="form-inputs" binding="#{locationSearch}"/>
+            </label>
+            <label>
+                [OPCIONAL] Numero de recursos ingresados:
+                <p:inputText id="capacidad_busqueda_recurso" class="form-inputs" binding="#{capacitySearch}"/>
+            </label>
+            <p:commandButton class="register-btn btn" update="recursos" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" value="Buscar"/>
+            <p:dataTable id="recursos" var="recurso" value="#{mb.getSearchedRecursos()}">
+                <f:facet name="header">
+                    Recursos encontrados en la biblioteca
+                </f:facet>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{recurso.getName()}" />
+                </p:column>
+                <p:column headerText="Ubicación">
+                    <h:outputText value="#{recurso.getLocation()}" />
+                </p:column>
+                <p:column headerText="Tipo de Recurso">
+                    <h:outputText value="#{recurso.getType()}" />
+                </p:column>
+                <p:column headerText="Capacidad">
+                    <h:outputText value="#{recurso.getCapacity()}" />
+                </p:column>
+                <p:column headerText="Identificador">
+                    <h:outputText value="#{recurso.getId()}" />
+                </p:column>
+                <p:column>
+                    <p:commandButton class="register-btn btn" value="Reservar"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
+    <h:form>
         <div class="form-div">
             <h1 class="register-title">Ingresa un nuevo recurso</h1>
             <label>
@@ -43,51 +87,7 @@
                 Hora de fin de horario de reservas:
                 <p:inputText id="horario_fin_recurso" class="form-inputs" binding="#{bookingScheduleEnd}"/>
             </label>
-            <p:commandButton class="register-btn" action="#{mb.saveRecurso(name.value, location.value, capacity.value, id.value, bookingScheduleStart.value, bookingScheduleEnd.value)}" value="Registrar"/>
-        </div>
-    </h:form>
-    <h:form>
-        <div class="form-div">
-            <h1 class="register-title">Busca un recurso en biblioteca</h1>
-            <p:inputText id="busqueda_recurso" class="search-input" binding="#{resourceSearch}"/>
-            <label>
-                Tipo del recurso:
-                <p:selectOneMenu value="#{mb.tipoRecurso}" >
-                    <f:selectItems value="#{mb.tiposRecurso}" />
-                </p:selectOneMenu>
-            </label>
-            <label>
-                [OPCIONAL] Ubicación del recurso en la biblioteca:
-                <p:inputText id="ubicacion_busqueda_recurso" class="form-inputs" binding="#{locationSearch}"/>
-            </label>
-            <label>
-                [OPCIONAL] Numero de recursos ingresados:
-                <p:inputText id="capacidad_busqueda_recurso" class="form-inputs" binding="#{capacitySearch}"/>
-            </label>
-            <p:commandButton class="register-btn" update="recursos" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" value="Buscar"/>
-            <p:dataTable id="recursos" var="recurso" value="#{mb.getSearchedRecursos()}">
-                <f:facet name="header">
-                    Recursos encontrados en la biblioteca
-                </f:facet>
-                <p:column headerText="Nombre">
-                    <h:outputText value="#{recurso.getName()}" />
-                </p:column>
-                <p:column headerText="Ubicación">
-                    <h:outputText value="#{recurso.getLocation()}" />
-                </p:column>
-                <p:column headerText="Tipo de Recurso">
-                    <h:outputText value="#{recurso.getType()}" />
-                </p:column>
-                <p:column headerText="Capacidad">
-                    <h:outputText value="#{recurso.getCapacity()}" />
-                </p:column>
-                <p:column headerText="Identificador">
-                    <h:outputText value="#{recurso.getId()}" />
-                </p:column>
-                <p:column>
-                    <p:commandButton class="register-btn" value="Reservar"/>
-                </p:column>
-            </p:dataTable>
+            <p:commandButton class="register-btn btn" action="#{mb.saveRecurso(name.value, location.value, capacity.value, id.value, bookingScheduleStart.value, bookingScheduleEnd.value)}" value="Registrar"/>
         </div>
     </h:form>
 </h:body>

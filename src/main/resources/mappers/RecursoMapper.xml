@@ -29,7 +29,7 @@
             Recurso as r
         WHERE
             r.name = #{name} AND t.type = #{type} ADN
-            (#{capacity} = '' OR  r.capacity = #{capacity}) AND
+            (#{capacity} = 0 OR  r.capacity = #{capacity}) AND
             (#{location} = '' OR  r.location = #{location})
     </select>
 

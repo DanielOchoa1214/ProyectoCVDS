@@ -16,5 +16,10 @@
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="PrimeFaces-maven-lib" />
+      <option name="name" value="Repository for library PrimeFaces-maven-lib" />
+      <option name="url" value="http://repository.primefaces.org/" />
+    </remote-repository>
   </component>
 </project>

@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:23 -0500] "GET / HTTP/1.1" 200 52 http-bio-8080-exec-1 85
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/recursos.xhtml HTTP/1.1" 200 13214 http-bio-8080-exec-3 637
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/javax.faces.resource/jquery/jquery.js?ln=primefaces&v=12.0.0 HTTP/1.1" 200 89756 http-bio-8080-exec-5 11
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/javax.faces.resource/core.js?ln=primefaces&v=12.0.0 HTTP/1.1" 200 89155 http-bio-8080-exec-6 12
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/javax.faces.resource/jquery/jquery-plugins.js?ln=primefaces&v=12.0.0 HTTP/1.1" 200 146589 http-bio-8080-exec-8 14
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/javax.faces.resource/components.js?ln=primefaces&v=12.0.0 HTTP/1.1" 200 492154 http-bio-8080-exec-7 22
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/insertRecurso.css HTTP/1.1" 304 - http-bio-8080-exec-9 19
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/javax.faces.resource/components.css?ln=primefaces&v=12.0.0 HTTP/1.1" 200 107992 http-bio-8080-exec-2 78
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/javax.faces.resource/theme.css?ln=primefaces-saga&v=12.0.0 HTTP/1.1" 200 199176 http-bio-8080-exec-4 102
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:30 -0500] "GET /faces/javax.faces.resource/primeicons/primeicons.woff2?ln=primefaces&v=12.0.0 HTTP/1.1" 200 30217 http-bio-8080-exec-4 4
+0:0:0:0:0:0:0:1 - - [15/Nov/2022:21:17:38 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 2536 http-bio-8080-exec-4 1635

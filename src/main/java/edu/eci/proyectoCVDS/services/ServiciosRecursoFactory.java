@@ -41,7 +41,7 @@ public class ServiciosRecursoFactory {
     }
 
     public static void main(String[] args) throws ExcepcionServiciosRecurso {
-        ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource("Test", "Test", TipoRecurso.Academico, 2, "123", LocalTime.NOON, LocalTime.MIDNIGHT);
+        //ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource("Test", "Test", TipoRecurso.Academico, 2, "123", LocalTime.NOON, LocalTime.MIDNIGHT);
     }
 
 }

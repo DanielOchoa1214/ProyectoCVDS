@@ -17,7 +17,7 @@ public class ServiciosRecursoImpl implements ServiciosRecurso {
     DAORecurso daoRecurso;
 
     @Override
-    public void saveNewResource(String name, String location, TipoRecurso type, int capacity, String id, LocalTime bookingScheduleStart, LocalTime bookingScheduleEnd) throws ExcepcionServiciosRecurso {
+    public void saveNewResource(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd) throws ExcepcionServiciosRecurso {
         try {
             daoRecurso.saveRecurso(name, location, type, capacity, id, bookingScheduleStart, bookingScheduleEnd);
         } catch (PersistenceException ex) {

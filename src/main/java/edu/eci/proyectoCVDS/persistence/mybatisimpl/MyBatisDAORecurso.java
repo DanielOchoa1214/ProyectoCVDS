@@ -17,7 +17,7 @@ public class MyBatisDAORecurso implements DAORecurso {
     RecursoMapper recursoMapper;
 
     @Override
-    public void saveRecurso(String name, String location, TipoRecurso type, int capacity, String id, LocalTime bookingScheduleStart, LocalTime bookingScheduleEnd) throws PersistenceException {
+    public void saveRecurso(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd) throws PersistenceException {
         try{
             recursoMapper.setNewRecurso(name, location, type, capacity, id, bookingScheduleStart, bookingScheduleEnd);
         }

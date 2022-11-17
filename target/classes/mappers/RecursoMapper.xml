@@ -28,16 +28,16 @@
             r.booking_schedule_end AS booking_schedule_start,
             r.resource_state AS resource_state
         FROM
-            Recurso as r
+            RECURSO as r
         WHERE
-            r.name = #{name} AND t.type = #{type} AND
+            r.name = #{name} AND r.type = #{type} AND
             (#{capacity} = 0 OR  r.capacity = #{capacity}) AND
             (#{location} = '' OR  r.location = #{location}) AND
             r.resource_state != 'NO_DISPONIBLE'
     </select>
 
     <insert id="setNewRecurso">
-        insert into Recurso (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end, resource_state)
+        insert into RECURSO (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end, resource_state)
         values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd}, 'DISPONIBLE')
     </insert>
 </mapper>

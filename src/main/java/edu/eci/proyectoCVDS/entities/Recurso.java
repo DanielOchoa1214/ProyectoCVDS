@@ -8,27 +8,29 @@ public class Recurso {
     private TipoRecurso type;
     private int capacity;
     private String id;
-    private LocalTime bookingScheduleStart;
-    private LocalTime bookingScheduleEnd;
+    private int bookingScheduleStart;
+    private int bookingScheduleEnd;
 
     EstadoRecurso resourceState;
 
-    public Recurso(String name, String location, TipoRecurso type, int capacity, String id, LocalTime bookingScheduleStart, LocalTime bookingScheduleEnd, EstadoRecurso resourceState){
+    public Recurso(String name, String location, String type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd, String resourceState){
         this.name = name;
         this.location = location;
-        this.type = type;
+        this.type = TipoRecurso.valueOf(type);
         this.capacity = capacity;
         this.id = id;
+//        this.bookingScheduleStart = LocalTime.of(bookingScheduleStart, 0);
+//        this.bookingScheduleEnd = LocalTime.of(bookingScheduleEnd, 0);
         this.bookingScheduleStart = bookingScheduleStart;
         this.bookingScheduleEnd = bookingScheduleEnd;
-        this.resourceState = resourceState;
+        this.resourceState = EstadoRecurso.valueOf(resourceState);
     }
 
-    public LocalTime getBookingScheduleEnd() {
+    public int getBookingScheduleEnd() {
         return bookingScheduleEnd;
     }
 
-    public LocalTime getBookingScheduleStart() {
+    public int getBookingScheduleStart() {
         return bookingScheduleStart;
     }
 
@@ -52,11 +54,11 @@ public class Recurso {
         return type;
     }
 
-    public void setBookingScheduleEnd(LocalTime bookingScheduleEnd) {
+    public void setBookingScheduleEnd(int bookingScheduleEnd) {
         this.bookingScheduleEnd = bookingScheduleEnd;
     }
 
-    public void setBookingScheduleStart(LocalTime bookingScheduleStart) {
+    public void setBookingScheduleStart(int bookingScheduleStart) {
         this.bookingScheduleStart = bookingScheduleStart;
     }
 

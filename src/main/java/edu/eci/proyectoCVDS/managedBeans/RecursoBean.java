@@ -17,14 +17,14 @@ import java.util.List;
 public class RecursoBean {
 
     TipoRecurso tipoRecurso;
-    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", TipoRecurso.Academico, 3, "123", LocalTime.of(10, 0), LocalTime.of(15, 0), EstadoRecurso.DISPONIBLE)));
+    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", "Academico", 3, "123", 10, 15, "DISPONIBLE")));
 
     // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
     public void saveRecurso(String name, String location, String capacity, String id, String bookingScheduleStart, String bookingScheduleEnd) throws Exception{
         try {
-            int cap = Integer.parseInt(capacity);
-            LocalTime start = LocalTime.of(Integer.parseInt(bookingScheduleStart), 0);
-            LocalTime end = LocalTime.of(Integer.parseInt(bookingScheduleEnd), 0);
+            int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
+            int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);
+            int end = bookingScheduleEnd.equals("") ? 0 : Integer.parseInt(bookingScheduleEnd);
             ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource(name, location, tipoRecurso, cap, id, start, end);
         } catch (Exception e){
             e.printStackTrace();
@@ -33,7 +33,7 @@ public class RecursoBean {
 
     public void loadRecurso(String name, String location, String capacity) throws Exception{
         try {
-            int cap = Integer.parseInt(capacity);
+            int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
             searchedRecursos =  ServiciosRecursoFactory.getInstance().getForumsServices().loadResource(name, location, tipoRecurso, cap);
         } catch (Exception e){
             e.printStackTrace();

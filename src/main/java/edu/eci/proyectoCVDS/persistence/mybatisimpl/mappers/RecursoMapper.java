@@ -15,8 +15,8 @@ import java.util.List;
 
 public interface RecursoMapper {
     void setNewRecurso(@Param("name") String name, @Param("location") String location, @Param("type") TipoRecurso type,
-                       @Param("capacity")int capacity, @Param("id") String id, @Param("bookingScheduleStart") LocalTime bookingScheduleStart,
-                       @Param("bookingScheduleEnd") LocalTime bookingScheduleEnd);
+                       @Param("capacity")int capacity, @Param("id") String id, @Param("bookingScheduleStart") int bookingScheduleStart,
+                       @Param("bookingScheduleEnd") int bookingScheduleEnd);
 
     List<Recurso> getResource(@Param("name") String name, @Param("location") String location, @Param("type") TipoRecurso type,
                               @Param("capacity") int capacity);

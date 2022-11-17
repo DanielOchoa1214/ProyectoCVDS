@@ -1,5 +1,6 @@
 package edu.eci.proyectoCVDS.managedBeans;
 
+import edu.eci.proyectoCVDS.entities.EstadoRecurso;
 import edu.eci.proyectoCVDS.entities.Recurso;
 import edu.eci.proyectoCVDS.entities.TipoRecurso;
 import edu.eci.proyectoCVDS.services.ServiciosRecursoFactory;
@@ -16,22 +17,24 @@ import java.util.List;
 public class RecursoBean {
 
     TipoRecurso tipoRecurso;
-    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", TipoRecurso.Academico, 3, "123", LocalTime.of(10, 0), LocalTime.of(15, 0))));
+    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", TipoRecurso.Academico, 3, "123", LocalTime.of(10, 0), LocalTime.of(15, 0), EstadoRecurso.DISPONIBLE)));
 
     // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
-    public void saveRecurso(String name, String location, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd) throws Exception{
+    public void saveRecurso(String name, String location, String capacity, String id, String bookingScheduleStart, String bookingScheduleEnd) throws Exception{
         try {
+            int cap = Integer.parseInt(capacity);
             LocalTime start = LocalTime.of(Integer.parseInt(bookingScheduleStart), 0);
             LocalTime end = LocalTime.of(Integer.parseInt(bookingScheduleEnd), 0);
-            ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource(name, location, tipoRecurso, capacity, id, start, end);
+            ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource(name, location, tipoRecurso, cap, id, start, end);
         } catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public void loadRecurso(String name, String location, int capacity) throws Exception{
+    public void loadRecurso(String name, String location, String capacity) throws Exception{
         try {
-            searchedRecursos =  ServiciosRecursoFactory.getInstance().getForumsServices().loadResource(name, location, tipoRecurso, capacity);
+            int cap = Integer.parseInt(capacity);
+            searchedRecursos =  ServiciosRecursoFactory.getInstance().getForumsServices().loadResource(name, location, tipoRecurso, cap);
         } catch (Exception e){
             e.printStackTrace();
         }

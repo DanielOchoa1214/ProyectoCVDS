@@ -1,5 +1,6 @@
 package edu.eci.proyectoCVDS.persistence.mybatisimpl.mappers;
 
+import edu.eci.proyectoCVDS.entities.EstadoRecurso;
 import edu.eci.proyectoCVDS.entities.Recurso;
 import edu.eci.proyectoCVDS.entities.TipoRecurso;
 import org.apache.ibatis.annotations.Insert;

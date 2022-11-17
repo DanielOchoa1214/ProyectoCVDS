@@ -13,6 +13,7 @@
         <result property='capacity' column='capacity'/>
         <result property='bookingScheduleStart' column='booking_schedule_start'/>
         <result property='bookingScheduleEnd' column='booking_schedule_end'/>
+        <result property='resourceState' column='resource_state'/>
     </resultMap>
 
     <!--    PROBAR CUANDO HAYA DB   -->
@@ -24,17 +25,19 @@
             r.capacity AS capacity,
             r.id AS id,
             r.booking_schedule_start AS booking_schedule_start,
-            r.booking_schedule_end AS booking_schedule_start
+            r.booking_schedule_end AS booking_schedule_start,
+            r.resource_state AS resource_state
         FROM
             Recurso as r
         WHERE
-            r.name = #{name} AND t.type = #{type} ADN
-            (#{capacity} = '' OR  r.capacity = #{capacity}) AND
-            (#{location} = '' OR  r.location = #{location})
+            r.name = #{name} AND t.type = #{type} AND
+            (#{capacity} = 0 OR  r.capacity = #{capacity}) AND
+            (#{location} = '' OR  r.location = #{location}) AND
+            r.resource_state != 'NO_DISPONIBLE'
     </select>
 
     <insert id="setNewRecurso">
-        insert into Recurso (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end)
-        values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd})
+        insert into Recurso (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end, resource_state)
+        values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd}, 'DISPONIBLE')
     </insert>
 </mapper>

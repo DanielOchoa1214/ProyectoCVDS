@@ -33,4 +33,9 @@ public class ServiciosRecursoImpl implements ServiciosRecurso {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
     }
+
+    @Override
+    public void saveReserva(String name, String location, TipoRecurso type, int capacity) throws ExcepcionServiciosRecurso {
+
+    }
 }

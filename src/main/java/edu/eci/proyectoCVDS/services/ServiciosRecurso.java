@@ -10,4 +10,6 @@ public interface ServiciosRecurso {
     public void saveNewResource(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd) throws ExcepcionServiciosRecurso;
     public List<Recurso> loadResource(String name, String location, TipoRecurso type, int capacity) throws ExcepcionServiciosRecurso;
 
+    public void saveReserva(String name, String location, TipoRecurso type, int capacity)throws ExcepcionServiciosRecurso;
+
 }

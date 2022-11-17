@@ -10,16 +10,18 @@ public class Reserva {
     Date finalDate;
     boolean recurrent;
     Date nextBookingDate;
+    private String id;
 
-    public Reserva (Recurso resource, String infoResource, Date requestDate, Date initialDate, Date finalDate) {
+    public Reserva (String id, Recurso resource, String infoResource, Date requestDate, Date initialDate, Date finalDate) {
         this.resource = resource;
         this.infoResource = infoResource;
         this.requestDate = requestDate;
         this.initialDate = initialDate;
         this.finalDate = finalDate;
+        this.id = id;
     }
 
-    public Reserva (Recurso resource, String infoResource, Date requestDate, Date initialDate, Date finalDate, boolean recurrent, Date nextBookingDate) {
+    public Reserva (String id, Recurso resource, String infoResource, Date requestDate, Date initialDate, Date finalDate, boolean recurrent, Date nextBookingDate) {
         this.resource = resource;
         this.infoResource = infoResource;
         this.requestDate = requestDate;
@@ -27,6 +29,7 @@ public class Reserva {
         this.finalDate = finalDate;
         this.recurrent = recurrent;
         this.nextBookingDate = nextBookingDate;
+        this.id = id;
     }
 
     public Date getFinalDate() {
@@ -80,5 +83,8 @@ public class Reserva {
     public void setResource(Recurso resource) {
         this.resource = resource;
     }
+
+    public String getId() {return id;}
+    public void setId(String id) {this.id = id;}
 }
 

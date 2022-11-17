@@ -49,7 +49,7 @@
                     <h:outputText value="#{recurso.getId()}" />
                 </p:column>
                 <p:column>
-                    <p:commandButton class="register-btn btn" value="Reservar"/>
+                    <p:commandButton class="register-btn btn" value="Reservar" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" />
                 </p:column>
             </p:dataTable>
         </div>

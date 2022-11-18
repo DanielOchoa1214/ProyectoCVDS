@@ -40,4 +40,10 @@
         insert into RECURSO (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end, resource_state)
         values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd}, 'DISPONIBLE')
     </insert>
+
+    <update id="updateResourceState">
+        UPDATE RECURSO SET
+            resource_state = #{estadoRecurso}
+        WHERE id = #{id}
+    </update>
 </mapper>

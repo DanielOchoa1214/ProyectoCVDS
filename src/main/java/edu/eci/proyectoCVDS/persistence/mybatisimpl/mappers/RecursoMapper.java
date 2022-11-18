@@ -20,4 +20,6 @@ public interface RecursoMapper {
 
     List<Recurso> getResource(@Param("name") String name, @Param("location") String location, @Param("type") TipoRecurso type,
                               @Param("capacity") int capacity);
+
+    void updateResourceState(@Param("id") String id, @Param("estadoRecurso") EstadoRecurso estadoRecurso);
 }

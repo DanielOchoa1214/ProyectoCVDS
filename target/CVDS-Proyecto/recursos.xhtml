@@ -49,7 +49,7 @@
                     <h:outputText value="#{recurso.getId()}" />
                 </p:column>
                 <p:column>
-                    <p:commandButton class="register-btn btn" value="Reservar"/>
+                    <p:commandButton class="register-btn btn" value="Reservar" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" />
                 </p:column>
             </p:dataTable>
         </div>
@@ -88,6 +88,22 @@
                 <p:inputText id="horario_fin_recurso" class="form-inputs" binding="#{bookingScheduleEnd}"/>
             </label>
             <p:commandButton class="register-btn btn" action="#{mb.saveRecurso(name.value, location.value, capacity.value, id.value, bookingScheduleStart.value, bookingScheduleEnd.value)}" value="Registrar"/>
+        </div>
+    </h:form>
+    <h:form>
+        <div class="form-div">
+            <h1 class="register-title">Cambiar estado de un recurso</h1>
+            <label>
+                Ingrese el ID del recurso:
+                <p:inputText id="cambio_id_recurso" class="form-inputs" binding="#{changingResourceId}"/>
+            </label>
+            <label>
+                Ingrese el nuevo estado del recurso:
+                <p:selectOneMenu value="#{mb.estadoRecurso}" >
+                    <f:selectItems value="#{mb.estadosRecurso}" />
+                </p:selectOneMenu>
+            </label>
+            <p:commandButton class="register-btn btn" action="#{mb.updateRecursoState(changingResourceId.value)}" value="Guardar"/>
         </div>
     </h:form>
 </h:body>

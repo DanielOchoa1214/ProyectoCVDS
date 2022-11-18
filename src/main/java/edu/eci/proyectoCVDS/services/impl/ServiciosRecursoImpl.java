@@ -1,6 +1,7 @@
 package edu.eci.proyectoCVDS.services.impl;
 
 import com.google.inject.Inject;
+import edu.eci.proyectoCVDS.entities.EstadoRecurso;
 import edu.eci.proyectoCVDS.entities.Recurso;
 import edu.eci.proyectoCVDS.entities.TipoRecurso;
 import edu.eci.proyectoCVDS.persistence.DAORecurso;
@@ -35,7 +36,11 @@ public class ServiciosRecursoImpl implements ServiciosRecurso {
     }
 
     @Override
-    public void saveReserva(String name, String location, TipoRecurso type, int capacity) throws ExcepcionServiciosRecurso {
-
+    public void updateResourceState(String id, EstadoRecurso estadoRecurso) throws ExcepcionServiciosRecurso{
+        try {
+            daoRecurso.updateResourceState(id, estadoRecurso);
+        } catch (PersistenceException ex) {
+            throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
+        }
     }
 }

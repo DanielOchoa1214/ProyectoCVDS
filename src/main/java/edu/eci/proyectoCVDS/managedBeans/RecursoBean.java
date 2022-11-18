@@ -7,7 +7,6 @@ import edu.eci.proyectoCVDS.services.ServiciosRecursoFactory;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +16,7 @@ import java.util.List;
 public class RecursoBean {
 
     TipoRecurso tipoRecurso;
+    EstadoRecurso estadoRecurso;
     List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", "Academico", 3, "123", 10, 15, "DISPONIBLE")));
 
     // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
@@ -40,6 +40,14 @@ public class RecursoBean {
         }
     }
 
+    public void updateRecursoState(String id) throws Exception{
+        try {
+            ServiciosRecursoFactory.getInstance().getForumsServices().updateResourceState(id, this.estadoRecurso);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public List<Recurso> getSearchedRecursos() {
         return searchedRecursos;
     }
@@ -54,5 +62,17 @@ public class RecursoBean {
 
     public TipoRecurso[] getTiposRecurso(){
         return TipoRecurso.values();
+    }
+
+    public EstadoRecurso getEstadoRecurso() {
+        return estadoRecurso;
+    }
+
+    public void setEstadoRecurso(EstadoRecurso estadoRecurso) {
+        this.estadoRecurso = estadoRecurso;
+    }
+
+    public EstadoRecurso[] getEstadosRecurso(){
+        return EstadoRecurso.values();
     }
 }

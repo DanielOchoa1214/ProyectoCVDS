@@ -25,7 +25,7 @@ public class RecursoBean {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
             int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);
             int end = bookingScheduleEnd.equals("") ? 0 : Integer.parseInt(bookingScheduleEnd);
-            ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource(name, location, tipoRecurso, cap, id, start, end);
+            ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource(name, location, tipoRecurso, cap, id, start, end, estadoRecurso);
         } catch (Exception e){
             e.printStackTrace();
         }

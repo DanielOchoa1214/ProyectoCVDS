@@ -32,13 +32,12 @@
         WHERE
             r.name = #{name} AND r.type = #{type} AND
             (#{capacity} = 0 OR  r.capacity = #{capacity}) AND
-            (#{location} = '' OR  r.location = #{location}) AND
-            r.resource_state != 'NO_DISPONIBLE'
+            (#{location} = '' OR  r.location = #{location})
     </select>
 
     <insert id="setNewRecurso">
         insert into RECURSO (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end, resource_state)
-        values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd}, 'DISPONIBLE')
+        values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd}, #{resourceState})
     </insert>
 
     <update id="updateResourceState">

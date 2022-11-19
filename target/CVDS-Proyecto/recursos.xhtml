@@ -48,8 +48,11 @@
                 <p:column headerText="Identificador">
                     <h:outputText value="#{recurso.getId()}" />
                 </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{recurso.getResourceState()}" />
+                </p:column>
                 <p:column>
-                    <p:commandButton class="register-btn btn" value="Reservar" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" />
+                    <p:commandButton class="register-btn btn" value="Reservar" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" disabled="#{recurso.notAvailableForBooking()}"/>
                 </p:column>
             </p:dataTable>
         </div>
@@ -87,11 +90,17 @@
                 Hora de fin de horario de reservas:
                 <p:inputText id="horario_fin_recurso" class="form-inputs" binding="#{bookingScheduleEnd}"/>
             </label>
+            <label>
+                Estado del recurso:
+                <p:selectOneMenu value="#{mb.estadoRecurso}" >
+                    <f:selectItems value="#{mb.estadosRecurso}" />
+                </p:selectOneMenu>
+            </label>
             <p:commandButton class="register-btn btn" action="#{mb.saveRecurso(name.value, location.value, capacity.value, id.value, bookingScheduleStart.value, bookingScheduleEnd.value)}" value="Registrar"/>
         </div>
     </h:form>
-    <h:form>
-        <div class="form-div">
+    <h:form rendered="true">
+        <div class="change-state-div form-div">
             <h1 class="register-title">Cambiar estado de un recurso</h1>
             <label>
                 Ingrese el ID del recurso:

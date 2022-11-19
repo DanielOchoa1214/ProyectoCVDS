@@ -18,9 +18,9 @@ public class MyBatisDAORecurso implements DAORecurso {
     RecursoMapper recursoMapper;
 
     @Override
-    public void saveRecurso(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd) throws PersistenceException {
+    public void saveRecurso(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd, EstadoRecurso resourceState) throws PersistenceException {
         try{
-            recursoMapper.setNewRecurso(name, location, type, capacity, id, bookingScheduleStart, bookingScheduleEnd);
+            recursoMapper.setNewRecurso(name, location, type, capacity, id, bookingScheduleStart, bookingScheduleEnd, resourceState);
         }
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);

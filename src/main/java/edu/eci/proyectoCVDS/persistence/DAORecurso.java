@@ -9,7 +9,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public interface DAORecurso {
-    void saveRecurso(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd) throws PersistenceException;
+    void saveRecurso(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd, EstadoRecurso resourceState) throws PersistenceException;
 
     List<Recurso> loadResource(String name, String location, TipoRecurso type, int capacity) throws PersistenceException;
 

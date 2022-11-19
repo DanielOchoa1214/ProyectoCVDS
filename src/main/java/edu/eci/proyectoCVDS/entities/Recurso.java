@@ -26,6 +26,14 @@ public class Recurso {
         this.resourceState = EstadoRecurso.valueOf(resourceState);
     }
 
+    public EstadoRecurso getResourceState() {
+        return resourceState;
+    }
+
+    public void setResourceState(EstadoRecurso resourceState) {
+        this.resourceState = resourceState;
+    }
+
     public int getBookingScheduleEnd() {
         return bookingScheduleEnd;
     }
@@ -80,6 +88,10 @@ public class Recurso {
 
     public void setType(TipoRecurso type) {
         this.type = type;
+    }
+
+    public boolean notAvailableForBooking(){
+        return !resourceState.equals(EstadoRecurso.DISPONIBLE);
     }
 
 }

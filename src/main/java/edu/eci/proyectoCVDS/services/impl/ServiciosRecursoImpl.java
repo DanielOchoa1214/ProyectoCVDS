@@ -18,9 +18,9 @@ public class ServiciosRecursoImpl implements ServiciosRecurso {
     DAORecurso daoRecurso;
 
     @Override
-    public void saveNewResource(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd) throws ExcepcionServiciosRecurso {
+    public void saveNewResource(String name, String location, TipoRecurso type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd, EstadoRecurso resourceState) throws ExcepcionServiciosRecurso {
         try {
-            daoRecurso.saveRecurso(name, location, type, capacity, id, bookingScheduleStart, bookingScheduleEnd);
+            daoRecurso.saveRecurso(name, location, type, capacity, id, bookingScheduleStart, bookingScheduleEnd, resourceState);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }

@@ -52,11 +52,14 @@
                     <h:outputText value="#{recurso.getResourceState()}" />
                 </p:column>
                 <p:column>
-                    <p:commandButton class="register-btn btn" value="Reservar" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" disabled="#{recurso.notAvailableForBooking()}"/>
+                    <p:commandButton class="register-btn btn" value="Reservar" onclick="PF('dlg2').show();" disabled="#{recurso.notAvailableForBooking()}"/>
                 </p:column>
             </p:dataTable>
         </div>
     </h:form>
+    <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
+        <h:outputText value="This is a Modal Dialog." />
+    </p:dialog>
     <h:form>
         <div class="form-div">
             <h1 class="register-title">Ingresa un nuevo recurso</h1>

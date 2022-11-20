@@ -1,5 +1,7 @@
 package edu.eci.proyectoCVDS.entities;
 
+import org.h2.util.StringUtils;
+
 import java.time.LocalTime;
 
 public class Recurso {
@@ -19,8 +21,6 @@ public class Recurso {
         this.type = TipoRecurso.valueOf(type);
         this.capacity = capacity;
         this.id = id;
-//        this.bookingScheduleStart = LocalTime.of(bookingScheduleStart, 0);
-//        this.bookingScheduleEnd = LocalTime.of(bookingScheduleEnd, 0);
         this.bookingScheduleStart = bookingScheduleStart;
         this.bookingScheduleEnd = bookingScheduleEnd;
         this.resourceState = EstadoRecurso.valueOf(resourceState);
@@ -55,7 +55,7 @@ public class Recurso {
     }
 
     public String getName() {
-        return name;
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
     public TipoRecurso getType() {
@@ -94,4 +94,8 @@ public class Recurso {
         return !resourceState.equals(EstadoRecurso.DISPONIBLE);
     }
 
+    @Override
+    public String toString() {
+        return "{nombre: " + this.name + "}";
+    }
 }

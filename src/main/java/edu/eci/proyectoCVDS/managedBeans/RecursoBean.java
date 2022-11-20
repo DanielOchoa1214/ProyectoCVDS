@@ -34,7 +34,9 @@ public class RecursoBean {
     public void loadRecurso(String name, String location, String capacity) throws Exception{
         try {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
-            searchedRecursos =  ServiciosRecursoFactory.getInstance().getForumsServices().loadResource(name, location, tipoRecurso, cap);
+            String lowerName = name.toLowerCase();
+            searchedRecursos =  ServiciosRecursoFactory.getInstance().getForumsServices().loadResource(lowerName, location, tipoRecurso, cap);
+            System.out.println(searchedRecursos);
         } catch (Exception e){
             e.printStackTrace();
         }

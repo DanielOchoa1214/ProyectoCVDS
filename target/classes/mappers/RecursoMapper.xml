@@ -22,7 +22,7 @@
             r.name AS name,
             r.location AS location,
             r.type AS type,
-            r.capacity AS capacity,
+            (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) AS capacity,
             r.id AS id,
             r.booking_schedule_start AS booking_schedule_start,
             r.booking_schedule_end AS booking_schedule_start,
@@ -30,8 +30,8 @@
         FROM
             RECURSO as r
         WHERE
-            r.name = #{name} AND r.type = #{type} AND
-            (#{capacity} = 0 OR  r.capacity = #{capacity}) AND
+            r.name LIKE #{name} AND r.type = #{type} AND
+            (#{capacity} = 0 OR (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) = #{capacity}) AND
             (#{location} = '' OR  r.location = #{location})
     </select>
 

@@ -52,11 +52,40 @@
                     <h:outputText value="#{recurso.getResourceState()}" />
                 </p:column>
                 <p:column>
-                    <p:commandButton class="register-btn btn" value="Reservar" action="#{mb.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" disabled="#{recurso.notAvailableForBooking()}"/>
+                    <p:commandButton class="register-btn btn" value="Reservar" onclick="PF('dlg2').show();" disabled="#{recurso.notAvailableForBooking()}"/>
                 </p:column>
             </p:dataTable>
         </div>
     </h:form>
+    <p:dialog header="Reserva del recurso" widgetVar="dlg2" modal="true" class="reserva-popup">
+        <div id="outer-reservas-popup-div">
+            <h1>Nombre del recurso solicitado</h1>
+            <p>Información del recurso</p>
+            <div id="inner-reservas-popup-div">
+                <label>
+                    Fecha inicial de la reserva:
+                    <p:inputText id="fecha_inicial_reserva" class="form-inputs"/>
+                </label>
+                <label>
+                    Fecha final de la reserva:
+                    <p:inputText id="fecha_final_reserva" class="form-inputs"/>
+                </label>
+                <label>
+                    Usuario solicitante:
+                    <p:inputText id="usuario_reserva" class="form-inputs"/>
+                </label>
+                <label>
+                    Programa del solicitante:
+                    <p:inputText id="programa_usuario_reserva" class="form-inputs"/>
+                </label>
+                <label>
+                    Recurrencia de la reserva:
+                    <p:inputText id="recurrencia_reserva" class="form-inputs"/>
+                </label>
+                <p:commandButton class="register-btn btn" value="Reservar"/>
+            </div>
+        </div>
+    </p:dialog>
     <h:form>
         <div class="form-div">
             <h1 class="register-title">Ingresa un nuevo recurso</h1>

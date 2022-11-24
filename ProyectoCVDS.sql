@@ -15,6 +15,12 @@ CREATE table RECURSO (
     KEY(`info`)
 ) ENGINE=InnoDB;
 
+CREATE TABLE Libro (
+    `id` varchar(10) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `FK_RESERVA_RECURSO_1` FOREIGN KEY (`id`) REFERENCES RECURSO(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
 CREATE table RESERVA (
     `id` varchar(10) NOT NULL,
     `resource` varchar(10) NOT NULL,

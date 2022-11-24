@@ -11,7 +11,7 @@
     </properties>
 
     <typeAliases>
-        <typeAlias type='edu.eci.proyectoCVDS.entities.Recurso' alias='Recurso'/>
+        <typeAlias type='edu.eci.proyectoCVDS.entities.Libro' alias='Libro'/>
     </typeAliases>
 
     <environments default="development">

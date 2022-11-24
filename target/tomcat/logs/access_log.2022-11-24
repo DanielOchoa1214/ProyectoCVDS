@@ -13,3 +13,5 @@
 0:0:0:0:0:0:0:1 - - [24/Nov/2022:10:34:43 -0500] "GET /faces/recursos.xhtml HTTP/1.1" 200 24666 http-bio-8080-exec-4 403
 0:0:0:0:0:0:0:1 - - [24/Nov/2022:10:34:43 -0500] "GET /faces/insertRecurso.css HTTP/1.1" 304 - http-bio-8080-exec-4 156
 0:0:0:0:0:0:0:1 - - [24/Nov/2022:10:34:48 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 7966 http-bio-8080-exec-4 256
+0:0:0:0:0:0:0:1 - - [24/Nov/2022:10:42:39 -0500] "GET /faces/recursos.xhtml HTTP/1.1" 200 24678 http-bio-8080-exec-1 806
+0:0:0:0:0:0:0:1 - - [24/Nov/2022:10:42:44 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 9885 http-bio-8080-exec-3 1146

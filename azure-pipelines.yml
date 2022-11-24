@@ -19,16 +19,18 @@ steps:
       # sonar.exclusions=**/*.bin
       sonar.projectKey=danielochoa-u_Gestion-de-Recursos-de-la-Biblioteca
       sonar.projectName=Gestion de Recursos de la Biblioteca
-- task: Maven@3
+
+- task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'
 
 
 # Build your Java project and run tests with Apache Maven.

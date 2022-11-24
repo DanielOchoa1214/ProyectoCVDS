@@ -10,6 +10,17 @@
       # sonar.exclusions=**/*.bin
       sonar.projectKey=danielochoa-u_Gestion-de-Recursos-de-la-Biblioteca
       sonar.projectName=Gestion de Recursos de la Biblioteca
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'danielochoa-u'
+    scannerMode: 'Other'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner,
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey=danielochoa-u_Gestion-de-Recursos-de-la-Biblioteca
+      sonar.projectName=Gestion de Recursos de la Biblioteca
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java

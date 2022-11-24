@@ -25,7 +25,6 @@ public class ServiciosRecursoFactory {
                   setClassPathResource("mybatis-config.xml");
                   bind(ServiciosRecurso.class).to(ServiciosRecursoImpl.class);
                   bind(DAORecurso.class).to(MyBatisDAORecurso.class);
-
               }
 
           }

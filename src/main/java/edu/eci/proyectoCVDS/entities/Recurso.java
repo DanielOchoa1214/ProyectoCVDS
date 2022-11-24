@@ -3,30 +3,18 @@ package edu.eci.proyectoCVDS.entities;
 import org.h2.util.StringUtils;
 
 import java.time.LocalTime;
+import java.util.Objects;
 
-public class Recurso {
-    private String name;
-    private String location;
-    private TipoRecurso type;
-    private int capacity;
-    private String id;
-    private int bookingScheduleStart;
-    private int bookingScheduleEnd;
-    private String info;
-
-    EstadoRecurso resourceState;
-
-    public Recurso(String name, String location, String type, int capacity, String id, String info, int bookingScheduleStart, int bookingScheduleEnd, String resourceState){
-        this.name = name;
-        this.location = location;
-        this.type = TipoRecurso.valueOf(type);
-        this.capacity = capacity;
-        this.id = id;
-        this.info = info;
-        this.bookingScheduleStart = bookingScheduleStart;
-        this.bookingScheduleEnd = bookingScheduleEnd;
-        this.resourceState = EstadoRecurso.valueOf(resourceState);
-    }
+public abstract class Recurso {
+    protected String name;
+    protected String location;
+    protected TipoRecurso type;
+    protected int capacity;
+    protected String id;
+    protected int bookingScheduleStart;
+    protected int bookingScheduleEnd;
+    protected String info;
+    protected EstadoRecurso resourceState;
 
     public String getInfo() {
         return info;
@@ -107,5 +95,10 @@ public class Recurso {
     @Override
     public String toString() {
         return "{nombre: " + this.name + "}";
+    }
+
+    @Override
+    public boolean equals(Object p){
+        return this.equals(p);
     }
 }

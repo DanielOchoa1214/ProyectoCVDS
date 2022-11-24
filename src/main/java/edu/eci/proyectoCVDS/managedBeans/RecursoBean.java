@@ -1,9 +1,6 @@
 package edu.eci.proyectoCVDS.managedBeans;
 
-import edu.eci.proyectoCVDS.entities.EstadoRecurso;
-import edu.eci.proyectoCVDS.entities.RecurrenciaReserva;
-import edu.eci.proyectoCVDS.entities.Recurso;
-import edu.eci.proyectoCVDS.entities.TipoRecurso;
+import edu.eci.proyectoCVDS.entities.*;
 import edu.eci.proyectoCVDS.services.ServiciosRecursoFactory;
 
 import javax.faces.bean.ManagedBean;
@@ -20,8 +17,8 @@ public class RecursoBean {
 
     TipoRecurso tipoRecurso;
     EstadoRecurso estadoRecurso;
-    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", "Academico", 3, "123", "Holi", 10, 15, "DISPONIBLE")));
-    Recurso booking = searchedRecursos.get(0);
+    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Libro("Test", "Pasillo 2", "Academico", 3, "123", "Holi", 10, 15, "DISPONIBLE")));
+    Libro booking = (Libro) searchedRecursos.get(0);
     RecurrenciaReserva recurrenciaReserva;
 
     // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
@@ -51,7 +48,7 @@ public class RecursoBean {
         return booking;
     }
 
-    public void setBooking(Recurso booking) {
+    public void setBooking(Libro booking) {
         this.booking = booking;
     }
 
@@ -76,10 +73,16 @@ public class RecursoBean {
     public void saveReserva(LocalDate initialDate, LocalDate finalDate, String bookingUser, String userProgram, RecurrenciaReserva bookingRecurrence){
         try {
             Date sqlInitial = Date.valueOf(initialDate);
-            System.out.println(sqlInitial);
+            Date sqlFinal = Date.valueOf(finalDate);
+            // Date nextDate = recurrenciaReserva.equals(RecurrenciaReserva.UNICA_VEZ) ? null : getNextDate(initialDate, bookingRecurrence);
+            //ServiciosRecursoFactory.getInstance().getForumsServices().saveReserva(booking.getId(), booking.getInfo(), Date.valueOf(LocalDate.now()), sqlInitial, sqlFinal, recurrenciaReserva, );
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void getNextDate(LocalDate initialDate, RecurrenciaReserva bookingRecurrence){
+        //return Date.valueOf(initialDate.plus());
     }
 
     public List<Recurso> getSearchedRecursos() {

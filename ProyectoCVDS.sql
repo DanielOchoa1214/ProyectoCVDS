@@ -29,9 +29,6 @@ CREATE table RESERVA (
     CONSTRAINT `FK_RESERVA_RECURSO_2` FOREIGN KEY (`infoResource`) REFERENCES RECURSO(`info`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
 
-DROP TABLE RESERVA;
-DROP TABLE RECURSO;
-
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo vectorial', 'Pasillo 4 Estanteria 3', 'Academico', 'AJF-267', 'Libro de calculo usado en cursos de CALV', 10, 14, 'DISPONIBLE');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('Calculo vectorial', 'Pasillo 4 Estanteria 3', 'Academico', 'AJF-268', 'Libro de calculo usado en cursos de CALV', 10, 14, 'DISPONIBLE');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('Calculo vectorial', 'Pasillo 4 Estanteria 3', 'Academico', 'AJF-269', 'Libro de calculo usado en cursos de CALV', 10, 14, 'DISPONIBLE');
@@ -62,6 +59,9 @@ DELETE FROM RECURSO WHERE id = 'PSK-520';
 DELETE FROM RECURSO WHERE id = 'ABC-123';
 DELETE FROM RECURSO WHERE id = 'ABC-124';
 DELETE FROM RESERVA WHERE id = 'RES-004';
+
+DROP TABLE RESERVA;
+DROP TABLE RECURSO;
 
 
 SELECT * FROM RECURSO;

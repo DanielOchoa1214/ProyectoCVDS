@@ -20,13 +20,24 @@
 .reserva-popup {
     min-width: 50vw;
     border-radius: 30px !important;
+}
 
+.message-error{
+    font-size: 3rem;
+    padding-inline: 10rem !important;
+}
+
+.message-error>div{
+    padding-block: 0.3rem !important;
+}
+
+.message-error .ui-messages-error-summary{
+    font-size: 0.7rem !important;
 }
 
 #outer-reservas-popup-div{
     display:flex;
     flex-direction:column;
-
 }
 
 #outer-reservas-popup-div h1, #outer-reservas-popup-div p{

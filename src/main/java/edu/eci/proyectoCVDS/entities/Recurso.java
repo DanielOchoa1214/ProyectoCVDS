@@ -12,18 +12,28 @@ public class Recurso {
     private String id;
     private int bookingScheduleStart;
     private int bookingScheduleEnd;
+    private String info;
 
     EstadoRecurso resourceState;
 
-    public Recurso(String name, String location, String type, int capacity, String id, int bookingScheduleStart, int bookingScheduleEnd, String resourceState){
+    public Recurso(String name, String location, String type, int capacity, String id, String info, int bookingScheduleStart, int bookingScheduleEnd, String resourceState){
         this.name = name;
         this.location = location;
         this.type = TipoRecurso.valueOf(type);
         this.capacity = capacity;
         this.id = id;
+        this.info = info;
         this.bookingScheduleStart = bookingScheduleStart;
         this.bookingScheduleEnd = bookingScheduleEnd;
         this.resourceState = EstadoRecurso.valueOf(resourceState);
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public EstadoRecurso getResourceState() {

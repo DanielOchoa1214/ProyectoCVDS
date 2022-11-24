@@ -3,6 +3,7 @@
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/managedBeans/RecursoBean.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/entities/Recurso.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/entities/EstadoRecurso.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/entities/RecurrenciaReserva.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/persistence/PersistenceException.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/services/ExcepcionServiciosRecurso.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectoCVDS/services/ServiciosRecursoFactory.java

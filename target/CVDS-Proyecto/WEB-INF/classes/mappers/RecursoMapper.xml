@@ -14,6 +14,7 @@
         <result property='bookingScheduleStart' column='booking_schedule_start'/>
         <result property='bookingScheduleEnd' column='booking_schedule_end'/>
         <result property='resourceState' column='resource_state'/>
+        <result property='info' column='info'/>
     </resultMap>
 
     <!--    PROBAR CUANDO HAYA DB   -->
@@ -23,6 +24,7 @@
             r.location AS location,
             r.type AS type,
             (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) AS capacity,
+            r.info AS info,
             r.id AS id,
             r.booking_schedule_start AS booking_schedule_start,
             r.booking_schedule_end AS booking_schedule_start,
@@ -36,8 +38,8 @@
     </select>
 
     <insert id="setNewRecurso">
-        insert into RECURSO (name, location, type, capacity, id, booking_schedule_start, booking_schedule_end, resource_state)
-        values (#{name}, #{location}, #{type}, #{capacity}, #{id}, #{bookingScheduleStart}, #{bookingScheduleEnd}, #{resourceState})
+        insert into RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state)
+        values (#{name}, #{location}, #{type}, #{id}, #{info}, #{bookingScheduleStart}, #{bookingScheduleEnd}, #{resourceState})
     </insert>
 
     <update id="updateResourceState">

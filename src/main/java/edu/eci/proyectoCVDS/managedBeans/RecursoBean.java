@@ -1,14 +1,17 @@
 package edu.eci.proyectoCVDS.managedBeans;
 
 import edu.eci.proyectoCVDS.entities.EstadoRecurso;
+import edu.eci.proyectoCVDS.entities.RecurrenciaReserva;
 import edu.eci.proyectoCVDS.entities.Recurso;
 import edu.eci.proyectoCVDS.entities.TipoRecurso;
 import edu.eci.proyectoCVDS.services.ServiciosRecursoFactory;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.sql.Date;
 import java.util.List;
 
 @ManagedBean(name = "mb")
@@ -17,18 +20,39 @@ public class RecursoBean {
 
     TipoRecurso tipoRecurso;
     EstadoRecurso estadoRecurso;
-    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", "Academico", 3, "123", 10, 15, "DISPONIBLE")));
+    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Recurso("Test", "Pasillo 2", "Academico", 3, "123", "Holi", 10, 15, "DISPONIBLE")));
+    Recurso booking = searchedRecursos.get(0);
+    RecurrenciaReserva recurrenciaReserva;
 
     // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
-    public void saveRecurso(String name, String location, String capacity, String id, String bookingScheduleStart, String bookingScheduleEnd) throws Exception{
+    public void saveRecurso(String name, String location, String capacity, String id, String info, String bookingScheduleStart, String bookingScheduleEnd) throws Exception{
         try {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
             int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);
             int end = bookingScheduleEnd.equals("") ? 0 : Integer.parseInt(bookingScheduleEnd);
-            ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource(name, location, tipoRecurso, cap, id, start, end, estadoRecurso);
+            String buildId = id;
+            for(int i = 0; i < cap; i++){
+                String smallName = name.toLowerCase();
+                ServiciosRecursoFactory.getInstance().getForumsServices().saveNewResource(smallName, location, tipoRecurso, cap, buildId, info, start, end, estadoRecurso);
+                buildId = createNewId(id);
+            }
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private String createNewId(String id){
+        int idNumber = Integer.parseInt(id.split("-")[1]);
+        idNumber++;
+        return id.split("-")[0] + "-" + idNumber;
+    }
+
+    public Recurso getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Recurso booking) {
+        this.booking = booking;
     }
 
     public void loadRecurso(String name, String location, String capacity) throws Exception{
@@ -44,6 +68,15 @@ public class RecursoBean {
     public void updateRecursoState(String id) throws Exception{
         try {
             ServiciosRecursoFactory.getInstance().getForumsServices().updateResourceState(id, this.estadoRecurso);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void saveReserva(LocalDate initialDate, LocalDate finalDate, String bookingUser, String userProgram, RecurrenciaReserva bookingRecurrence){
+        try {
+            Date sqlInitial = Date.valueOf(initialDate);
+            System.out.println(sqlInitial);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -76,4 +109,21 @@ public class RecursoBean {
     public EstadoRecurso[] getEstadosRecurso(){
         return EstadoRecurso.values();
     }
+
+    public RecurrenciaReserva getRecurrenciaReserva() {
+        return recurrenciaReserva;
+    }
+
+    public void setRecurrenciaReserva(RecurrenciaReserva recurrenciaReserva) {
+        this.recurrenciaReserva = recurrenciaReserva;
+    }
+
+    public void setSearchedRecursos(List<Recurso> searchedRecursos) {
+        this.searchedRecursos = searchedRecursos;
+    }
+
+    public RecurrenciaReserva[] getRecurrenciasReserva() {
+        return RecurrenciaReserva.values();
+    }
+
 }

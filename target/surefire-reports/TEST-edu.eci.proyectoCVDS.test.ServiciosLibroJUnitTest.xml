@@ -1,66 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.eci.proyectoCVDS.test.ServiciosLibroJUnitTest" time="0.369" tests="1" errors="0" skipped="0" failures="0">
+=======
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.eci.proyectoCVDS.test.ServiciosLibroJUnitTest" time="0.517" tests="1" errors="0" skipped="0" failures="0">
+>>>>>>> 9f9db14b7c308c64492663e67813ba37e04cebbe
   <properties>
-    <property name="gopherProxySet" value="false"/>
-    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
-    <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="java.specification.version" value="1.8"/>
-    <property name="sun.cpu.isalist" value=""/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/target/test-classes:/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/target/classes:/Users/DanielOchoa/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/DanielOchoa/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/DanielOchoa/.m2/repository/org/primefaces/primefaces/12.0.0/primefaces-12.0.0.jar:/Users/DanielOchoa/.m2/repository/com/google/inject/guice/4.2.0/guice-4.2.0.jar:/Users/DanielOchoa/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/Users/DanielOchoa/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/DanielOchoa/.m2/repository/com/google/guava/guava/23.6-android/guava-23.6-android.jar:/Users/DanielOchoa/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/DanielOchoa/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/DanielOchoa/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/DanielOchoa/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/DanielOchoa/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/DanielOchoa/.m2/repository/org/mybatis/mybatis-guice/3.17/mybatis-guice-3.17.jar:/Users/DanielOchoa/.m2/repository/com/github/spotbugs/spotbugs-annotations/4.5.3/spotbugs-annotations-4.5.3.jar:/Users/DanielOchoa/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/Users/DanielOchoa/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.36/jcl-over-slf4j-1.7.36.jar:/Users/DanielOchoa/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/DanielOchoa/.m2/repository/com/sun/faces/jsf-api/2.2.12/jsf-api-2.2.12.jar:/Users/DanielOchoa/.m2/repository/com/sun/faces/jsf-impl/2.2.12/jsf-impl-2.2.12.jar:/Users/DanielOchoa/.m2/repository/jstl/jstl/1.2/jstl-1.2.jar:/Users/DanielOchoa/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar:/Users/DanielOchoa/.m2/repository/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar:/Users/DanielOchoa/.m2/repository/org/mybatis/mybatis/3.5.11/mybatis-3.5.11.jar:/Users/DanielOchoa/.m2/repository/log4j/apache-log4j-extras/1.2.17/apache-log4j-extras-1.2.17.jar:/Users/DanielOchoa/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/Users/DanielOchoa/.m2/repository/com/h2database/h2/1.4.191/h2-1.4.191.jar:/Users/DanielOchoa/.m2/repository/org/mockito/mockito-core/4.8.0/mockito-core-4.8.0.jar:/Users/DanielOchoa/.m2/repository/net/bytebuddy/byte-buddy/1.12.14/byte-buddy-1.12.14.jar:/Users/DanielOchoa/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.14/byte-buddy-agent-1.12.14.jar:/Users/DanielOchoa/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\isabella.manrique\ProyectoCVDS\target\test-classes;C:\Users\isabella.manrique\ProyectoCVDS\target\classes;C:\Users\isabella.manrique\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\isabella.manrique\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\isabella.manrique\.m2\repository\org\primefaces\primefaces\12.0.0\primefaces-12.0.0.jar;C:\Users\isabella.manrique\.m2\repository\com\google\inject\guice\4.2.0\guice-4.2.0.jar;C:\Users\isabella.manrique\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\isabella.manrique\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\isabella.manrique\.m2\repository\com\google\guava\guava\23.6-android\guava-23.6-android.jar;C:\Users\isabella.manrique\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\isabella.manrique\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\isabella.manrique\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\isabella.manrique\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\isabella.manrique\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\isabella.manrique\.m2\repository\org\mybatis\mybatis-guice\3.17\mybatis-guice-3.17.jar;C:\Users\isabella.manrique\.m2\repository\com\github\spotbugs\spotbugs-annotations\4.5.3\spotbugs-annotations-4.5.3.jar;C:\Users\isabella.manrique\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\isabella.manrique\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.36\jcl-over-slf4j-1.7.36.jar;C:\Users\isabella.manrique\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\isabella.manrique\.m2\repository\com\sun\faces\jsf-api\2.2.12\jsf-api-2.2.12.jar;C:\Users\isabella.manrique\.m2\repository\com\sun\faces\jsf-impl\2.2.12\jsf-impl-2.2.12.jar;C:\Users\isabella.manrique\.m2\repository\jstl\jstl\1.2\jstl-1.2.jar;C:\Users\isabella.manrique\.m2\repository\javax\javaee-web-api\7.0\javaee-web-api-7.0.jar;C:\Users\isabella.manrique\.m2\repository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar;C:\Users\isabella.manrique\.m2\repository\org\mybatis\mybatis\3.5.11\mybatis-3.5.11.jar;C:\Users\isabella.manrique\.m2\repository\log4j\apache-log4j-extras\1.2.17\apache-log4j-extras-1.2.17.jar;C:\Users\isabella.manrique\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\isabella.manrique\.m2\repository\com\h2database\h2\1.4.191\h2-1.4.191.jar;C:\Users\isabella.manrique\.m2\repository\org\mockito\mockito-core\4.8.0\mockito-core-4.8.0.jar;C:\Users\isabella.manrique\.m2\repository\net\bytebuddy\byte-buddy\1.12.14\byte-buddy-1.12.14.jar;C:\Users\isabella.manrique\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.14\byte-buddy-agent-1.12.14.jar;C:\Users\isabella.manrique\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.vendor.url" value="http://java.oracle.com/"/>
-    <property name="user.timezone" value=""/>
-    <property name="java.vm.specification.version" value="1.8"/>
-    <property name="os.name" value="Mac OS X"/>
-    <property name="user.country" value="CO"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+<<<<<<< HEAD
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib"/>
     <property name="sun.java.command" value="/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/target/surefire/surefirebooter2808269440939267720.jar /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/target/surefire 2022-11-24T10-41-24_671-jvmRun1 surefire5062899838729434049tmp surefire_06898264549773449804tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="surefire.test.class.path" value="/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/target/test-classes:/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/target/classes:/Users/DanielOchoa/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/DanielOchoa/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/DanielOchoa/.m2/repository/org/primefaces/primefaces/12.0.0/primefaces-12.0.0.jar:/Users/DanielOchoa/.m2/repository/com/google/inject/guice/4.2.0/guice-4.2.0.jar:/Users/DanielOchoa/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/Users/DanielOchoa/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/DanielOchoa/.m2/repository/com/google/guava/guava/23.6-android/guava-23.6-android.jar:/Users/DanielOchoa/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/Users/DanielOchoa/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar:/Users/DanielOchoa/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/Users/DanielOchoa/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/Users/DanielOchoa/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/Users/DanielOchoa/.m2/repository/org/mybatis/mybatis-guice/3.17/mybatis-guice-3.17.jar:/Users/DanielOchoa/.m2/repository/com/github/spotbugs/spotbugs-annotations/4.5.3/spotbugs-annotations-4.5.3.jar:/Users/DanielOchoa/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/Users/DanielOchoa/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.36/jcl-over-slf4j-1.7.36.jar:/Users/DanielOchoa/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/DanielOchoa/.m2/repository/com/sun/faces/jsf-api/2.2.12/jsf-api-2.2.12.jar:/Users/DanielOchoa/.m2/repository/com/sun/faces/jsf-impl/2.2.12/jsf-impl-2.2.12.jar:/Users/DanielOchoa/.m2/repository/jstl/jstl/1.2/jstl-1.2.jar:/Users/DanielOchoa/.m2/repository/javax/javaee-web-api/7.0/javaee-web-api-7.0.jar:/Users/DanielOchoa/.m2/repository/mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar:/Users/DanielOchoa/.m2/repository/org/mybatis/mybatis/3.5.11/mybatis-3.5.11.jar:/Users/DanielOchoa/.m2/repository/log4j/apache-log4j-extras/1.2.17/apache-log4j-extras-1.2.17.jar:/Users/DanielOchoa/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/Users/DanielOchoa/.m2/repository/com/h2database/h2/1.4.191/h2-1.4.191.jar:/Users/DanielOchoa/.m2/repository/org/mockito/mockito-core/4.8.0/mockito-core-4.8.0.jar:/Users/DanielOchoa/.m2/repository/net/bytebuddy/byte-buddy/1.12.14/byte-buddy-1.12.14.jar:/Users/DanielOchoa/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.14/byte-buddy-agent-1.12.14.jar:/Users/DanielOchoa/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:"/>
+=======
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin"/>
+    <property name="sun.java.command" value="C:\Users\ISABEL~1.MAN\AppData\Local\Temp\surefire16176935497663110024\surefirebooter2562622317032649091.jar C:\Users\isabella.manrique\AppData\Local\Temp\surefire16176935497663110024 2022-11-24T10-56-42_341-jvmRun1 surefire16814495628824587928tmp surefire_010163910729905639834tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\isabella.manrique\ProyectoCVDS\target\test-classes;C:\Users\isabella.manrique\ProyectoCVDS\target\classes;C:\Users\isabella.manrique\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\isabella.manrique\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\isabella.manrique\.m2\repository\org\primefaces\primefaces\12.0.0\primefaces-12.0.0.jar;C:\Users\isabella.manrique\.m2\repository\com\google\inject\guice\4.2.0\guice-4.2.0.jar;C:\Users\isabella.manrique\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\isabella.manrique\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\isabella.manrique\.m2\repository\com\google\guava\guava\23.6-android\guava-23.6-android.jar;C:\Users\isabella.manrique\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\isabella.manrique\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\isabella.manrique\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\isabella.manrique\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\isabella.manrique\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\isabella.manrique\.m2\repository\org\mybatis\mybatis-guice\3.17\mybatis-guice-3.17.jar;C:\Users\isabella.manrique\.m2\repository\com\github\spotbugs\spotbugs-annotations\4.5.3\spotbugs-annotations-4.5.3.jar;C:\Users\isabella.manrique\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\isabella.manrique\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.36\jcl-over-slf4j-1.7.36.jar;C:\Users\isabella.manrique\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\isabella.manrique\.m2\repository\com\sun\faces\jsf-api\2.2.12\jsf-api-2.2.12.jar;C:\Users\isabella.manrique\.m2\repository\com\sun\faces\jsf-impl\2.2.12\jsf-impl-2.2.12.jar;C:\Users\isabella.manrique\.m2\repository\jstl\jstl\1.2\jstl-1.2.jar;C:\Users\isabella.manrique\.m2\repository\javax\javaee-web-api\7.0\javaee-web-api-7.0.jar;C:\Users\isabella.manrique\.m2\repository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar;C:\Users\isabella.manrique\.m2\repository\org\mybatis\mybatis\3.5.11\mybatis-3.5.11.jar;C:\Users\isabella.manrique\.m2\repository\log4j\apache-log4j-extras\1.2.17\apache-log4j-extras-1.2.17.jar;C:\Users\isabella.manrique\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\isabella.manrique\.m2\repository\com\h2database\h2\1.4.191\h2-1.4.191.jar;C:\Users\isabella.manrique\.m2\repository\org\mockito\mockito-core\4.8.0\mockito-core-4.8.0.jar;C:\Users\isabella.manrique\.m2\repository\net\bytebuddy\byte-buddy\1.12.14\byte-buddy-1.12.14.jar;C:\Users\isabella.manrique\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.14\byte-buddy-agent-1.12.14.jar;C:\Users\isabella.manrique\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
+>>>>>>> 9f9db14b7c308c64492663e67813ba37e04cebbe
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/Users/DanielOchoa"/>
+    <property name="user.home" value="C:\Users\isabella.manrique"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre"/>
-    <property name="basedir" value="/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS"/>
-    <property name="file.separator" value="/"/>
+    <property name="java.version.date" value="2021-10-19"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.13"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\isabella.manrique\ProyectoCVDS"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
+<<<<<<< HEAD
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
     <property name="surefire.real.class.path" value="/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/target/surefire/surefirebooter2808269440939267720.jar"/>
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/classes"/>
+=======
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\ISABEL~1.MAN\AppData\Local\Temp\surefire16176935497663110024\surefirebooter2562622317032649091.jar"/>
+    <property name="user.script" value=""/>
+>>>>>>> 9f9db14b7c308c64492663e67813ba37e04cebbe
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="java.runtime.version" value="1.8.0_271-b09"/>
-    <property name="user.name" value="DanielOchoa"/>
-    <property name="path.separator" value=":"/>
-    <property name="os.version" value="10.16"/>
-    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.version" value="11.0.13+10-LTS-370"/>
+    <property name="user.name" value="isabella.manrique"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="file.encoding" value="UTF-8"/>
+    <property name="file.encoding" value="Cp1252"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="localRepository" value="/Users/DanielOchoa/.m2/repository"/>
-    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="/var/folders/y1/_r7pfvh961b9z2whf6mf7b740000gn/T/"/>
-    <property name="idea.version" value="2022.2.3"/>
-    <property name="java.version" value="1.8.0_271"/>
-    <property name="user.dir" value="/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS"/>
-    <property name="os.arch" value="x86_64"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\isabella.manrique\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ISABEL~1.MAN\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.13"/>
+    <property name="user.dir" value="C:\Users\isabella.manrique\ProyectoCVDS"/>
+    <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
-    <property name="sun.os.patch.level" value="unknown"/>
-    <property name="java.library.path" value="/Users/DanielOchoa/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
-    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.13\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files\Python39\Scripts\;C:\Program Files\Python39\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jre1.8.0_25\bin;C:\Program Files\Java\jdk1.8.0_25\bin;C:\Program Files (x86)\BlueJ;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\dotnet\;C:\Program Files (x86)\Dev-Cpp;C:\Program Files\MinGW\bin;C:\Program Files\PuTTY\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.8.5\bin;C:\Program Files\heroku\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\isabella.manrique\AppData\Local\Microsoft\WindowsApps;;."/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="25.271-b09"/>
-    <property name="java.ext.dirs" value="/Users/DanielOchoa/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="java.class.version" value="52.0"/>
-    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.13+10-LTS-370"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
   </properties>
+<<<<<<< HEAD
   <testcase name="testingMockito" classname="edu.eci.proyectoCVDS.test.ServiciosLibroJUnitTest" time="0.367"/>
+=======
+  <testcase name="testingMockito" classname="edu.eci.proyectoCVDS.test.ServiciosLibroJUnitTest" time="0.478"/>
+>>>>>>> 9f9db14b7c308c64492663e67813ba37e04cebbe
 </testsuite>

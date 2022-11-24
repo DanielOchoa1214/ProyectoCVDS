@@ -44,6 +44,12 @@ steps:
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
+#- task: SonarCloudPublish@1
+ # inputs:
+  #  pollingTimeoutSec: '300'
+
+- task: SonarCloudAnalyze@1
+  displayName: 'Run SonarCloud analysis'
+
 - task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
+  displayName: 'Publish results on build summary'

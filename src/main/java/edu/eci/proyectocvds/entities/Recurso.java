@@ -3,7 +3,6 @@ package edu.eci.proyectocvds.entities;
 public abstract class Recurso {
     protected String name;
     protected String location;
-    protected TipoRecurso type;
     protected int capacity;
     protected String id;
     protected int bookingScheduleStart;
@@ -51,10 +50,6 @@ public abstract class Recurso {
         return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
-    public TipoRecurso getType() {
-        return type;
-    }
-
     public void setBookingScheduleEnd(int bookingScheduleEnd) {
         this.bookingScheduleEnd = bookingScheduleEnd;
     }
@@ -77,10 +72,6 @@ public abstract class Recurso {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setType(TipoRecurso type) {
-        this.type = type;
     }
 
     public boolean notAvailableForBooking(){

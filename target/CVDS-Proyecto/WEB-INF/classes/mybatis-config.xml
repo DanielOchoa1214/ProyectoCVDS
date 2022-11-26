@@ -28,7 +28,7 @@
     </environments>
 
     <mappers>
-        <mapper resource="mappers/RecursoMapper.xml"/>
+        <mapper resource="mappers/LibroMapper.xml"/>
     </mappers>
 
 

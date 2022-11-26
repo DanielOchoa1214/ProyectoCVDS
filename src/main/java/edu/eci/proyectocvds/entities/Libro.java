@@ -5,12 +5,13 @@ public class Libro extends Recurso{
     private String author;
     private boolean hardCover;
     private int pages;
+    private Genero genero;
 
 
-    public Libro(String name, String location, String type, int capacity, String id, String info, int bookingScheduleStart, int bookingScheduleEnd, String resourceState, String author, boolean hardCover, int pages){
+    public Libro(String name, String location, String genre, int capacity, String id, String info, int bookingScheduleStart, int bookingScheduleEnd, String resourceState, String author, boolean hardCover, int pages){
         this.name = name;
         this.location = location;
-        this.type = TipoRecurso.valueOf(type);
+        this.genero = Genero.valueOf(genre);
         this.capacity = capacity;
         this.id = id;
         this.info = info;
@@ -34,6 +35,10 @@ public class Libro extends Recurso{
         return hardCover;
     }
 
+    public Genero getGenero() {
+        return genero;
+    }
+
     public void setAuthor(String author) {
         this.author = author;
     }
@@ -44,6 +49,10 @@ public class Libro extends Recurso{
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
     @Override

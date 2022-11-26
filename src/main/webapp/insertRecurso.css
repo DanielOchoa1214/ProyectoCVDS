@@ -2,6 +2,13 @@
     max-width: 15rem;
 }
 
+.form-choice-div {
+    display:flex;
+    margin-inline: auto;
+    padding: 10px;
+    margin-block: 2rem;
+}
+
 .form-div {
     background-color:#FEF9EF;
     display:flex;
@@ -40,7 +47,7 @@
     flex-direction:column;
 }
 
-#outer-reservas-popup-div h1, #outer-reservas-popup-div p{
+#outer-reservas-popup-div h2, #outer-reservas-popup-div p{
     padding-inline: 4rem;
 }
 

@@ -14,6 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ProyectoCVDS" options="-endorseddirs C:\Users\wilmer.rodriguez-r\Downloads\ProyectoCVDS\target/endorsed" />
       <module name="master" options="-endorseddirs C:\Users\daniel.ochoa-u\Documents\master\target/endorsed" />
     </option>
   </component>

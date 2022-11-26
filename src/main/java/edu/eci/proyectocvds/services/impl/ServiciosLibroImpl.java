@@ -13,15 +13,19 @@ import java.util.List;
 
 public class ServiciosLibroImpl implements ServiciosLibro {
 
+    DAOLibro daoLibro;
+
     @Inject
-    DAOLibro daoRecurso;
+    public ServiciosLibroImpl(DAOLibro daoLibro){
+        this.daoLibro = daoLibro;
+    }
 
     @Override
     public void saveNewBook(String name, String location, Genero genre, int capacity, String id, String info,
                             int bookingScheduleStart, int bookingScheduleEnd, EstadoRecurso resourceState,
                             String author, boolean hardCover, int pages) throws ExcepcionServiciosRecurso {
         try {
-            daoRecurso.saveLibro(name, location, genre, capacity, id, info, bookingScheduleStart, bookingScheduleEnd, resourceState, author, hardCover, pages);
+            daoLibro.saveLibro(name, location, genre, capacity, id, info, bookingScheduleStart, bookingScheduleEnd, resourceState, author, hardCover, pages);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
@@ -30,7 +34,7 @@ public class ServiciosLibroImpl implements ServiciosLibro {
     @Override
     public List<Recurso> loadResource(String name, String location, Genero genre, int capacity) throws ExcepcionServiciosRecurso {
         try {
-            return daoRecurso.loadResource(name, location, genre, capacity);
+            return daoLibro.loadResource(name, location, genre, capacity);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
@@ -39,7 +43,7 @@ public class ServiciosLibroImpl implements ServiciosLibro {
     @Override
     public void updateResourceState(String id, EstadoRecurso estadoRecurso) throws ExcepcionServiciosRecurso{
         try {
-            daoRecurso.updateResourceState(id, estadoRecurso);
+            daoLibro.updateResourceState(id, estadoRecurso);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }

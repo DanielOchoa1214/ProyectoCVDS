@@ -135,3 +135,7 @@
 0:0:0:0:0:0:0:1 - - [26/Nov/2022:09:35:55 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 504 http-bio-8080-exec-3 38
 0:0:0:0:0:0:0:1 - - [26/Nov/2022:09:36:02 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 504 http-bio-8080-exec-4 22
 0:0:0:0:0:0:0:1 - - [26/Nov/2022:09:36:09 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 853 http-bio-8080-exec-5 43
+0:0:0:0:0:0:0:1 - - [26/Nov/2022:09:43:18 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 786 http-bio-8080-exec-1 853
+0:0:0:0:0:0:0:1 - - [26/Nov/2022:09:43:56 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 786 http-bio-8080-exec-2 985
+0:0:0:0:0:0:0:1 - - [26/Nov/2022:09:50:43 -0500] "GET /faces/recursos.xhtml HTTP/1.1" 200 21128 http-bio-8080-exec-1 513
+0:0:0:0:0:0:0:1 - - [26/Nov/2022:09:50:44 -0500] "POST /faces/recursos.xhtml HTTP/1.1" 200 786 http-bio-8080-exec-3 39

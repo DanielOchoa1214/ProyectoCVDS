@@ -37,8 +37,8 @@
             </label>
             <label>
                 Genero del libro:
-                <p:selectOneMenu value="#{mb.generoLibro}" >
-                    <f:selectItems value="#{mb.generosLibro}" />
+                <p:selectOneMenu value="#{libro.generoLibro}" >
+                    <f:selectItems value="#{libro.generosLibro}" />
                 </p:selectOneMenu>
             </label>
             <label>
@@ -72,11 +72,11 @@
             </label>
             <label>
                 Estado del libro:
-                <p:selectOneMenu value="#{mb.estadoRecurso}" >
-                    <f:selectItems value="#{mb.estadosRecurso}" />
+                <p:selectOneMenu value="#{libro.estadoRecurso}" >
+                    <f:selectItems value="#{libro.estadosRecurso}" />
                 </p:selectOneMenu>
             </label>
-            <p:commandButton class="register-btn btn" value="Registrar" action="#{mb.saveLibro(bookName.value, bookLocation.value, bookCapacity.value, bookId.value, bookInfo.value, bookBookingScheduleStart.value, bookBookingScheduleEnd.value, bookAuthor.value, bookHardCover.value, bookPages.value)}"/>
+            <p:commandButton class="register-btn btn" value="Registrar" action="#{libro.saveLibro(bookName.value, bookLocation.value, bookCapacity.value, bookId.value, bookInfo.value, bookBookingScheduleStart.value, bookBookingScheduleEnd.value, bookAuthor.value, bookHardCover.value, bookPages.value)}"/>
         </h:form>
     </p:dialog>
     <p:dialog header="Ingresa un portatil" widgetVar="savePortatil" modal="true" class="reserva-popup">
@@ -86,8 +86,24 @@
                 <p:inputText id="nombre_portatil" class="form-inputs" binding="#{laptopName}"/>
             </label>
             <label>
-                Ubicación del portatil en la biblioteca:
-                <p:inputText id="ubicacion_portatil" class="form-inputs" binding="#{laptopLocation}"/>
+                Modelo de la RAM:
+                <p:inputText id="RAM_model_portatil" class="form-inputs" binding="#{laptopRAM}"/>
+            </label>
+            <label>
+                Modelo del disco duro:
+                <p:inputText id="hard_drive_model_portatil" class="form-inputs" binding="#{laptopHardDrive}"/>
+            </label>
+            <label>
+                Modelo del procesador:
+                <p:inputText id="processor_model_portatil" class="form-inputs" binding="#{laptopProcessor}"/>
+            </label>
+            <label>
+                Resolucion de la pantalla:
+                <p:inputText id="screen_resolution_portatil" class="form-inputs" binding="#{laptopScreenResolution}"/>
+            </label>
+            <label>
+                Marca del portatil:
+                <p:inputText id="brand_portatil" class="form-inputs" binding="#{laptopBrand}"/>
             </label>
             <label>
                 Información sobre el portatil:
@@ -116,8 +132,8 @@
             </label>
             <label>
                 Estado del portatil:
-                <p:selectOneMenu value="#{mb.estadoRecurso}" >
-                    <f:selectItems value="#{mb.estadosRecurso}" />
+                <p:selectOneMenu value="#{libro.estadoRecurso}" >
+                    <f:selectItems value="#{libro.estadosRecurso}" />
                 </p:selectOneMenu>
             </label>
             <p:commandButton class="register-btn btn" value="Registrar"/>

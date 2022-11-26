@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.sql.Date;
 import java.util.List;
 
-@ManagedBean(name = "mb")
+@ManagedBean(name = "libro")
 @SessionScoped
 public class LibroBean {
 

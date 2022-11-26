@@ -20,9 +20,7 @@ public class MyBatisDAOLibro implements DAOLibro {
                           int bookingScheduleStart, int bookingScheduleEnd, EstadoRecurso resourceState, String author,
                           boolean hardCover, int pages) throws PersistenceException {
         try{
-            System.out.println("Testing");
             recursoMapper.setNewLibro(name, location, genre, capacity, id, info, bookingScheduleStart, bookingScheduleEnd, resourceState, author, hardCover, pages);
-            System.out.println("TestingEnding");
         }
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);

@@ -1,8 +1,6 @@
 
 C
 azure-pipelines.yml,4/0/40ebc6823f24f296c0cd3fddd6ccda69b74ff2e4
-i
-9src/main/java/edu/eci/proyectocvds/entities/Portatil.java,5/e/5e3bc4a1ca4e805089077fc92b14c4da50926edd
 s
 Csrc/main/java/edu/eci/proyectocvds/entities/RecurrenciaReserva.java,3/6/36d0a90a7b78575a3aec34c34b4f97f9f0b8dceb
 h

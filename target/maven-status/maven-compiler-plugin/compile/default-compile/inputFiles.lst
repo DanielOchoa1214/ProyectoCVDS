@@ -6,6 +6,7 @@
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/services/ExcepcionServiciosRecurso.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/Portatil.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/services/impl/ServiciosLibroImpl.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/managedBeans/PortatilBean.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/services/ServiciosLibro.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/persistence/PersistenceException.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/EstadoRecurso.java

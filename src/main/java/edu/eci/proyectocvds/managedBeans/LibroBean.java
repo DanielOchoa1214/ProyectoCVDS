@@ -26,30 +26,19 @@ public class LibroBean {
                           String bookingScheduleStart, String bookingScheduleEnd, String autor,
                           boolean hardCover, String pages) throws Exception{
         try {
-            System.out.println("1");
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
-            System.out.println(cap);
             int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);
-            System.out.println("3");
             int end = bookingScheduleEnd.equals("") ? 0 : Integer.parseInt(bookingScheduleEnd);
-            System.out.println("4");
             int pageNum = pages.equals("") ? 0 : Integer.parseInt(pages);
-            System.out.println("5");
             String buildId = id;
             for(int i = 0; i < cap; i++){
-                System.out.println("i: " + i);
                 String smallName = name.toLowerCase();
                 ServiciosLibroFactory.getInstance().getForumsServices().saveNewBook(smallName, location, generoLibro, cap, buildId, info, start, end, estadoRecurso, autor, hardCover, pageNum);
                 buildId = createNewId(id);
             }
-            System.out.println("Adios");
         } catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-    public void test(String a){
-        System.out.println(a);
     }
 
     private String createNewId(String id){

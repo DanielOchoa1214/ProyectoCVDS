@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.proyectocvds.persistence.mybatisimpl.mappers.LibroMapper">
+
+    <resultMap type='Libro' id='LibroResult'>
+        <id property='id' column='id'/>
+        <result property='name' column='name'/>
+        <result property='location' column='location'/>
+        <result property='type' column='type'/>
+        <result property='capacity' column='capacity'/>
+        <result property='bookingScheduleStart' column='booking_schedule_start'/>
+        <result property='bookingScheduleEnd' column='booking_schedule_end'/>
+        <result property='resourceState' column='resource_state'/>
+        <result property='info' column='info'/>
+    </resultMap>
+
+    <select id="getResource" resultMap="LibroResult">
+        SELECT
+            r.name AS name,
+            r.location AS location,
+            r.type AS type,
+            (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) AS capacity,
+            r.info AS info,
+            r.id AS id,
+            r.booking_schedule_start AS booking_schedule_start,
+            r.booking_schedule_end AS booking_schedule_start,
+            r.resource_state AS resource_state
+        FROM
+            RECURSO as r
+        WHERE
+            r.name LIKE #{name} AND r.type = #{type} AND
+            (#{capacity} = 0 OR (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) = #{capacity}) AND
+            (#{location} = '' OR  r.location = #{location})
+    </select>
+
+    <insert id="setNewRecurso">
+        INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state)
+            VALUES (#{name}, #{location}, #{type}, #{id}, #{info}, #{bookingScheduleStart}, #{bookingScheduleEnd}, #{resourceState});
+        INSERT INTO LIBRO (id, author, hard_cover, pages, genre)
+            VALUES (#{id}, #{author}, #{hardCover}, #{pages}, #{genre});
+    </insert>
+
+    <select id="setNewLibro" statementType="CALLABLE">
+        {CALL before_insert_libro(#{name}, #{location}, 'Libro', #{id}, #{info}, #{bookingScheduleStart}, #{bookingScheduleEnd}, #{resourceState}, #{author}, #{hardCover}, #{pages}, #{genre})}
+    </select>
+
+    <update id="updateResourceState">
+        UPDATE RECURSO SET
+            resource_state = #{estadoRecurso}
+        WHERE id = #{id}
+    </update>
+</mapper>

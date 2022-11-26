@@ -10,123 +10,117 @@
     <link rel="stylesheet" href="insertRecurso.css"/>
 </h:head>
 <h:body>
-    <h:form>
-        <div class="form-div">
-            <h2 class="register-title">¿Que tipo de recurso quieres ingresar?</h2>
-            <div class="form-choice-div">
-                <p:commandButton class="register-btn btn" value="Libro" onclick="PF('saveLibro').show();"/>
-                <p:commandButton class="register-btn btn" value="Portatil" onclick="PF('savePortatil').show();"/>
-            </div>
+    <div class="form-div">
+        <h2 class="register-title">¿Que tipo de recurso quieres ingresar?</h2>
+        <div class="form-choice-div">
+            <p:commandButton class="register-btn btn" value="Libro" oncomplete="PF('saveLibro').show();"/>
+            <p:commandButton class="register-btn btn" value="Portatil" oncomplete="PF('savePortatil').show();"/>
         </div>
-    </h:form>
+    </div>
     <p:dialog header="Ingresa un libro" widgetVar="saveLibro" modal="true" class="reserva-popup">
-        <h:form>
-            <div>
-                <label>
-                    Nombre del libro en biblioteca:
-                    <p:inputText id="nombre_libro" class="form-inputs" binding="#{bookName}"/>
-                </label>
-                <label>
-                    Autor del libro:
-                    <p:inputText id="autor_libro" class="form-inputs" binding="#{bookAuthor}"/>
-                </label>
-                <label>
-                    ¿Es de pasta dura?
-                    <p:selectBooleanButton onLabel="Si" offLabel="No" onIcon="pi pi-check" offIcon="pi pi-times" style="width:6rem" binding="#{bookHardCover}"/>
-                </label>
-                <label>
-                    Numero de paginas
-                    <p:inputText id="paginas_libro" class="form-inputs" binding="#{bookPages}"/>
-                </label>
-                <label>
-                    Genero del libro:
-                    <p:selectOneMenu value="#{mb.generoLibro}" >
-                        <f:selectItems value="#{mb.generosLibro}" />
-                    </p:selectOneMenu>
-                </label>
-                <label>
-                    Ubicación del libro en la biblioteca:
-                    <p:inputText id="ubicacion_libro" class="form-inputs" binding="#{bookLocation}"/>
-                </label>
-                <label>
-                    Información sobre el libro:
-                    <p:inputText id="info_libro" class="form-inputs" binding="#{bookInfo}"/>
-                </label>
-                <label>
-                    Numero de libros ingresados:
-                    <p:inputText id="capacidad_libro" class="form-inputs" binding="#{bookCapacity}"/>
-                </label>
-                <label>
-                    Identificador del libro:
-                    <p:inputText id="id_libro" class="form-inputs" binding="#{bookId}" validatorMessage="El id debe tener 3 letras separadas por un guion seguido de 3 números :(">
-                        <f:validateRegex pattern="^[A-Z]{3}-[0-9]{3}$"/>
-                    </p:inputText>
-                </label>
-                <p:messages class="message-error">
-                    <p:autoUpdate/>
-                </p:messages>
-                <label>
-                    Hora de inicio de horario de reservas:
-                    <p:inputText id="horario_inicio_libro" class="form-inputs" binding="#{bookBookingScheduleStart}"/>
-                </label>
-                <label>
-                    Hora de fin de horario de reservas:
-                    <p:inputText id="horario_fin_libro" class="form-inputs" binding="#{bookBookingScheduleEnd}"/>
-                </label>
-                <label>
-                    Estado del libro:
-                    <p:selectOneMenu value="#{mb.estadoRecurso}" >
-                        <f:selectItems value="#{mb.estadosRecurso}" />
-                    </p:selectOneMenu>
-                </label>
-            </div>
-            <p:commandButton class="register-btn btn" value="Registrar" onclick="#{mb.saveLibro(bookName.value, bookLocation.value, bookCapacity.value, bookId.value, bookInfo.value, bookBookingScheduleStart.value, bookBookingScheduleEnd.value, bookAuthor.value, bookHardCover.value, bookPages.value)}"/>
+        <h:form onkeypress="if (event.keyCode == 13) {return false;}">
+            <label>
+                Nombre del libro en biblioteca:
+                <p:inputText id="nombre_libro" class="form-inputs" binding="#{bookName}"/>
+            </label>
+            <label>
+                Autor del libro:
+                <p:inputText id="autor_libro" class="form-inputs" binding="#{bookAuthor}"/>
+            </label>
+            <label>
+                ¿Es de pasta dura?
+                <p:selectBooleanButton onLabel="Si" offLabel="No" onIcon="pi pi-check" offIcon="pi pi-times" style="width:6rem" binding="#{bookHardCover}"/>
+            </label>
+            <label>
+                Numero de paginas
+                <p:inputText id="paginas_libro" class="form-inputs" binding="#{bookPages}"/>
+            </label>
+            <label>
+                Genero del libro:
+                <p:selectOneMenu value="#{mb.generoLibro}" >
+                    <f:selectItems value="#{mb.generosLibro}" />
+                </p:selectOneMenu>
+            </label>
+            <label>
+                Ubicación del libro en la biblioteca:
+                <p:inputText id="ubicacion_libro" class="form-inputs" binding="#{bookLocation}"/>
+            </label>
+            <label>
+                Información sobre el libro:
+                <p:inputText id="info_libro" class="form-inputs" binding="#{bookInfo}"/>
+            </label>
+            <label>
+                Numero de libros ingresados:
+                <p:inputText id="capacidad_libro" class="form-inputs" binding="#{bookCapacity}"/>
+            </label>
+            <label>
+                Identificador del libro:
+                <p:inputText id="id_libro" class="form-inputs" binding="#{bookId}" validatorMessage="El id debe tener 3 letras separadas por un guion seguido de 3 números :(">
+                    <f:validateRegex pattern="^[A-Z]{3}-[0-9]{3}$"/>
+                </p:inputText>
+            </label>
+            <p:messages class="message-error">
+                <p:autoUpdate/>
+            </p:messages>
+            <label>
+                Hora de inicio de horario de reservas:
+                <p:inputText id="horario_inicio_libro" class="form-inputs" binding="#{bookBookingScheduleStart}"/>
+            </label>
+            <label>
+                Hora de fin de horario de reservas:
+                <p:inputText id="horario_fin_libro" class="form-inputs" binding="#{bookBookingScheduleEnd}"/>
+            </label>
+            <label>
+                Estado del libro:
+                <p:selectOneMenu value="#{mb.estadoRecurso}" >
+                    <f:selectItems value="#{mb.estadosRecurso}" />
+                </p:selectOneMenu>
+            </label>
+            <p:commandButton class="register-btn btn" value="Registrar" action="#{mb.saveLibro(bookName.value, bookLocation.value, bookCapacity.value, bookId.value, bookInfo.value, bookBookingScheduleStart.value, bookBookingScheduleEnd.value, bookAuthor.value, bookHardCover.value, bookPages.value)}"/>
         </h:form>
     </p:dialog>
     <p:dialog header="Ingresa un portatil" widgetVar="savePortatil" modal="true" class="reserva-popup">
-        <h:form>
-            <div>
-                <label>
-                    Nombre del portatil en biblioteca:
-                    <p:inputText id="nombre_portatil" class="form-inputs" binding="#{laptopName}"/>
-                </label>
-                <label>
-                    Ubicación del portatil en la biblioteca:
-                    <p:inputText id="ubicacion_portatil" class="form-inputs" binding="#{laptopLocation}"/>
-                </label>
-                <label>
-                    Información sobre el portatil:
-                    <p:inputText id="info_portatil" class="form-inputs" binding="#{laptopInfo}"/>
-                </label>
-                <label>
-                    Numero de portatil ingresados:
-                    <p:inputText id="capacidad_portatil" class="form-inputs" binding="#{laptopCapacity}"/>
-                </label>
-                <label>
-                    Identificador del portatil:
-                    <p:inputText id="id_portatil" class="form-inputs" binding="#{laptopId}" validatorMessage="El id debe tener 3 letras separadas por un guion seguido de 3 números :(">
-                        <f:validateRegex pattern="^[A-Z]{3}-[0-9]{3}$"/>
-                    </p:inputText>
-                </label>
-                <p:messages class="message-error">
-                    <p:autoUpdate/>
-                </p:messages>
-                <label>
-                    Hora de inicio de horario de reservas:
-                    <p:inputText id="horario_inicio_portatil" class="form-inputs" binding="#{laptopBookingScheduleStart}"/>
-                </label>
-                <label>
-                    Hora de fin de horario de reservas:
-                    <p:inputText id="horario_fin_portatil" class="form-inputs" binding="#{laptopBookingScheduleEnd}"/>
-                </label>
-                <label>
-                    Estado del portatil:
-                    <p:selectOneMenu value="#{mb.estadoRecurso}" >
-                        <f:selectItems value="#{mb.estadosRecurso}" />
-                    </p:selectOneMenu>
-                </label>
-            </div>
-            <p:commandButton class="register-btn btn" value="Registrar" onclick=""/>
+        <h:form onkeypress="if (event.keyCode == 13) {return false;}">
+            <label>
+                Nombre del portatil en biblioteca:
+                <p:inputText id="nombre_portatil" class="form-inputs" binding="#{laptopName}"/>
+            </label>
+            <label>
+                Ubicación del portatil en la biblioteca:
+                <p:inputText id="ubicacion_portatil" class="form-inputs" binding="#{laptopLocation}"/>
+            </label>
+            <label>
+                Información sobre el portatil:
+                <p:inputText id="info_portatil" class="form-inputs" binding="#{laptopInfo}"/>
+            </label>
+            <label>
+                Numero de portatil ingresados:
+                <p:inputText id="capacidad_portatil" class="form-inputs" binding="#{laptopCapacity}"/>
+            </label>
+            <label>
+                Identificador del portatil:
+                <p:inputText id="id_portatil" class="form-inputs" binding="#{laptopId}" validatorMessage="El id debe tener 3 letras separadas por un guion seguido de 3 números :(">
+                    <f:validateRegex pattern="^[A-Z]{3}-[0-9]{3}$"/>
+                </p:inputText>
+            </label>
+            <p:messages class="message-error">
+                <p:autoUpdate/>
+            </p:messages>
+            <label>
+                Hora de inicio de horario de reservas:
+                <p:inputText id="horario_inicio_portatil" class="form-inputs" binding="#{laptopBookingScheduleStart}"/>
+            </label>
+            <label>
+                Hora de fin de horario de reservas:
+                <p:inputText id="horario_fin_portatil" class="form-inputs" binding="#{laptopBookingScheduleEnd}"/>
+            </label>
+            <label>
+                Estado del portatil:
+                <p:selectOneMenu value="#{mb.estadoRecurso}" >
+                    <f:selectItems value="#{mb.estadosRecurso}" />
+                </p:selectOneMenu>
+            </label>
+            <p:commandButton class="register-btn btn" value="Registrar"/>
         </h:form>
     </p:dialog>
 </h:body>

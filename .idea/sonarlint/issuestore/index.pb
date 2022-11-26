@@ -13,5 +13,3 @@ f
 6src/main/java/edu/eci/proyectocvds/entities/Libro.java,2/1/21bfed28e87a5632ded814fe3792b278281b488b
 Q
 !src/main/webapp/insertRecurso.css,4/9/499a90fc96cd9b1c241ded75cb03f94c19780f14
-o
-?src/main/java/edu/eci/proyectocvds/services/ServiciosLibro.java,b/7/b76118722cdd0c6141cc8c327c685bb5193bace0

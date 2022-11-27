@@ -35,7 +35,7 @@ public class PortatilServiceSaveTest {
      */
 
     @Test
-    public void given_DataBook_when_NoExist_then_SaveCorrectly() {
+    public void given_DataPortatil_when_NoExist_then_SaveCorrectly() {
         try {
             //ARRANGE
             Portatil portatil = new Portatil("1234", "1", 2, "1", "123", 1,  2,
@@ -51,7 +51,7 @@ public class PortatilServiceSaveTest {
     }
 
     @Test(expected = ExcepcionServiciosRecurso.class)
-    public void given_DataBook_when_Exist_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso{
+    public void given_DataPortatil_when_Exist_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso{
         Portatil portatil = new Portatil("1234", "1", 2, "1", "123", 1,  2,
                 "DISPONIBLE", "8GB RAM", "SSD 250GB","Intel 9 12Gen", "1920x1080", "Lenovo");
         Mockito.when(daoLibroTest.saveRecurso(portatil)).thenThrow(new PersistenceException("Ya_Existe"));

@@ -11,5 +11,13 @@ Q
 !src/main/webapp/insertRecurso.css,4/9/499a90fc96cd9b1c241ded75cb03f94c19780f14
 I
 src/main/webapp/index.jsp,8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded
-O
-src/main/webapp/WEB-INF/web.xml,2/e/2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+z
+Jsrc/main/java/edu/eci/proyectocvds/services/ExcepcionServiciosRecurso.java,4/5/45cb0717546821841fdd9449279d0ce7f49cb2a9
+l
+<src/main/java/edu/eci/proyectocvds/services/ServiceType.java,e/6/e60a9e95966286b464ca382bc6ee6569b158f808
+f
+6src/main/java/edu/eci/proyectocvds/entities/Libro.java,2/1/21bfed28e87a5632ded814fe3792b278281b488b
+h
+8src/main/java/edu/eci/proyectocvds/entities/Recurso.java,1/1/11cebd4c11e0fef9053ccb3c73047fced0a48e38
+N
+src/main/webapp/recursos.xhtml,2/b/2b48fc60e9e072c02d354a8c060808a9e7143598

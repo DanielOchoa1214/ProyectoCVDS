@@ -14,14 +14,14 @@ import java.util.List;
 
 public class ServiciosLibroImpl implements ServicioRecurso<Libro> {
 
-    DAORecurso daoLibro;
+    DAORecurso<Libro> daoLibro;
 
     @Inject
-    public ServiciosLibroImpl(DAORecurso daoLibro){
+    public ServiciosLibroImpl(DAORecurso<Libro> daoLibro){
         this.daoLibro = daoLibro;
     }
 
-    public List<Recurso> loadResource(String name, String location, Genero genre, int capacity) throws ExcepcionServiciosRecurso {
+    public List<Libro> loadResource(String name, String location, Genero genre, int capacity) throws ExcepcionServiciosRecurso {
         try {
             return daoLibro.loadResource(name, location, genre, capacity);
         } catch (PersistenceException ex) {

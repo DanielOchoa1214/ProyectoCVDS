@@ -1,10 +1,8 @@
 package edu.eci.proyectocvds.managedBeans;
 
+import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.EstadoRecurso;
-import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Portatil;
-import edu.eci.proyectocvds.services.ServiceType;
-import edu.eci.proyectocvds.services.ServicesFactory;
 import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
 
 import javax.faces.bean.ManagedBean;
@@ -13,10 +11,12 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "portatil")
 @SessionScoped
 public class PortatilBean {
-    ServiciosPortatilImpl service = (ServiciosPortatilImpl) new ServicesFactory<>().setService(ServiceType.PORTATIL);
-
+    // ServiciosPortatilImpl service = new SetUpInjector().getInjector().getInstance(ServiciosPortatilImpl.class);
+    @Inject
+    ServiciosPortatilImpl service;
     EstadoRecurso estadoRecurso;
     boolean success;
+
     public boolean savePortatil(String name, String capacity, String id, String info,
                                String bookingScheduleStart, String bookingScheduleEnd, String ramModel, String hardDriveModel,
                                String processor, String screenResolution, String brand){

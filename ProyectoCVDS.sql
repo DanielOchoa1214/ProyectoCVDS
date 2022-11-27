@@ -63,7 +63,7 @@ CREATE table RESERVA_UNICA (
 ) ENGINE=InnoDB;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS before_insert_libro;
+DROP PROCEDURE IF EXISTS insert_libro;
 CREATE PROCEDURE insert_libro(
     name varchar(50),
     location varchar(30),
@@ -83,7 +83,7 @@ CREATE PROCEDURE insert_libro(
         end $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS before_insert_libro;
+DROP PROCEDURE IF EXISTS insert_portatil;
 CREATE PROCEDURE insert_portatil(
     name varchar(50),
     location varchar(30),
@@ -170,5 +170,5 @@ DROP TABLE RECURSO;
 
 
 SELECT * FROM RECURSO;
-SELECT * FROM PORTATIL;
+SELECT * FROM LIBRO;
 SELECT * FROM RESERVA;

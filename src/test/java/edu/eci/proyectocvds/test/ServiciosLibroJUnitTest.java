@@ -2,6 +2,7 @@ package edu.eci.proyectocvds.test;
 
 
 import edu.eci.proyectocvds.entities.Genero;
+import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Recurso;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.persistence.PersistenceException;
@@ -38,7 +39,7 @@ public class ServiciosLibroJUnitTest {
                Mockito.when(daoLibroTest.loadResource("Test", "Test", Genero.Academico, 2)).thenReturn(new ArrayList<>());
 
                //ACT
-               List<Recurso> test = serviciosLibro.loadResource("Test", "Test", Genero.Academico, 2);
+               List<Libro> test = serviciosLibro.loadResource("Test", "Test", Genero.Academico, 2);
 
                //ASSERT
                assertEquals(test, new ArrayList<>());

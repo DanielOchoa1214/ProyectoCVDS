@@ -1,8 +1,8 @@
 package edu.eci.proyectocvds.managedBeans;
 
+import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.*;
-import edu.eci.proyectocvds.services.ServiceType;
-import edu.eci.proyectocvds.services.ServicesFactory;
+import edu.eci.proyectocvds.services.SetUpInjector;
 import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 
 import javax.faces.bean.ManagedBean;
@@ -15,14 +15,18 @@ import java.util.List;
 @SessionScoped
 public class LibroBean {
 
-    ServiciosLibroImpl service = (ServiciosLibroImpl) new ServicesFactory<>().setService(ServiceType.LIBRO);
+    @Inject
+    ServiciosLibroImpl service;
     boolean success = false;
     Genero generoLibro;
     EstadoRecurso estadoRecurso;
-    List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Libro("Test", "Pasillo 2", "Academico", 3, "123", "Holi", 10, 15, "DISPONIBLE", "Test", true, 1000)));
+    List<Libro> searchedRecursos = new ArrayList<>(Arrays.asList(new Libro("Test", "Pasillo 2", "Academico", 3, "123", "Holi", 10, 15, "DISPONIBLE", "Test", true, 1000)));
     Libro booking = (Libro) searchedRecursos.get(0);
     RecurrenciaReserva recurrenciaReserva;
 
+    public LibroBean(){
+        service = new SetUpInjector().getInjector().getInstance(ServiciosLibroImpl.class);
+    }
     // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
     public boolean saveLibro(String name, String location, String capacity, String id, String info,
                           String bookingScheduleStart, String bookingScheduleEnd, String autor,
@@ -80,7 +84,7 @@ public class LibroBean {
         }
     }
 
-    public List<Recurso> getSearchedRecursos() {
+    public List<Libro> getSearchedRecursos() {
         return searchedRecursos;
     }
 
@@ -116,7 +120,7 @@ public class LibroBean {
         this.recurrenciaReserva = recurrenciaReserva;
     }
 
-    public void setSearchedRecursos(List<Recurso> searchedRecursos) {
+    public void setSearchedRecursos(List<Libro> searchedRecursos) {
         this.searchedRecursos = searchedRecursos;
     }
 

@@ -3,6 +3,7 @@ package edu.eci.proyectocvds.persistence.mybatisimpl;
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Genero;
+import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Recurso;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.persistence.PersistenceException;
@@ -10,13 +11,13 @@ import edu.eci.proyectocvds.persistence.mybatisimpl.mappers.LibroMapper;
 
 import java.util.List;
 
-public class MyBatisDAOLibro implements DAORecurso {
+public class MyBatisDAOLibro implements DAORecurso<Libro> {
 
     @Inject
     LibroMapper recursoMapper;
 
     @Override
-    public boolean saveRecurso(Recurso recurso) throws PersistenceException {
+    public boolean saveRecurso(Libro recurso) throws PersistenceException {
         try{
             recursoMapper.setNewLibro(recurso);
             return true;
@@ -27,7 +28,7 @@ public class MyBatisDAOLibro implements DAORecurso {
     }
 
     @Override
-    public List<Recurso> loadResource(String name, String location, Genero genre, int capacity) throws PersistenceException {
+    public List<Libro> loadResource(String name, String location, Genero genre, int capacity) throws PersistenceException {
         try{
             return recursoMapper.getResource(name, location, genre, capacity);
         }

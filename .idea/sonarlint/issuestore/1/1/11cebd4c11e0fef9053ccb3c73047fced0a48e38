@@ -1,0 +1,3 @@
+
+k
+java:S1206W"PThis class overrides "equals()" and should therefore also override "hashCode()".(ÐÎØ¶ùÿÿÿÿ

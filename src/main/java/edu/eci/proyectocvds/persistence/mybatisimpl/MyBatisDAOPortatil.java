@@ -3,6 +3,7 @@ package edu.eci.proyectocvds.persistence.mybatisimpl;
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Genero;
+import edu.eci.proyectocvds.entities.Portatil;
 import edu.eci.proyectocvds.entities.Recurso;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.persistence.PersistenceException;
@@ -10,11 +11,11 @@ import edu.eci.proyectocvds.persistence.mybatisimpl.mappers.PortatilMapper;
 
 import java.util.List;
 
-public class MyBatisDAOPortatil implements DAORecurso {
+public class MyBatisDAOPortatil implements DAORecurso<Portatil> {
     @Inject
     PortatilMapper portatilMapper;
     @Override
-    public boolean saveRecurso(Recurso recurso) throws PersistenceException {
+    public boolean saveRecurso(Portatil recurso) throws PersistenceException {
         try{
             portatilMapper.setNewPortatil(recurso);
             return true;
@@ -25,7 +26,7 @@ public class MyBatisDAOPortatil implements DAORecurso {
     }
 
     @Override
-    public List<Recurso> loadResource(String name, String location, Genero genre, int capacity) throws PersistenceException {
+    public List<Portatil> loadResource(String name, String location, Genero genre, int capacity) throws PersistenceException {
         return null;
     }
 

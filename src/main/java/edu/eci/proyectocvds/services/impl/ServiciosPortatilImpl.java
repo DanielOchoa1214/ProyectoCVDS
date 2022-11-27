@@ -9,10 +9,10 @@ import edu.eci.proyectocvds.services.ServicioRecurso;
 
 public class ServiciosPortatilImpl implements ServicioRecurso<Portatil> {
 
-    DAORecurso daoPortatil;
+    DAORecurso<Portatil> daoPortatil;
 
     @Inject
-    public ServiciosPortatilImpl(DAORecurso daoPortatil){
+    public ServiciosPortatilImpl(DAORecurso<Portatil> daoPortatil){
         this.daoPortatil = daoPortatil;
     }
 

@@ -12,6 +12,7 @@
 
     <typeAliases>
         <typeAlias type='edu.eci.proyectocvds.entities.Libro' alias='Libro'/>
+        <typeAlias type='edu.eci.proyectocvds.entities.Portatil' alias='Portatil'/>
     </typeAliases>
 
     <environments default="development">
@@ -28,6 +29,7 @@
     </environments>
 
     <mappers>
+        <mapper resource="mappers/PortatilMapper.xml"/>
         <mapper resource="mappers/LibroMapper.xml"/>
     </mappers>
 

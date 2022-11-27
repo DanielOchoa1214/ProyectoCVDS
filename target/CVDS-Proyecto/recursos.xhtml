@@ -132,11 +132,11 @@
             </label>
             <label>
                 Estado del portatil:
-                <p:selectOneMenu value="#{libro.estadoRecurso}" >
-                    <f:selectItems value="#{libro.estadosRecurso}" />
+                <p:selectOneMenu value="#{portatil.estadoRecurso}" >
+                    <f:selectItems value="#{portatil.estadosRecurso}" />
                 </p:selectOneMenu>
             </label>
-            <p:commandButton class="register-btn btn" value="Registrar"/>
+            <p:commandButton class="register-btn btn" value="Registrar" action="#{portatil.savePortatil(laptopName.value, laptopCapacity.value, laptopId.value, laptopInfo.value, laptopBookingScheduleStart.value, laptopBookingScheduleEnd.value, laptopRAM.value, laptopHardDrive.value, laptopProcessor.value, laptopScreenResolution.value, laptopBrand.value)}"/>
         </h:form>
     </p:dialog>
 </h:body>

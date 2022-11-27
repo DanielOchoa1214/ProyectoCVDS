@@ -7,9 +7,9 @@ h
 8src/main/java/edu/eci/proyectocvds/entities/Reserva.java,8/3/830ac5083207adc3c342242ff8ce46301287713d
 g
 7src/main/java/edu/eci/proyectocvds/entities/Genero.java,b/9/b920148d09f4ab19d086bc2f92ffb14ccbd1c6fd
-h
-8src/main/java/edu/eci/proyectocvds/entities/Recurso.java,1/1/11cebd4c11e0fef9053ccb3c73047fced0a48e38
-f
-6src/main/java/edu/eci/proyectocvds/entities/Libro.java,2/1/21bfed28e87a5632ded814fe3792b278281b488b
 Q
 !src/main/webapp/insertRecurso.css,4/9/499a90fc96cd9b1c241ded75cb03f94c19780f14
+I
+src/main/webapp/index.jsp,8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded
+O
+src/main/webapp/WEB-INF/web.xml,2/e/2e22b6edd746fa3dc40ad7276c87c8d87d72a392

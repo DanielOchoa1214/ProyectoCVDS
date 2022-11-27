@@ -1,6 +1,9 @@
 package edu.eci.proyectocvds.services;
 
-public interface ServicioRecurso<T> {
+import edu.eci.proyectocvds.entities.Recurso;
 
-    boolean save(T entidad);
+public interface ServicioRecurso<T> {
+    boolean save(T recurso) throws ExcepcionServiciosRecurso;
+    T load(T recurso);
+    boolean update(T recurso);
 }

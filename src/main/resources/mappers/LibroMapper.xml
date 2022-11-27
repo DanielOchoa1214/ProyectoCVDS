@@ -9,7 +9,6 @@
         <id property='id' column='id'/>
         <result property='name' column='name'/>
         <result property='location' column='location'/>
-        <result property='type' column='type'/>
         <result property='capacity' column='capacity'/>
         <result property='bookingScheduleStart' column='booking_schedule_start'/>
         <result property='bookingScheduleEnd' column='booking_schedule_end'/>
@@ -36,15 +35,8 @@
             (#{location} = '' OR  r.location = #{location})
     </select>
 
-    <insert id="setNewRecurso">
-        INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state)
-            VALUES (#{name}, #{location}, #{type}, #{id}, #{info}, #{bookingScheduleStart}, #{bookingScheduleEnd}, #{resourceState});
-        INSERT INTO LIBRO (id, author, hard_cover, pages, genre)
-            VALUES (#{id}, #{author}, #{hardCover}, #{pages}, #{genre});
-    </insert>
-
     <select id="setNewLibro" statementType="CALLABLE">
-        {CALL before_insert_libro(#{name}, #{location}, 'Libro', #{id}, #{info}, #{bookingScheduleStart}, #{bookingScheduleEnd}, #{resourceState}, #{author}, #{hardCover}, #{pages}, #{genre})}
+        {CALL insert_libro(#{recurso.name}, #{recurso.location}, 'Libro', #{recurso.id}, #{recurso.info}, #{recurso.bookingScheduleStart}, #{recurso.bookingScheduleEnd}, #{recurso.resourceState}, #{recurso.author}, #{recurso.hardCover}, #{recurso.pages}, #{recurso.genero})}
     </select>
 
     <update id="updateResourceState">

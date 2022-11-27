@@ -64,7 +64,7 @@ CREATE table RESERVA_UNICA (
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS before_insert_libro;
-CREATE PROCEDURE before_insert_libro(
+CREATE PROCEDURE insert_libro(
     name varchar(50),
     location varchar(30),
     type varchar(20),
@@ -80,6 +80,27 @@ CREATE PROCEDURE before_insert_libro(
         BEGIN
             INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state);
             INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES (id, author, hard_cover, pages, genre);
+        end $$
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS before_insert_libro;
+CREATE PROCEDURE insert_portatil(
+    name varchar(50),
+    location varchar(30),
+    type varchar(20),
+    id varchar(10),
+    info varchar(100),
+    booking_schedule_start int(3),
+    booking_schedule_end int(3),
+    resource_state varchar(20),
+    RAM_model varchar(50),
+    hard_drive_model varchar(50),
+    processor varchar(50),
+    screen_resolution varchar(20),
+    brand varchar(30))
+        BEGIN
+            INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state);
+            INSERT INTO PORTATIL(id, RAM_model, hard_drive_model, processor, screen_resolution, brand) VALUES (id, RAM_model, hard_drive_model, processor, screen_resolution, brand);
         end $$
 
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo vectorial', 'Pasillo 4 Estanteria 3', 'Libro', 'AJF-267', 'Libro de calculo usado en cursos de CALV', 10, 14, 'DISPONIBLE');
@@ -149,5 +170,5 @@ DROP TABLE RECURSO;
 
 
 SELECT * FROM RECURSO;
-SELECT * FROM LIBRO;
+SELECT * FROM PORTATIL;
 SELECT * FROM RESERVA;

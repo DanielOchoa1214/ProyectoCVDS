@@ -1,20 +1,22 @@
 package edu.eci.proyectocvds.managedBeans;
 
 import edu.eci.proyectocvds.entities.*;
-import edu.eci.proyectocvds.services.ServiciosLibroFactory;
+import edu.eci.proyectocvds.services.ServiceType;
+import edu.eci.proyectocvds.services.ServicesFactory;
+import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.sql.Date;
 import java.util.List;
 
 @ManagedBean(name = "libro")
 @SessionScoped
 public class LibroBean {
 
+    ServiciosLibroImpl service = (ServiciosLibroImpl) new ServicesFactory<>().setService(ServiceType.LIBRO);
+    boolean success = false;
     Genero generoLibro;
     EstadoRecurso estadoRecurso;
     List<Recurso> searchedRecursos = new ArrayList<>(Arrays.asList(new Libro("Test", "Pasillo 2", "Academico", 3, "123", "Holi", 10, 15, "DISPONIBLE", "Test", true, 1000)));
@@ -22,7 +24,7 @@ public class LibroBean {
     RecurrenciaReserva recurrenciaReserva;
 
     // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
-    public void saveLibro(String name, String location, String capacity, String id, String info,
+    public boolean saveLibro(String name, String location, String capacity, String id, String info,
                           String bookingScheduleStart, String bookingScheduleEnd, String autor,
                           boolean hardCover, String pages) throws Exception{
         try {
@@ -30,14 +32,19 @@ public class LibroBean {
             int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);
             int end = bookingScheduleEnd.equals("") ? 0 : Integer.parseInt(bookingScheduleEnd);
             int pageNum = pages.equals("") ? 0 : Integer.parseInt(pages);
+            String smallName = name.toLowerCase();
             String buildId = id;
             for(int i = 0; i < cap; i++){
-                String smallName = name.toLowerCase();
-                ServiciosLibroFactory.getInstance().getForumsServices().saveNewBook(smallName, location, generoLibro, cap, buildId, info, start, end, estadoRecurso, autor, hardCover, pageNum);
-                buildId = createNewId(id);
+                Libro inserting = new Libro(smallName, location, generoLibro.toString(), cap, buildId, info, start, end,
+                        estadoRecurso.toString(), autor, hardCover, pageNum);
+                success = service.save(inserting);
+                buildId = createNewId(buildId);
             }
+            return success;
         } catch (Exception e){
             e.printStackTrace();
+            success = false;
+            return false;
         }
     }
 
@@ -59,7 +66,7 @@ public class LibroBean {
         try {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
             String lowerName = name.toLowerCase();
-            searchedRecursos =  ServiciosLibroFactory.getInstance().getForumsServices().loadResource(lowerName, location, generoLibro, cap);
+            searchedRecursos =  service.loadResource(lowerName, location, generoLibro, cap);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -67,25 +74,10 @@ public class LibroBean {
 
     public void updateRecursoState(String id) throws Exception{
         try {
-            ServiciosLibroFactory.getInstance().getForumsServices().updateResourceState(id, this.estadoRecurso);
+            service.updateResourceState(id, this.estadoRecurso);
         } catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-    public void saveReserva(LocalDate initialDate, LocalDate finalDate, String bookingUser, String userProgram, RecurrenciaReserva bookingRecurrence){
-        try {
-            Date sqlInitial = Date.valueOf(initialDate);
-            Date sqlFinal = Date.valueOf(finalDate);
-            // Date nextDate = recurrenciaReserva.equals(RecurrenciaReserva.UNICA_VEZ) ? null : getNextDate(initialDate, bookingRecurrence);
-            //ServiciosRecursoFactory.getInstance().getForumsServices().saveReserva(booking.getId(), booking.getInfo(), Date.valueOf(LocalDate.now()), sqlInitial, sqlFinal, recurrenciaReserva, );
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void getNextDate(LocalDate initialDate, RecurrenciaReserva bookingRecurrence){
-        //return Date.valueOf(initialDate.plus());
     }
 
     public List<Recurso> getSearchedRecursos() {

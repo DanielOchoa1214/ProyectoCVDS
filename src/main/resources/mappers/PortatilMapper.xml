@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.proyectocvds.persistence.mybatisimpl.mappers.PortatilMapper">
+
+    <resultMap type='Portatil' id='PortatilResult'>
+        <id property='id' column='id'/>
+        <result property='name' column='name'/>
+        <result property='location' column='location'/>
+        <result property='capacity' column='capacity'/>
+        <result property='info' column='info'/>
+        <result property='bookingScheduleStart' column='booking_schedule_start'/>
+        <result property='bookingScheduleEnd' column='booking_schedule_end'/>
+        <result property='resourceState' column='resource_state'/>
+        <result property='RAM' column='RAM_model'/>
+        <result property='hardDriveModel' column='hard_drive_model'/>
+        <result property='processor' column='processor'/>
+        <result property='screenResolution' column='screen_resolution'/>
+        <result property='brand' column='brand'/>
+    </resultMap>
+
+    <select id="setNewPortatil" statementType="CALLABLE">
+        {CALL insert_portatil(#{recurso.name}, #{recurso.location}, 'Portatil', #{recurso.id}, #{recurso.info}, #{recurso.bookingScheduleStart}, #{recurso.bookingScheduleEnd}, #{recurso.resourceState}, #{recurso.ram}, #{recurso.hardDriveModel}, #{recurso.processor}, #{recurso.screenResolution}, #{recurso.brand})}
+    </select>
+</mapper>

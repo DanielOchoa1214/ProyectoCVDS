@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.eci.proyectocvds.test.ServicesTest.PortatilServiceTest.PortatilServiceTest" time="0" tests="2" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\CVDS\factory\target\test-classes;D:\CVDS\factory\target\classes;C:\Users\winny\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\winny\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\winny\.m2\repository\org\primefaces\primefaces\12.0.0\primefaces-12.0.0.jar;C:\Users\winny\.m2\repository\com\google\inject\guice\4.2.0\guice-4.2.0.jar;C:\Users\winny\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\winny\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\winny\.m2\repository\com\google\guava\guava\23.6-android\guava-23.6-android.jar;C:\Users\winny\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\winny\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\winny\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\winny\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\winny\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\winny\.m2\repository\com\google\inject\extensions\guice-servlet\5.1.0\guice-servlet-5.1.0.jar;C:\Users\winny\.m2\repository\org\mybatis\mybatis-guice\3.17\mybatis-guice-3.17.jar;C:\Users\winny\.m2\repository\com\github\spotbugs\spotbugs-annotations\4.5.3\spotbugs-annotations-4.5.3.jar;C:\Users\winny\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\winny\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.36\jcl-over-slf4j-1.7.36.jar;C:\Users\winny\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\winny\.m2\repository\com\sun\faces\jsf-api\2.2.12\jsf-api-2.2.12.jar;C:\Users\winny\.m2\repository\com\sun\faces\jsf-impl\2.2.12\jsf-impl-2.2.12.jar;C:\Users\winny\.m2\repository\jstl\jstl\1.2\jstl-1.2.jar;C:\Users\winny\.m2\repository\javax\javaee-web-api\7.0\javaee-web-api-7.0.jar;C:\Users\winny\.m2\repository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar;C:\Users\winny\.m2\repository\org\mybatis\mybatis\3.5.11\mybatis-3.5.11.jar;C:\Users\winny\.m2\repository\log4j\apache-log4j-extras\1.2.17\apache-log4j-extras-1.2.17.jar;C:\Users\winny\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\winny\.m2\repository\com\h2database\h2\1.4.191\h2-1.4.191.jar;C:\Users\winny\.m2\repository\org\mockito\mockito-core\4.8.0\mockito-core-4.8.0.jar;C:\Users\winny\.m2\repository\net\bytebuddy\byte-buddy\1.12.14\byte-buddy-1.12.14.jar;C:\Users\winny\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.14\byte-buddy-agent-1.12.14.jar;C:\Users\winny\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.17\bin"/>
+    <property name="sun.java.command" value="C:\Users\winny\AppData\Local\Temp\surefire7256299725224270863\surefirebooter2373319186487583803.jar C:\Users\winny\AppData\Local\Temp\surefire7256299725224270863 2022-11-27T13-09-33_382-jvmRun1 surefire12061647466173709410tmp surefire_010682372360591328561tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\CVDS\factory\target\test-classes;D:\CVDS\factory\target\classes;C:\Users\winny\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\winny\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\winny\.m2\repository\org\primefaces\primefaces\12.0.0\primefaces-12.0.0.jar;C:\Users\winny\.m2\repository\com\google\inject\guice\4.2.0\guice-4.2.0.jar;C:\Users\winny\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\winny\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\winny\.m2\repository\com\google\guava\guava\23.6-android\guava-23.6-android.jar;C:\Users\winny\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\winny\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\winny\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\winny\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\winny\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\winny\.m2\repository\com\google\inject\extensions\guice-servlet\5.1.0\guice-servlet-5.1.0.jar;C:\Users\winny\.m2\repository\org\mybatis\mybatis-guice\3.17\mybatis-guice-3.17.jar;C:\Users\winny\.m2\repository\com\github\spotbugs\spotbugs-annotations\4.5.3\spotbugs-annotations-4.5.3.jar;C:\Users\winny\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\winny\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.36\jcl-over-slf4j-1.7.36.jar;C:\Users\winny\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\winny\.m2\repository\com\sun\faces\jsf-api\2.2.12\jsf-api-2.2.12.jar;C:\Users\winny\.m2\repository\com\sun\faces\jsf-impl\2.2.12\jsf-impl-2.2.12.jar;C:\Users\winny\.m2\repository\jstl\jstl\1.2\jstl-1.2.jar;C:\Users\winny\.m2\repository\javax\javaee-web-api\7.0\javaee-web-api-7.0.jar;C:\Users\winny\.m2\repository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar;C:\Users\winny\.m2\repository\org\mybatis\mybatis\3.5.11\mybatis-3.5.11.jar;C:\Users\winny\.m2\repository\log4j\apache-log4j-extras\1.2.17\apache-log4j-extras-1.2.17.jar;C:\Users\winny\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\winny\.m2\repository\com\h2database\h2\1.4.191\h2-1.4.191.jar;C:\Users\winny\.m2\repository\org\mockito\mockito-core\4.8.0\mockito-core-4.8.0.jar;C:\Users\winny\.m2\repository\net\bytebuddy\byte-buddy\1.12.14\byte-buddy-1.12.14.jar;C:\Users\winny\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.14\byte-buddy-agent-1.12.14.jar;C:\Users\winny\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\winny"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-10-18"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\CVDS\factory"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\winny\AppData\Local\Temp\surefire7256299725224270863\surefirebooter2373319186487583803.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.17+10-LTS-269"/>
+    <property name="user.name" value="Wilmer Rodriguez"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\winny\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\winny\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.17"/>
+    <property name="user.dir" value="D:\CVDS\factory"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Java\jdk-11.0.17\bin;C:\Program Files\apache-maven-3.8.6\bin;C:\Program Files\Git\cmd;C:\Users\winny\AppData\Local\Microsoft\WindowsApps;C:\Program Files\apache-maven-3.8.6\bin;;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.17+10-LTS-269"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="given_DataBook_when_NoExist_then_SaveCorrectly" classname="edu.eci.proyectocvds.test.ServicesTest.PortatilServiceTest.PortatilServiceTest" time="0"/>
+  <testcase name="given_DataBook_when_Exist_then_ThrowException" classname="edu.eci.proyectocvds.test.ServicesTest.PortatilServiceTest.PortatilServiceTest" time="0"/>
+</testsuite>

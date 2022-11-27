@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="factory" />
         <module name="CVDS-Proyecto" />
         <module name="ProyectoCVDS" />
         <module name="master" />
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CVDS-Proyecto" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
       <module name="ProyectoCVDS" options="-endorseddirs C:\Users\wilmer.rodriguez-r\Downloads\ProyectoCVDS\target/endorsed" />
+      <module name="factory" options="-endorseddirs D:\CVDS\factory\target/endorsed" />
       <module name="master" options="-endorseddirs C:\Users\daniel.ochoa-u\Documents\master\target/endorsed" />
     </option>
   </component>

@@ -13,5 +13,3 @@ x
 Hsrc/main/java/edu/eci/proyectocvds/persistence/PersistenceException.java,b\9\b9003f5e17eb90034b31a50050ce30bf06310492
 s
 Csrc/main/java/edu/eci/proyectocvds/entities/RecurrenciaReserva.java,3\6\36d0a90a7b78575a3aec34c34b4f97f9f0b8dceb
-p
-@src/main/java/edu/eci/proyectocvds/services/ServicioRecurso.java,4\c\4cb92439197dea531dd1d521307bc7fbcbfe84c8

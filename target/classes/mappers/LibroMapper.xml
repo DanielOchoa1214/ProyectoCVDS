@@ -37,7 +37,7 @@
         FROM
             RECURSO as r JOIN LIBRO as l ON r.id = l.id
         WHERE
-            r.name LIKE #{name} AND r.type = #{type} AND
+            r.name LIKE #{name} AND
             (#{capacity} = 0 OR (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) = #{capacity}) AND
             (#{location} = '' OR  r.location = #{location})
     </select>

@@ -7,8 +7,6 @@ import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @ManagedBean(name = "libroMB")
@@ -20,7 +18,7 @@ public class LibroBean {
     boolean success = false;
     Genero generoLibro;
     EstadoRecurso estadoRecurso;
-    List<Libro> searchedRecursos;
+    List<Libro> searchedLibros;
     Libro booking;
     RecurrenciaReserva recurrenciaReserva;
     TipoBusqueda tipoBusqueda;
@@ -67,12 +65,12 @@ public class LibroBean {
         this.booking = booking;
     }
 
-    public boolean loadRecurso(String name, String location, String capacity) throws Exception{
+    public boolean loadLibro(String name, String tipoBusqueda, String location, String capacity){
         try {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
-            updateSearchingBooks();
+            updateSearchingBooks(TipoBusqueda.valueOf(tipoBusqueda));
             String lowerName = name.toLowerCase();
-            searchedRecursos =  service.loadResource(lowerName, location, tipoBusqueda, cap);
+            searchedLibros =  service.loadResource(lowerName, location, TipoBusqueda.valueOf(tipoBusqueda), cap);
             return true;
         } catch (Exception e){
             e.printStackTrace();
@@ -88,8 +86,8 @@ public class LibroBean {
         }
     }
 
-    public List<Libro> getSearchedRecursos() {
-        return searchedRecursos;
+    public List<Libro> getSearchedLibros() {
+        return searchedLibros;
     }
 
     public Genero getGeneroLibro() {
@@ -124,8 +122,8 @@ public class LibroBean {
         this.recurrenciaReserva = recurrenciaReserva;
     }
 
-    public void setSearchedRecursos(List<Libro> searchedRecursos) {
-        this.searchedRecursos = searchedRecursos;
+    public void setSearchedLibros(List<Libro> searchedLibros) {
+        this.searchedLibros = searchedLibros;
     }
 
     public RecurrenciaReserva[] getRecurrenciasReserva() {
@@ -140,7 +138,7 @@ public class LibroBean {
         this.tipoBusqueda = tiposBusqueda;
     }
 
-    private void updateSearchingBooks(){
+    private void updateSearchingBooks(TipoBusqueda tipoBusqueda){
         searchingBooks = tipoBusqueda.equals(TipoBusqueda.Libro) || tipoBusqueda.equals(TipoBusqueda.Todo);
     }
 

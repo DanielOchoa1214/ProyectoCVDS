@@ -8,6 +8,7 @@ import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.util.List;
 
 @ManagedBean(name = "portatilMB")
 @SessionScoped
@@ -16,8 +17,9 @@ public class PortatilBean {
     @Inject
     ServiciosPortatilImpl service;
     EstadoRecurso estadoRecurso;
+    List<Portatil> searchedPortatiles;
     boolean success;
-    boolean searchingPortatiles;
+    boolean searchingPortatiles = false;
 
     public PortatilBean(){
         this.service = new SetUpInjector().getInjector().getInstance(ServiciosPortatilImpl.class);
@@ -45,6 +47,23 @@ public class PortatilBean {
         }
     }
 
+    public boolean loadPortatil(String name, String tipoBusqueda, String location, String capacity){
+        try{
+            int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
+            updateSearchingPortatiles(TipoBusqueda.valueOf(tipoBusqueda));
+            String lowerName = name.toLowerCase();
+            searchedPortatiles =  service.load(lowerName, location, TipoBusqueda.valueOf(tipoBusqueda), cap);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public List<Portatil> getSearchedPortatiles() {
+        return searchedPortatiles;
+    }
+
     public void test(String a){
         System.out.println(a);
     }
@@ -61,12 +80,16 @@ public class PortatilBean {
         return EstadoRecurso.values();
     }
 
-    public boolean getSearchingPortatiles(){
+    public boolean isSearchingPortatiles(){
         return this.searchingPortatiles;
     }
 
     public void setSearchingPortatiles(boolean searchingPortatiles) {
         this.searchingPortatiles = searchingPortatiles;
+    }
+
+    private void updateSearchingPortatiles(TipoBusqueda tipoBusqueda){
+        searchingPortatiles = tipoBusqueda.equals(TipoBusqueda.Portatil) || tipoBusqueda.equals(TipoBusqueda.Todo);
     }
 
     private String createNewId(String id){

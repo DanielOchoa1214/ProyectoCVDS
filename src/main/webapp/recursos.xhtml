@@ -145,7 +145,7 @@
             <p:inputText id="busqueda_recurso" class="search-input" binding="#{resourceSearch}"/>
             <label>
                 Tipo del recurso:
-                <p:selectOneMenu value="#{libroMB.tipoBusqueda}" >
+                <p:selectOneMenu value="#{libroMB.tipoBusqueda}">
                     <f:selectItems value="#{libroMB.tiposBusqueda}" />
                 </p:selectOneMenu>
             </label>
@@ -157,9 +157,9 @@
                 [OPCIONAL] Numero de recursos ingresados:
                 <p:inputText id="capacidad_busqueda_recurso" class="form-inputs" binding="#{capacitySearch}"/>
             </label>
-            <p:commandButton class="register-btn btn" update="@form" action="#{libroMB.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" oncomplete="buscarPortatiles()" value="Buscar"/>
-            <p:remoteCommand name="buscarPortatiles" action="#{portatilMB.test(resourceSearch.value)}"/>
-            <p:dataTable id="Libros" var="libro" value="#{libroMB.getSearchedRecursos()}" rendered="#{libroMB.isSearchingBooks()}">
+            <p:commandButton class="register-btn btn" action="#{libroMB.loadLibro(resourceSearch.value, libroMB.tipoBusqueda, locationSearch.value, capacitySearch.value)}" oncomplete="buscarPortatiles()" value="Buscar"/>
+            <p:remoteCommand name="buscarPortatiles" update="@form" action="#{portatilMB.loadPortatil(resourceSearch.value, libroMB.tipoBusqueda, locationSearch.value, capacitySearch.value)}"/>
+            <p:dataTable id="Libros" var="libro" value="#{libroMB.getSearchedLibros()}" rendered="#{libroMB.isSearchingBooks()}">
                 <f:facet name="header">
                     Libros encontrados en la biblioteca
                 </f:facet>
@@ -182,15 +182,36 @@
                     <h:outputText value="#{libro.getCapacity()}"/>
                 </p:column>
                 <p:column headerText="Reservar">
-                    <p:commandButton class="register-btn btn" value="Reservar"/>
+                    <p:commandButton class="register-btn btn" value="Reservar" disabled="#{libro.notAvailableForBooking()}"/>
                 </p:column>
             </p:dataTable>
-            <p:dataTable id="Portatiles" var="portatil" value="#{libroMB.getSearchedRecursos()}" rendered="true">
+            <p:dataTable id="Portatiles" var="portatil" value="#{portatilMB.getSearchedPortatiles()}" rendered="#{portatilMB.isSearchingPortatiles()}">
                 <f:facet name="header">
                     Portatiles encontrados en la biblioteca
                 </f:facet>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{portatil.getName()}"/>
+                </p:column>
+                <p:column headerText="Marca">
+                    <h:outputText value="#{portatil.getBrand()}"/>
+                </p:column>
+                <p:column headerText="Procesador">
+                    <h:outputText value="#{portatil.getProcessor()}"/>
+                </p:column>
+                <p:column headerText="RAM">
+                    <h:outputText value="#{portatil.getRam()}"/>
+                </p:column>
+                <p:column headerText="Resolucion de la pantalla">
+                    <h:outputText value="#{portatil.getScreenResolution()}"/>
+                </p:column>
+                <p:column headerText="Ubicacion">
+                    <h:outputText value="#{portatil.getLocation()}"/>
+                </p:column>
+                <p:column headerText="Identificador">
+                    <h:outputText value="#{portatil.getId()}"/>
+                </p:column>
                 <p:column>
-                    <p:commandButton class="register-btn btn" value="Reservar"/>
+                    <p:commandButton class="register-btn btn" value="Reservar" disabled="#{portatil.notAvailableForBooking()}"/>
                 </p:column>
             </p:dataTable>
         </div>

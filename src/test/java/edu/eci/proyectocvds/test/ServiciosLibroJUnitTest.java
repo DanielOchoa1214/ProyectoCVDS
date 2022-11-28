@@ -37,7 +37,7 @@ public class ServiciosLibroJUnitTest {
      public void testingMockito() throws ExcepcionServiciosRecurso {
           try {
                //ARRANGE
-               Mockito.when(daoLibroTest.loadResource("Test", "Test", TipoBusqueda.Libro, 2)).thenReturn(new ArrayList<>());
+               Mockito.when(daoLibroTest.load("Test", "Test", TipoBusqueda.Libro, 2)).thenReturn(new ArrayList<>());
 
                //ACT
                List<Libro> test = serviciosLibro.loadResource("Test", "Test", TipoBusqueda.Libro, 2);

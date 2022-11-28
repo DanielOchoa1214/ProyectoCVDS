@@ -39,7 +39,7 @@ public class LibroServiceSaveTest {
             //ARRANGE
             Libro libro = new Libro("1234", "1", "Academico", 2, "123", "1234",  1, 2,
                     "DISPONIBLE", "yo", false, 1);
-            Mockito.when(daoLibroTest.saveRecurso(libro)).thenReturn(true);
+            Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
             //ACT
             boolean test = serviciosLibro.save(libro);
             //ASSERT
@@ -53,7 +53,7 @@ public class LibroServiceSaveTest {
     public void given_DataBook_when_Exist_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso{
             Libro libro = new Libro("1234", "1", "Academico", 2, "123", "1234",  1, 2,
                     "DISPONIBLE", "yo", false, 1);
-            Mockito.when(daoLibroTest.saveRecurso(libro)).thenThrow(new PersistenceException("Ya_Existe"));
+            Mockito.when(daoLibroTest.save(libro)).thenThrow(new PersistenceException("Ya_Existe"));
             //ACT
             boolean test = serviciosLibro.save(libro);
             //ASSERT

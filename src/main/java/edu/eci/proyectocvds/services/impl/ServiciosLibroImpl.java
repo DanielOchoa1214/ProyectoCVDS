@@ -24,7 +24,7 @@ public class ServiciosLibroImpl implements ServicioRecurso<Libro> {
 
     public List<Libro> loadResource(String name, String location, TipoBusqueda genre, int capacity) throws ExcepcionServiciosRecurso {
         try {
-            return daoLibro.loadResource(name, location, genre, capacity);
+            return daoLibro.load(name, location, genre, capacity);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
@@ -41,15 +41,19 @@ public class ServiciosLibroImpl implements ServicioRecurso<Libro> {
     @Override
     public boolean save(Libro recurso) throws ExcepcionServiciosRecurso {
         try {
-            return daoLibro.saveRecurso(recurso);
+            return daoLibro.save(recurso);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
     }
 
     @Override
-    public Libro load(Libro recurso) {
-        return null;
+    public List<Libro> load(String name, String location, TipoBusqueda type, int capacity) throws ExcepcionServiciosRecurso {
+        try {
+            return daoLibro.load(name, location, type, capacity);
+        } catch (PersistenceException ex) {
+            throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
+        }
     }
 
     @Override

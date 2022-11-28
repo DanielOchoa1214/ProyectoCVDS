@@ -14,12 +14,35 @@
         <result property='bookingScheduleStart' column='booking_schedule_start'/>
         <result property='bookingScheduleEnd' column='booking_schedule_end'/>
         <result property='resourceState' column='resource_state'/>
-        <result property='RAM' column='RAM_model'/>
+        <result property='ram' column='RAM_model'/>
         <result property='hardDriveModel' column='hard_drive_model'/>
         <result property='processor' column='processor'/>
         <result property='screenResolution' column='screen_resolution'/>
         <result property='brand' column='brand'/>
     </resultMap>
+
+    <select id="getResource" resultMap="PortatilResult">
+        SELECT
+            r.name AS name,
+            r.location AS location,
+            (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) AS capacity,
+            r.id AS id,
+            r.info AS info,
+            r.booking_schedule_start AS booking_schedule_start,
+            r.booking_schedule_end AS booking_schedule_start,
+            r.resource_state AS resource_state,
+            p.RAM_model AS RAM_model,
+            p.hard_drive_model AS hard_drive_model,
+            p.processor AS processor,
+            p.screen_resolution AS screen_resolution,
+            p.brand AS brand
+        FROM
+            RECURSO as r JOIN PORTATIL as p ON r.id = p.id
+        WHERE
+            r.name LIKE #{name} AND
+            (#{capacity} = 0 OR (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) = #{capacity}) AND
+            (#{location} = '' OR  r.location = #{location})
+    </select>
 
     <select id="setNewPortatil" statementType="CALLABLE">
         {CALL insert_portatil(#{recurso.name}, #{recurso.location}, 'Portatil', #{recurso.id}, #{recurso.info}, #{recurso.bookingScheduleStart}, #{recurso.bookingScheduleEnd}, #{recurso.resourceState}, #{recurso.ram}, #{recurso.hardDriveModel}, #{recurso.processor}, #{recurso.screenResolution}, #{recurso.brand})}

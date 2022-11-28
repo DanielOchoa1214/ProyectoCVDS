@@ -17,7 +17,7 @@ public class MyBatisDAOLibro implements DAORecurso<Libro> {
     LibroMapper libroMapper;
 
     @Override
-    public boolean saveRecurso(Libro recurso) throws PersistenceException {
+    public boolean save(Libro recurso) throws PersistenceException {
         try{
             libroMapper.setNewLibro(recurso);
             return true;
@@ -28,7 +28,7 @@ public class MyBatisDAOLibro implements DAORecurso<Libro> {
     }
 
     @Override
-    public List<Libro> loadResource(String name, String location, TipoBusqueda genre, int capacity) throws PersistenceException {
+    public List<Libro> load(String name, String location, TipoBusqueda genre, int capacity) throws PersistenceException {
         try{
             return libroMapper.getResource(name, location, genre, capacity);
         }

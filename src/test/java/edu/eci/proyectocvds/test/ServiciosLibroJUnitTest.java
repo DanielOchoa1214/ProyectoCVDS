@@ -4,6 +4,7 @@ package edu.eci.proyectocvds.test;
 import edu.eci.proyectocvds.entities.Genero;
 import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Recurso;
+import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.persistence.PersistenceException;
 import edu.eci.proyectocvds.services.ExcepcionServiciosRecurso;
@@ -36,10 +37,10 @@ public class ServiciosLibroJUnitTest {
      public void testingMockito() throws ExcepcionServiciosRecurso {
           try {
                //ARRANGE
-               Mockito.when(daoLibroTest.loadResource("Test", "Test", Genero.Academico, 2)).thenReturn(new ArrayList<>());
+               Mockito.when(daoLibroTest.loadResource("Test", "Test", TipoBusqueda.Libro, 2)).thenReturn(new ArrayList<>());
 
                //ACT
-               List<Libro> test = serviciosLibro.loadResource("Test", "Test", Genero.Academico, 2);
+               List<Libro> test = serviciosLibro.loadResource("Test", "Test", TipoBusqueda.Libro, 2);
 
                //ASSERT
                assertEquals(test, new ArrayList<>());

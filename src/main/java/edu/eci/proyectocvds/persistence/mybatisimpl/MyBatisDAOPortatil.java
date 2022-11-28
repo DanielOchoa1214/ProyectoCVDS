@@ -5,6 +5,7 @@ import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Genero;
 import edu.eci.proyectocvds.entities.Portatil;
 import edu.eci.proyectocvds.entities.Recurso;
+import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.persistence.PersistenceException;
 import edu.eci.proyectocvds.persistence.mybatisimpl.mappers.PortatilMapper;
@@ -26,7 +27,7 @@ public class MyBatisDAOPortatil implements DAORecurso<Portatil> {
     }
 
     @Override
-    public List<Portatil> loadResource(String name, String location, Genero genre, int capacity) throws PersistenceException {
+    public List<Portatil> loadResource(String name, String location, TipoBusqueda genre, int capacity) throws PersistenceException {
         return null;
     }
 

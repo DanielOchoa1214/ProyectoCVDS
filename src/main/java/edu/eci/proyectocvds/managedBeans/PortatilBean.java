@@ -3,20 +3,25 @@ package edu.eci.proyectocvds.managedBeans;
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Portatil;
+import edu.eci.proyectocvds.services.SetUpInjector;
 import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name = "portatil")
+@ManagedBean(name = "portatilMB")
 @SessionScoped
 public class PortatilBean {
-    // ServiciosPortatilImpl service = new SetUpInjector().getInjector().getInstance(ServiciosPortatilImpl.class);
+
     @Inject
     ServiciosPortatilImpl service;
     EstadoRecurso estadoRecurso;
     boolean success;
+    boolean searchingPortatiles;
 
+    public PortatilBean(){
+        this.service = new SetUpInjector().getInjector().getInstance(ServiciosPortatilImpl.class);
+    }
     public boolean savePortatil(String name, String capacity, String id, String info,
                                String bookingScheduleStart, String bookingScheduleEnd, String ramModel, String hardDriveModel,
                                String processor, String screenResolution, String brand){
@@ -40,6 +45,10 @@ public class PortatilBean {
         }
     }
 
+    public void test(String a){
+        System.out.println(a);
+    }
+
     public EstadoRecurso getEstadoRecurso() {
         return estadoRecurso;
     }
@@ -50,6 +59,14 @@ public class PortatilBean {
 
     public EstadoRecurso[] getEstadosRecurso(){
         return EstadoRecurso.values();
+    }
+
+    public boolean getSearchingPortatiles(){
+        return this.searchingPortatiles;
+    }
+
+    public void setSearchingPortatiles(boolean searchingPortatiles) {
+        this.searchingPortatiles = searchingPortatiles;
     }
 
     private String createNewId(String id){

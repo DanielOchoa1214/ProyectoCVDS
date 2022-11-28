@@ -160,6 +160,21 @@ DELETE FROM RECURSO WHERE id = 'ABC-123';
 DELETE FROM RECURSO WHERE id = 'ABC-124';
 DELETE FROM RESERVA WHERE id = 'RES-004';
 
+SELECT
+    r.name AS name,
+    r.location AS location,
+    r.type AS type,
+    (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) AS capacity,
+    r.info AS info,
+    r.id AS id,
+    r.booking_schedule_start AS booking_schedule_start,
+    r.booking_schedule_end AS booking_schedule_start,
+    r.resource_state AS resource_state
+FROM
+    RECURSO as r
+WHERE
+    r.name LIKE 'juego de tronos';
+
 
 DROP TABLE RESERVA_RECURRENTE;
 DROP TABLE RESERVA_UNICA;
@@ -171,4 +186,5 @@ DROP TABLE RECURSO;
 
 SELECT * FROM RECURSO;
 SELECT * FROM LIBRO;
+SELECT * FROM PORTATIL;
 SELECT * FROM RESERVA;

@@ -5,6 +5,7 @@ import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Genero;
 import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Recurso;
+import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.persistence.PersistenceException;
 import edu.eci.proyectocvds.services.ExcepcionServiciosRecurso;
@@ -21,7 +22,7 @@ public class ServiciosLibroImpl implements ServicioRecurso<Libro> {
         this.daoLibro = daoLibro;
     }
 
-    public List<Libro> loadResource(String name, String location, Genero genre, int capacity) throws ExcepcionServiciosRecurso {
+    public List<Libro> loadResource(String name, String location, TipoBusqueda genre, int capacity) throws ExcepcionServiciosRecurso {
         try {
             return daoLibro.loadResource(name, location, genre, capacity);
         } catch (PersistenceException ex) {

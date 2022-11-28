@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@ManagedBean(name = "libro")
+@ManagedBean(name = "libroMB")
 @SessionScoped
 public class LibroBean {
 
@@ -20,14 +20,15 @@ public class LibroBean {
     boolean success = false;
     Genero generoLibro;
     EstadoRecurso estadoRecurso;
-    List<Libro> searchedRecursos = new ArrayList<>(Arrays.asList(new Libro("Test", "Pasillo 2", "Academico", 3, "123", "Holi", 10, 15, "DISPONIBLE", "Test", true, 1000)));
-    Libro booking = (Libro) searchedRecursos.get(0);
+    List<Libro> searchedRecursos;
+    Libro booking;
     RecurrenciaReserva recurrenciaReserva;
-
+    TipoBusqueda tipoBusqueda;
+    boolean searchingBooks = false;
     public LibroBean(){
         service = new SetUpInjector().getInjector().getInstance(ServiciosLibroImpl.class);
     }
-    // String name, String location, TipoRecurso type, int capacity, String id, String bookingScheduleStart, String bookingScheduleEnd
+
     public boolean saveLibro(String name, String location, String capacity, String id, String info,
                           String bookingScheduleStart, String bookingScheduleEnd, String autor,
                           boolean hardCover, String pages) throws Exception{
@@ -66,13 +67,16 @@ public class LibroBean {
         this.booking = booking;
     }
 
-    public void loadRecurso(String name, String location, String capacity) throws Exception{
+    public boolean loadRecurso(String name, String location, String capacity) throws Exception{
         try {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
+            updateSearchingBooks();
             String lowerName = name.toLowerCase();
-            searchedRecursos =  service.loadResource(lowerName, location, generoLibro, cap);
+            searchedRecursos =  service.loadResource(lowerName, location, tipoBusqueda, cap);
+            return true;
         } catch (Exception e){
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -128,4 +132,25 @@ public class LibroBean {
         return RecurrenciaReserva.values();
     }
 
+    public TipoBusqueda getTipoBusqueda() {
+        return tipoBusqueda;
+    }
+
+    public void setTipoBusqueda(TipoBusqueda tiposBusqueda) {
+        this.tipoBusqueda = tiposBusqueda;
+    }
+
+    private void updateSearchingBooks(){
+        searchingBooks = tipoBusqueda.equals(TipoBusqueda.Libro) || tipoBusqueda.equals(TipoBusqueda.Todo);
+    }
+
+    public boolean isSearchingBooks() {
+        return searchingBooks;
+    }
+
+    public TipoBusqueda[] getTiposBusqueda() { return TipoBusqueda.values(); }
+
+    public void test(String a){
+        System.out.println(a);
+    }
 }

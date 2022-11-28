@@ -4,6 +4,7 @@ import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Genero;
 import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Recurso;
+import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 public interface LibroMapper {
     void setNewLibro(@Param("recurso") Recurso recurso);
 
-    List<Libro> getResource(@Param("name") String name, @Param("location") String location, @Param("genre") Genero genre,
+    List<Libro> getResource(@Param("name") String name, @Param("location") String location, @Param("type") TipoBusqueda type,
                             @Param("capacity") int capacity);
 
     void updateResourceState(@Param("id") String id, @Param("estadoRecurso") EstadoRecurso estadoRecurso);

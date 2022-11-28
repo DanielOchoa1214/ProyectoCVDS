@@ -37,8 +37,8 @@
             </label>
             <label>
                 Genero del libro:
-                <p:selectOneMenu value="#{libro.generoLibro}" >
-                    <f:selectItems value="#{libro.generosLibro}" />
+                <p:selectOneMenu value="#{libroMB.generoLibro}" >
+                    <f:selectItems value="#{libroMB.generosLibro}" />
                 </p:selectOneMenu>
             </label>
             <label>
@@ -72,11 +72,11 @@
             </label>
             <label>
                 Estado del libro:
-                <p:selectOneMenu value="#{libro.estadoRecurso}" >
-                    <f:selectItems value="#{libro.estadosRecurso}" />
+                <p:selectOneMenu value="#{libroMB.estadoRecurso}" >
+                    <f:selectItems value="#{libroMB.estadosRecurso}" />
                 </p:selectOneMenu>
             </label>
-            <p:commandButton class="register-btn btn" value="Registrar" action="#{libro.saveLibro(bookName.value, bookLocation.value, bookCapacity.value, bookId.value, bookInfo.value, bookBookingScheduleStart.value, bookBookingScheduleEnd.value, bookAuthor.value, bookHardCover.value, bookPages.value)}"/>
+            <p:commandButton class="register-btn btn" value="Registrar" action="#{libroMB.saveLibro(bookName.value, bookLocation.value, bookCapacity.value, bookId.value, bookInfo.value, bookBookingScheduleStart.value, bookBookingScheduleEnd.value, bookAuthor.value, bookHardCover.value, bookPages.value)}"/>
         </h:form>
     </p:dialog>
     <p:dialog header="Ingresa un portatil" widgetVar="savePortatil" modal="true" class="reserva-popup">
@@ -132,12 +132,68 @@
             </label>
             <label>
                 Estado del portatil:
-                <p:selectOneMenu value="#{portatil.estadoRecurso}" >
-                    <f:selectItems value="#{portatil.estadosRecurso}" />
+                <p:selectOneMenu value="#{portatilMB.estadoRecurso}" >
+                    <f:selectItems value="#{portatilMB.estadosRecurso}" />
                 </p:selectOneMenu>
             </label>
-            <p:commandButton class="register-btn btn" value="Registrar" action="#{portatil.savePortatil(laptopName.value, laptopCapacity.value, laptopId.value, laptopInfo.value, laptopBookingScheduleStart.value, laptopBookingScheduleEnd.value, laptopRAM.value, laptopHardDrive.value, laptopProcessor.value, laptopScreenResolution.value, laptopBrand.value)}"/>
+            <p:commandButton class="register-btn btn" value="Registrar" action="#{portatilMB.savePortatil(laptopName.value, laptopCapacity.value, laptopId.value, laptopInfo.value, laptopBookingScheduleStart.value, laptopBookingScheduleEnd.value, laptopRAM.value, laptopHardDrive.value, laptopProcessor.value, laptopScreenResolution.value, laptopBrand.value)}"/>
         </h:form>
     </p:dialog>
+    <h:form>
+        <div class="search-div form-div">
+            <h1 class="register-title">Busca un recurso en biblioteca</h1>
+            <p:inputText id="busqueda_recurso" class="search-input" binding="#{resourceSearch}"/>
+            <label>
+                Tipo del recurso:
+                <p:selectOneMenu value="#{libroMB.tipoBusqueda}" >
+                    <f:selectItems value="#{libroMB.tiposBusqueda}" />
+                </p:selectOneMenu>
+            </label>
+            <label>
+                [OPCIONAL] Ubicación del recurso en la biblioteca:
+                <p:inputText id="ubicacion_busqueda_recurso" class="form-inputs" binding="#{locationSearch}"/>
+            </label>
+            <label>
+                [OPCIONAL] Numero de recursos ingresados:
+                <p:inputText id="capacidad_busqueda_recurso" class="form-inputs" binding="#{capacitySearch}"/>
+            </label>
+            <p:commandButton class="register-btn btn" update="@form" action="#{libroMB.loadRecurso(resourceSearch.value, locationSearch.value, capacitySearch.value)}" oncomplete="buscarPortatiles()" value="Buscar"/>
+            <p:remoteCommand name="buscarPortatiles" action="#{portatilMB.test(resourceSearch.value)}"/>
+            <p:dataTable id="Libros" var="libro" value="#{libroMB.getSearchedRecursos()}" rendered="#{libroMB.isSearchingBooks()}">
+                <f:facet name="header">
+                    Libros encontrados en la biblioteca
+                </f:facet>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{libro.getName()}"/>
+                </p:column>
+                <p:column headerText="Autor">
+                    <h:outputText value="#{libro.getAuthor()}"/>
+                </p:column>
+                <p:column headerText="Genero">
+                    <h:outputText value="#{libro.getGenero()}"/>
+                </p:column>
+                <p:column headerText="Ubicacion">
+                    <h:outputText value="#{libro.getLocation()}"/>
+                </p:column>
+                <p:column headerText="Identificador">
+                    <h:outputText value="#{libro.getId()}"/>
+                </p:column>
+                <p:column headerText="Cantidad">
+                    <h:outputText value="#{libro.getCapacity()}"/>
+                </p:column>
+                <p:column headerText="Reservar">
+                    <p:commandButton class="register-btn btn" value="Reservar"/>
+                </p:column>
+            </p:dataTable>
+            <p:dataTable id="Portatiles" var="portatil" value="#{libroMB.getSearchedRecursos()}" rendered="true">
+                <f:facet name="header">
+                    Portatiles encontrados en la biblioteca
+                </f:facet>
+                <p:column>
+                    <p:commandButton class="register-btn btn" value="Reservar"/>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
 </h:body>
 </html>

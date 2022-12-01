@@ -82,9 +82,4 @@ public abstract class Recurso {
     public String toString() {
         return "{nombre: " + this.name + "}";
     }
-
-    @Override
-    public boolean equals(Object p){
-        return this.equals(p);
-    }
 }

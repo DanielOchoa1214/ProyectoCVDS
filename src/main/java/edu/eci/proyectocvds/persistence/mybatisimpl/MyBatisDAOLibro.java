@@ -36,14 +36,4 @@ public class MyBatisDAOLibro implements DAORecurso<Libro> {
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
         }
     }
-
-    @Override
-    public void updateResourceState(String id, EstadoRecurso estadoRecurso) throws PersistenceException {
-        try{
-            libroMapper.updateResourceState(id, estadoRecurso);
-        }
-        catch(Exception e){
-            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
-        }
-    }
 }

@@ -1,5 +1,4 @@
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/mappers/LibroMapper.java
-/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/Reserva.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/Libro.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/managedBeans/LibroBean.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/Genero.java
@@ -15,7 +14,6 @@
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/persistence/PersistenceException.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/EstadoRecurso.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/Recurso.java
-/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/entities/RecurrenciaReserva.java
+/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/setup/SetUpInjector.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/MyBatisDAOLibro.java
 /Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/services/impl/ServiciosPortatilImpl.java
-/Users/DanielOchoa/Desktop/CVDS/ProyectoCVDS/src/main/java/edu/eci/proyectocvds/services/SetUpInjector.java

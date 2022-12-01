@@ -3,7 +3,7 @@ package edu.eci.proyectocvds.managedBeans;
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Portatil;
-import edu.eci.proyectocvds.services.SetUpInjector;
+import edu.eci.proyectocvds.setup.SetUpInjector;
 import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
 
 import javax.faces.bean.ManagedBean;
@@ -19,10 +19,12 @@ public class PortatilBean {
     EstadoRecurso estadoRecurso;
     List<Portatil> searchedPortatiles;
     boolean success;
-    boolean searchingPortatiles = false;
+    boolean searchingPortatiles;
 
     public PortatilBean(){
         this.service = new SetUpInjector().getInjector().getInstance(ServiciosPortatilImpl.class);
+        success = false;
+        searchingPortatiles = false;
     }
     public boolean savePortatil(String name, String capacity, String id, String info,
                                String bookingScheduleStart, String bookingScheduleEnd, String ramModel, String hardDriveModel,
@@ -41,9 +43,7 @@ public class PortatilBean {
             }
             return success;
         } catch (Exception e){
-            e.printStackTrace();
-            success = false;
-            return false;
+            return sendFail(e);
         }
     }
 
@@ -55,17 +55,28 @@ public class PortatilBean {
             searchedPortatiles =  service.load(lowerName, location, TipoBusqueda.valueOf(tipoBusqueda), cap);
             return true;
         }catch (Exception e){
-            e.printStackTrace();
-            return false;
+            return sendFail(e);
         }
+    }
+
+    private boolean sendFail(Exception e){
+        e.printStackTrace();
+        success = false;
+        return false;
+    }
+
+    private void updateSearchingPortatiles(TipoBusqueda tipoBusqueda){
+        searchingPortatiles = tipoBusqueda.equals(TipoBusqueda.Portatil) || tipoBusqueda.equals(TipoBusqueda.Todo);
+    }
+
+    private String createNewId(String id){
+        int idNumber = Integer.parseInt(id.split("-")[1]);
+        idNumber++;
+        return id.split("-")[0] + "-" + idNumber;
     }
 
     public List<Portatil> getSearchedPortatiles() {
         return searchedPortatiles;
-    }
-
-    public void test(String a){
-        System.out.println(a);
     }
 
     public EstadoRecurso getEstadoRecurso() {
@@ -87,15 +98,4 @@ public class PortatilBean {
     public void setSearchingPortatiles(boolean searchingPortatiles) {
         this.searchingPortatiles = searchingPortatiles;
     }
-
-    private void updateSearchingPortatiles(TipoBusqueda tipoBusqueda){
-        searchingPortatiles = tipoBusqueda.equals(TipoBusqueda.Portatil) || tipoBusqueda.equals(TipoBusqueda.Todo);
-    }
-
-    private String createNewId(String id){
-        int idNumber = Integer.parseInt(id.split("-")[1]);
-        idNumber++;
-        return id.split("-")[0] + "-" + idNumber;
-    }
-
 }

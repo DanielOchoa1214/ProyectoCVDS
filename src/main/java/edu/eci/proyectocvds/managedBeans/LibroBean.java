@@ -2,7 +2,7 @@ package edu.eci.proyectocvds.managedBeans;
 
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.*;
-import edu.eci.proyectocvds.services.SetUpInjector;
+import edu.eci.proyectocvds.setup.SetUpInjector;
 import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 
 import javax.faces.bean.ManagedBean;
@@ -15,16 +15,17 @@ public class LibroBean {
 
     @Inject
     ServiciosLibroImpl service;
-    boolean success = false;
+    boolean success;
     Genero generoLibro;
     EstadoRecurso estadoRecurso;
     List<Libro> searchedLibros;
     Libro booking;
-    RecurrenciaReserva recurrenciaReserva;
     TipoBusqueda tipoBusqueda;
-    boolean searchingBooks = false;
+    boolean searchingBooks;
     public LibroBean(){
         service = new SetUpInjector().getInjector().getInstance(ServiciosLibroImpl.class);
+        success = false;
+        searchingBooks = false;
     }
 
     public boolean saveLibro(String name, String location, String capacity, String id, String info,
@@ -45,10 +46,25 @@ public class LibroBean {
             }
             return success;
         } catch (Exception e){
-            e.printStackTrace();
-            success = false;
-            return false;
+            return sendFail(e);
         }
+    }
+    public boolean loadLibro(String name, String tipoBusqueda, String location, String capacity){
+        try {
+            int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
+            updateSearchingBooks(TipoBusqueda.valueOf(tipoBusqueda));
+            String lowerName = name.toLowerCase();
+            searchedLibros =  service.load(lowerName, location, TipoBusqueda.valueOf(tipoBusqueda), cap);
+            return true;
+        } catch (Exception e){
+            return  sendFail(e);
+        }
+    }
+
+    private boolean sendFail(Exception e){
+        e.printStackTrace();
+        success = false;
+        return false;
     }
 
     private String createNewId(String id){
@@ -57,33 +73,16 @@ public class LibroBean {
         return id.split("-")[0] + "-" + idNumber;
     }
 
+    private void updateSearchingBooks(TipoBusqueda tipoBusqueda){
+        searchingBooks = tipoBusqueda.equals(TipoBusqueda.Libro) || tipoBusqueda.equals(TipoBusqueda.Todo);
+    }
+
     public Recurso getBooking() {
         return booking;
     }
 
     public void setBooking(Libro booking) {
         this.booking = booking;
-    }
-
-    public boolean loadLibro(String name, String tipoBusqueda, String location, String capacity){
-        try {
-            int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
-            updateSearchingBooks(TipoBusqueda.valueOf(tipoBusqueda));
-            String lowerName = name.toLowerCase();
-            searchedLibros =  service.loadResource(lowerName, location, TipoBusqueda.valueOf(tipoBusqueda), cap);
-            return true;
-        } catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public void updateRecursoState(String id) throws Exception{
-        try {
-            service.updateResourceState(id, this.estadoRecurso);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     public List<Libro> getSearchedLibros() {
@@ -114,20 +113,8 @@ public class LibroBean {
         return EstadoRecurso.values();
     }
 
-    public RecurrenciaReserva getRecurrenciaReserva() {
-        return recurrenciaReserva;
-    }
-
-    public void setRecurrenciaReserva(RecurrenciaReserva recurrenciaReserva) {
-        this.recurrenciaReserva = recurrenciaReserva;
-    }
-
     public void setSearchedLibros(List<Libro> searchedLibros) {
         this.searchedLibros = searchedLibros;
-    }
-
-    public RecurrenciaReserva[] getRecurrenciasReserva() {
-        return RecurrenciaReserva.values();
     }
 
     public TipoBusqueda getTipoBusqueda() {
@@ -138,17 +125,9 @@ public class LibroBean {
         this.tipoBusqueda = tiposBusqueda;
     }
 
-    private void updateSearchingBooks(TipoBusqueda tipoBusqueda){
-        searchingBooks = tipoBusqueda.equals(TipoBusqueda.Libro) || tipoBusqueda.equals(TipoBusqueda.Todo);
-    }
-
     public boolean isSearchingBooks() {
         return searchingBooks;
     }
 
     public TipoBusqueda[] getTiposBusqueda() { return TipoBusqueda.values(); }
-
-    public void test(String a){
-        System.out.println(a);
-    }
 }

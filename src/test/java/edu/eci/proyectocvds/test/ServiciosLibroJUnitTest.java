@@ -40,7 +40,7 @@ public class ServiciosLibroJUnitTest {
                Mockito.when(daoLibroTest.load("Test", "Test", TipoBusqueda.Libro, 2)).thenReturn(new ArrayList<>());
 
                //ACT
-               List<Libro> test = serviciosLibro.loadResource("Test", "Test", TipoBusqueda.Libro, 2);
+               List<Libro> test = serviciosLibro.load("Test", "Test", TipoBusqueda.Libro, 2);
 
                //ASSERT
                assertEquals(test, new ArrayList<>());

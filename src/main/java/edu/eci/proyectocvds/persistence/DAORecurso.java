@@ -11,6 +11,4 @@ public interface DAORecurso<T> {
     boolean save(T recurso) throws PersistenceException;
 
     List<T> load(String name, String location, TipoBusqueda genre, int capacity) throws PersistenceException;
-
-    void updateResourceState(String id, EstadoRecurso estadoRecurso) throws PersistenceException;
 }

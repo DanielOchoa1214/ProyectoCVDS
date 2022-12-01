@@ -36,9 +36,4 @@ public class ServiciosPortatilImpl implements ServicioRecurso<Portatil> {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
     }
-
-    @Override
-    public boolean update(Portatil recurso) {
-        return false;
-    }
 }

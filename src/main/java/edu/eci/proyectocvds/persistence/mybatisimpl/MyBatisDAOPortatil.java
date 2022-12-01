@@ -35,9 +35,4 @@ public class MyBatisDAOPortatil implements DAORecurso<Portatil> {
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
         }
     }
-
-    @Override
-    public void updateResourceState(String id, EstadoRecurso estadoRecurso) throws PersistenceException {
-
-    }
 }

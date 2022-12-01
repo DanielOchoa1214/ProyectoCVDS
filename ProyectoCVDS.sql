@@ -36,32 +36,6 @@ CREATE TABLE PORTATIL (
     CONSTRAINT `FK_PORTATIL_RECURSO_1` FOREIGN KEY (`id`) REFERENCES RECURSO(`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB;
 
-CREATE table RESERVA (
-    `id` varchar(10) NOT NULL,
-    `resource` varchar(10) NOT NULL,
-    `infoResource` varchar(100) NOT NULL,
-    `requestDate` DATE NOT NULL,
-    `initialDate` DATE NOT NULL,
-    `finalDate` DATE NOT NULL,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `FK_RESERVA_RECURSO_1` FOREIGN KEY (`resource`) REFERENCES RECURSO(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `FK_RESERVA_RECURSO_2` FOREIGN KEY (`infoResource`) REFERENCES RECURSO(`info`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB;
-
-CREATE table RESERVA_RECURRENTE (
-    `id` varchar(10) NOT NULL,
-    `next_booking_date` DATE NULL,
-    `recurrence` varchar(20) NOT NULL,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `FK_RESERVA_RECURRENTE_RESERVA_1` FOREIGN KEY (`id`) REFERENCES RESERVA(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB;
-
-CREATE table RESERVA_UNICA (
-    `id` varchar(10) NOT NULL,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `FK_RESERVA_UNICA_RESERVA_1` FOREIGN KEY (`id`) REFERENCES RESERVA(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB;
-
 DELIMITER $$
 DROP PROCEDURE IF EXISTS insert_libro;
 CREATE PROCEDURE insert_libro(
@@ -144,41 +118,11 @@ INSERT INTO PORTATIL (id, RAM_model, hard_drive_model, processor, screen_resolut
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('portatil', 'Pedir el ventanilla', 'Portatil', 'PSK-521', 'Portatil de todo uso para quienes quieran sufrir un poco mas en la universidad', 7, 17, 'DISPONIBLE');
 INSERT INTO PORTATIL (id, RAM_model, hard_drive_model, processor, screen_resolution, brand) VALUES ('PSK-521', 'DDR3L 8gb 1600 Mhz Kingston', 'Disco generico','Intel', '3840x2160', 'Marca pollito');
 
-
-INSERT INTO RESERVA (id, resource, infoResource, requestDate, initialDate, finalDate) values ('RES-001', 'ALS-958', 'Libro de calculo usado en cursos de CALD', '2022-11-02', '2022-11-02', '2022-11-03');
-INSERT INTO RESERVA_UNICA (id) VALUES ('RES-001');
-INSERT INTO RESERVA (id, resource, infoResource, requestDate, initialDate, finalDate) values ('RES-003', 'HGL-232', 'Libro para gente culta que ama la literatura', '2022-11-11', '2022-11-11', '2022-11-12');
-INSERT INTO RESERVA_UNICA (id) VALUES ('RES-003');
-INSERT INTO RESERVA (id, resource, infoResource, requestDate, initialDate, finalDate) values ('RES-004', 'PSK-520', 'Portatil de todo uso para quienes quieran sufrir un poco mas en la universidad', '2022-11-03', '2022-11-03', '2022-11-04');
-INSERT INTO RESERVA_UNICA (id) VALUES ('RES-004');
-
-INSERT INTO RESERVA (id, resource, infoResource, requestDate, initialDate, finalDate) values ('RES-002', 'HGL-231', 'Libro para gente culta que ama la literatura', '2022-11-10', '2022-11-10', '2022-11-11');
-INSERT INTO RESERVA_RECURRENTE (id, next_booking_date, recurrence) VALUES ('RES-002', '2022-11-12', 'DIARIO');
-
 DELETE FROM RECURSO WHERE id = 'PSK-520';
 DELETE FROM RECURSO WHERE id = 'ABC-123';
 DELETE FROM RECURSO WHERE id = 'ABC-124';
-DELETE FROM RESERVA WHERE id = 'RES-004';
-
-SELECT
-    r.name AS name,
-    r.location AS location,
-    r.type AS type,
-    (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) AS capacity,
-    r.info AS info,
-    r.id AS id,
-    r.booking_schedule_start AS booking_schedule_start,
-    r.booking_schedule_end AS booking_schedule_start,
-    r.resource_state AS resource_state
-FROM
-    RECURSO as r
-WHERE
-    r.name LIKE 'juego de tronos';
 
 
-DROP TABLE RESERVA_RECURRENTE;
-DROP TABLE RESERVA_UNICA;
-DROP TABLE RESERVA;
 DROP TABLE LIBRO;
 DROP TABLE PORTATIL;
 DROP TABLE RECURSO;
@@ -187,4 +131,3 @@ DROP TABLE RECURSO;
 SELECT * FROM RECURSO;
 SELECT * FROM LIBRO;
 SELECT * FROM PORTATIL;
-SELECT * FROM RESERVA;

@@ -1,4 +1,4 @@
-package edu.eci.proyectocvds.services;
+package edu.eci.proyectocvds.setup;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -9,6 +9,7 @@ import edu.eci.proyectocvds.entities.Portatil;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.persistence.mybatisimpl.MyBatisDAOLibro;
 import edu.eci.proyectocvds.persistence.mybatisimpl.MyBatisDAOPortatil;
+import edu.eci.proyectocvds.services.ServicioRecurso;
 import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
 import org.mybatis.guice.XMLMyBatisModule;

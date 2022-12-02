@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LibroServiceLoadTest {
-/*    @Mock
+    @Mock
     DAORecurso<Libro> daoLibroTest;
 
     ServicioRecurso<Libro> serviciosLibro;
@@ -32,29 +32,25 @@ public class LibroServiceLoadTest {
         serviciosLibro = new ServiciosLibroImpl(daoLibroTest);
     }
 
-    *//*
+    /*
      * Clases de equivalencia
      * No exista ningun recurso
-     * Que algun recurso que exista
+     * Que algun recurso exista
      * La consulta suelte error
-     *//*
+     */
 
     @Test
-    public void given_DataBook_when_NoExistMatch_then_ReturnEmptyList() {
-        try {
-            //ARRANGE
-            Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
-                    1, 2, "DISPONIBLE", "yo", false, 1);
-            ArrayList<Libro> list = new ArrayList<>();
-            list.add(libro);
-            Mockito.when(daoLibroTest.load(new Libro("1234", "pos1", 2))).thenReturn(list);
-            //ACT
-            List<Libro> test = serviciosLibro.load(new Libro("1234", "pos1", 2));
-            //ASSERT
-            assertEquals(0, test.size());
-        } catch (PersistenceException | ExcepcionServiciosRecurso e) {
-            throw new RuntimeException(e);
-        }
+    public void given_DataBook_when_NoExistMatch_then_ReturnEmptyList() throws  PersistenceException, ExcepcionServiciosRecurso {
+        //ARRANGE
+        Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
+                1, 2, "DISPONIBLE", "yo", false, 1);
+        ArrayList<Libro> list = new ArrayList<>();
+        list.add(libro);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
+        //ACT
+        List<Libro> test = serviciosLibro.load("124", "pos1", TipoBusqueda.LIBRO, 2);
+        //ASSERT
+        assertEquals(0, test.size());
     }
 
     @Test
@@ -67,9 +63,9 @@ public class LibroServiceLoadTest {
         ArrayList<Libro> list = new ArrayList<>();
         list.add(libro_1);
         list.add(libro_2);
-        Mockito.when(daoLibroTest.load(new Libro("1234", "pos1", 2))).thenReturn(list);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
         //ACT
-        List<Libro> test = serviciosLibro.load(new Libro("1234", "pos1", 2));
+        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.LIBRO, 2);
         //ASSERT
         assertEquals(2, test.size());
     }
@@ -81,10 +77,10 @@ public class LibroServiceLoadTest {
                 1, 2, "DISPONIBLE", "yo", false, 1);
         ArrayList<Libro> list = new ArrayList<>();
         list.add(libro);
-        Mockito.when(daoLibroTest.load(new Libro("1234", "pos1", 2))).thenReturn(list);
-        Mockito.when(daoLibroTest.load(new Libro("1234", "pos1", 2))).thenThrow(new PersistenceException("Mal_Query"));
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.PORTATIL, 2)).thenThrow(new PersistenceException("Mal_Query"));
         //ACT
-        List<Libro> test = serviciosLibro.load(new Libro("1234", "pos1", 2));
+        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.PORTATIL, 2);
         //ASSERT
-    }*/
+    }
 }

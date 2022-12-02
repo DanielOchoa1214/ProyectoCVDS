@@ -2,11 +2,15 @@ package edu.eci.proyectocvds.managedBeans;
 
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.*;
+import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
+import edu.eci.proyectocvds.errors.IntegrityException;
 import edu.eci.proyectocvds.setup.SetUpInjector;
 import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @ManagedBean(name = "libroMB")
@@ -15,7 +19,7 @@ public class LibroBean {
 
     @Inject
     ServiciosLibroImpl service;
-    boolean success;
+    boolean success ;
     Genero generoLibro;
     EstadoRecurso estadoRecurso;
     List<Libro> searchedLibros;
@@ -24,7 +28,7 @@ public class LibroBean {
     boolean searchingBooks;
     public LibroBean(){
         service = new SetUpInjector().getInjector().getInstance(ServiciosLibroImpl.class);
-        success = false;
+        success = true;
         searchingBooks = false;
     }
 
@@ -32,7 +36,7 @@ public class LibroBean {
                           String bookingScheduleStart, String bookingScheduleEnd, String autor,
                           boolean hardCover, String pages) throws Exception{
         try {
-            int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
+            int cap = (int) Double.parseDouble(capacity);
             int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);
             int end = bookingScheduleEnd.equals("") ? 0 : Integer.parseInt(bookingScheduleEnd);
             int pageNum = pages.equals("") ? 0 : Integer.parseInt(pages);
@@ -43,9 +47,11 @@ public class LibroBean {
                         estadoRecurso.toString(), autor, hardCover, pageNum);
                 success = service.save(inserting);
                 buildId = createNewId(buildId);
+                info();
             }
             return success;
-        } catch (Exception e){
+        } catch (IntegrityException | ExcepcionServiciosRecurso e){
+            error(e.getMessage());
             return sendFail(e);
         }
     }
@@ -75,6 +81,14 @@ public class LibroBean {
 
     private void updateSearchingBooks(TipoBusqueda tipoBusqueda){
         searchingBooks = tipoBusqueda.equals(TipoBusqueda.Libro) || tipoBusqueda.equals(TipoBusqueda.Todo);
+    }
+
+    public void info() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Libro añadido correctamente"));
+    }
+
+    public void error(String err) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", err));
     }
 
     public Recurso getBooking() {
@@ -130,4 +144,12 @@ public class LibroBean {
     }
 
     public TipoBusqueda[] getTiposBusqueda() { return TipoBusqueda.values(); }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
 }

@@ -3,11 +3,15 @@ package edu.eci.proyectocvds.managedBeans;
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.EstadoRecurso;
 import edu.eci.proyectocvds.entities.Portatil;
+import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
+import edu.eci.proyectocvds.errors.IntegrityException;
 import edu.eci.proyectocvds.setup.SetUpInjector;
 import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @ManagedBean(name = "portatilMB")
@@ -30,7 +34,7 @@ public class PortatilBean {
                                String bookingScheduleStart, String bookingScheduleEnd, String ramModel, String hardDriveModel,
                                String processor, String screenResolution, String brand){
         try {
-            int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
+            int cap = (int) Double.parseDouble(capacity);
             int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);
             int end = bookingScheduleEnd.equals("") ? 0 : Integer.parseInt(bookingScheduleEnd);
             String smallName = name.toLowerCase();
@@ -40,9 +44,11 @@ public class PortatilBean {
                         hardDriveModel, processor, screenResolution, brand);
                 success = service.save(inserting);
                 buildId = createNewId(buildId);
+                info();
             }
             return success;
-        } catch (Exception e){
+        } catch (IntegrityException | ExcepcionServiciosRecurso e){
+            error(e.getMessage());
             return sendFail(e);
         }
     }
@@ -57,6 +63,14 @@ public class PortatilBean {
         }catch (Exception e){
             return sendFail(e);
         }
+    }
+
+    public void info() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Portatil añadido correctamente"));
+    }
+
+    public void error(String err) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", err));
     }
 
     private boolean sendFail(Exception e){

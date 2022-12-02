@@ -47,7 +47,7 @@ public abstract class Recurso {
     }
 
     public String getName() {
-        return name.substring(0, 1).toUpperCase() + name.substring(1);
+        return !name.equals("") ? name.substring(0, 1).toUpperCase() + name.substring(1) : "";
     }
 
     public void setBookingScheduleEnd(int bookingScheduleEnd) {
@@ -77,7 +77,6 @@ public abstract class Recurso {
     public boolean notAvailableForBooking(){
         return !resourceState.equals(EstadoRecurso.DISPONIBLE);
     }
-
     @Override
     public String toString() {
         return "{nombre: " + this.name + "}";

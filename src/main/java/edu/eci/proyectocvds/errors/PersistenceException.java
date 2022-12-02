@@ -1,4 +1,4 @@
-package edu.eci.proyectocvds.persistence;
+package edu.eci.proyectocvds.errors;
 
 public class PersistenceException extends Exception{
     public PersistenceException(String message) {

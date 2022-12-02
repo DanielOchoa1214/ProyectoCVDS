@@ -1,4 +1,4 @@
-package edu.eci.proyectocvds.services;
+package edu.eci.proyectocvds.errors;
 
 public class ExcepcionServiciosRecurso extends Exception {
 

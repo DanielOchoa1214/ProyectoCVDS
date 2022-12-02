@@ -1,46 +1,12 @@
 
 C
 azure-pipelines.yml,4/0/40ebc6823f24f296c0cd3fddd6ccda69b74ff2e4
-g
-7src/main/java/edu/eci/proyectocvds/entities/Genero.java,b/9/b920148d09f4ab19d086bc2f92ffb14ccbd1c6fd
-x
-Hsrc/main/java/edu/eci/proyectocvds/persistence/PersistenceException.java,b\9\b9003f5e17eb90034b31a50050ce30bf06310492
-O
-src/main/webapp/WEB-INF/web.xml,2/e/2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 q
 Asrc/main/java/edu/eci/proyectocvds/managedBeans/TipoBusqueda.java,7/f/7f4852ce146783ec865c1145f3f07e6185465940
-ƒ
-Ssrc/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/mappers/LibroMapper.java,d/7/d7e7db6d448d6a012a491b605f99f48a649c21f4
-i
-9src/main/java/edu/eci/proyectocvds/entities/Portatil.java,5/e/5e3bc4a1ca4e805089077fc92b14c4da50926edd
-•
-esrc/test/java/edu/eci/proyectocvds/test/ServicesTest/PortatilServiceTest/PortatilServiceSaveTest.java,8/3/837c564b6b264b28b316b749a9dcc999d42e7d55
-
-`src/test/java/edu/eci/proyectocvds/test/ServicesTest/LibroServicesTest/LibroServiceSaveTest.java,9/6/96207220700fc79297061a160a0cf980ffd79165
-
-`src/test/java/edu/eci/proyectocvds/test/ServicesTest/LibroServicesTest/LibroServiceLoadTest.java,b/3/b35602287db1600720b540887c9d222dad3bf022
 †
 Vsrc/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/mappers/PortatilMapper.java,7/c/7cb8e6747d26e8d34592962df81363a0aaa2157e
-k
-;src/main/java/edu/eci/proyectocvds/setup/SetUpInjector.java,0/d/0de09407d9d504128150d870b6d844d63cbd3835
-n
->src/main/java/edu/eci/proyectocvds/persistence/DAORecurso.java,1/a/1abc2ea0f78959991befcdfab3c2e8534af080db
-n
->src/main/java/edu/eci/proyectocvds/managedBeans/LibroBean.java,b/6/b64ef00e08d3d31824676c1f64dc8ff46898556d
-q
-Asrc/main/java/edu/eci/proyectocvds/managedBeans/PortatilBean.java,1/a/1a2b71b26488b451bed6ebeb75234324d3a9227f
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-t
-Dsrc/test/java/edu/eci/proyectocvds/test/ServiciosLibroJUnitTest.java,1/5/153af61e6a64f0db74c66157d30bd8559c461706
-
-Osrc/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/MyBatisDAOLibro.java,5/0/5062d06f47813dd4603fc022839428823078c2f2
-p
-@src/main/java/edu/eci/proyectocvds/services/ServicioRecurso.java,4/c/4cb92439197dea531dd1d521307bc7fbcbfe84c8
-x
-Hsrc/main/java/edu/eci/proyectocvds/services/impl/ServiciosLibroImpl.java,c/1/c135060b67530e6b7514d7212facf826915ce3e0
-{
-Ksrc/main/java/edu/eci/proyectocvds/services/impl/ServiciosPortatilImpl.java,5/6/568033239bceb5599eb75a5b2d1efd85d22a6824
 ‚
 Rsrc/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/MyBatisDAOPortatil.java,4/a/4a7cf53e9d27f79ba736da4b581c31007d3f5d37

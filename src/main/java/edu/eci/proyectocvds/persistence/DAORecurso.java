@@ -1,8 +1,6 @@
 package edu.eci.proyectocvds.persistence;
 
-import edu.eci.proyectocvds.entities.EstadoRecurso;
-import edu.eci.proyectocvds.entities.Genero;
-import edu.eci.proyectocvds.entities.Recurso;
+import edu.eci.proyectocvds.errors.PersistenceException;
 import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
 
 import java.util.List;

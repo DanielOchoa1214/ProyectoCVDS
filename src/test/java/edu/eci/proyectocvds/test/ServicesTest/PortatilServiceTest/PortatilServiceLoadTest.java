@@ -1,15 +1,11 @@
 package edu.eci.proyectocvds.test.ServicesTest.PortatilServiceTest;
-import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Portatil;
-import edu.eci.proyectocvds.entities.Recurso;
 import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
-import edu.eci.proyectocvds.persistence.PersistenceException;
-import edu.eci.proyectocvds.services.ExcepcionServiciosRecurso;
+import edu.eci.proyectocvds.errors.PersistenceException;
+import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
 import edu.eci.proyectocvds.services.ServicioRecurso;
-import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
-import org.apache.ibatis.jdbc.Null;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

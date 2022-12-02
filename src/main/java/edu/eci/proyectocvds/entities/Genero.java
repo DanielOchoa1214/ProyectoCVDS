@@ -1,11 +1,11 @@
 package edu.eci.proyectocvds.entities;
 
 public enum Genero {
-    Academico,
-    Fantasia,
-    CienciaFiccion,
-    Terror,
-    Gotico,
-    Romance,
-    Aventuras
+    ACADEMICO,
+    FANTASIA,
+    CIENCIA_FICCION,
+    TERROR,
+    GOTICO,
+    ROMANCE,
+    AVENTURAS
 }

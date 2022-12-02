@@ -33,9 +33,9 @@ public class ServiciosPortatilImpl implements ServicioRecurso<Portatil> {
     }
 
     @Override
-    public List<Portatil> load(String name, String location, TipoBusqueda type, int capacity) throws ExcepcionServiciosRecurso {
+    public List<Portatil> load(Portatil recurso) throws ExcepcionServiciosRecurso {
         try {
-            return daoPortatil.load(name, location, type, capacity);
+            return daoPortatil.load(recurso);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }

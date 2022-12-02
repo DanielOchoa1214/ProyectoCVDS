@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 public class LibroServiceSaveTest {
 
-    @Mock
+/*    @Mock
     DAORecurso<Libro> daoLibroTest;
 
     ServicioRecurso<Libro> serviciosLibro;
@@ -27,11 +27,11 @@ public class LibroServiceSaveTest {
         serviciosLibro = new ServiciosLibroImpl(daoLibroTest);
     }
 
-    /*
+    *//*
      * Clases de equivalencia
      * Que el recurso guarde
      * Que el recurso ya exista
-     */
+     *//*
 
     @Test
     public void given_DataBook_when_NoExist_then_SaveCorrectly() {
@@ -44,12 +44,12 @@ public class LibroServiceSaveTest {
             //boolean test = serviciosLibro.save(libro);
             //ASSERT
             //assertTrue(test);
-        } catch (PersistenceException /*| ExcepcionServiciosRecurso*/ e) {
+        } catch (PersistenceException *//*| ExcepcionServiciosRecurso*//* e) {
             throw new RuntimeException(e);
         }
     }
 
-    @Test/*(expected = ExcepcionServiciosRecurso.class)*/
+    @Test*//*(expected = ExcepcionServiciosRecurso.class)*//*
     public void given_DataBook_when_Exist_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso{
             Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",  1, 2,
                     "DISPONIBLE", "yo", false, 1);
@@ -57,5 +57,5 @@ public class LibroServiceSaveTest {
             //ACT
             //boolean test = serviciosLibro.save(libro);
             //ASSERT
-    }
+    }*/
 }

@@ -37,18 +37,12 @@
         FROM
             RECURSO as r JOIN LIBRO as l ON r.id = l.id
         WHERE
-            r.name LIKE #{name} AND
-            (#{capacity} = 0 OR (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) = #{capacity}) AND
-            (#{location} = '' OR  r.location = #{location})
+            r.name LIKE #{recurso.name} AND
+            (#{recurso.capacity} = 0 OR (SELECT c AS capacity FROM (SELECT name AS n, COUNT(name) AS c FROM RECURSO GROUP BY name) AS nc WHERE name = n) = #{recurso.capacity}) AND
+            (#{recurso.location} = '' OR  r.location = #{recurso.location})
     </select>
 
     <select id="setNewLibro" statementType="CALLABLE">
         {CALL insert_libro(#{recurso.name}, #{recurso.location}, 'Libro', #{recurso.id}, #{recurso.info}, #{recurso.bookingScheduleStart}, #{recurso.bookingScheduleEnd}, #{recurso.resourceState}, #{recurso.author}, #{recurso.hardCover}, #{recurso.pages}, #{recurso.genero})}
     </select>
-
-    <update id="updateResourceState">
-        UPDATE RECURSO SET
-            resource_state = #{estadoRecurso}
-        WHERE id = #{id}
-    </update>
 </mapper>

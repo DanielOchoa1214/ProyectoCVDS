@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 public class PortatilServiceSaveTest {
 
-    @Mock
+/*    @Mock
     DAORecurso<Portatil> daoPortatilTest;
 
     ServicioRecurso<Portatil> serviciosPortatil;
@@ -28,12 +28,12 @@ public class PortatilServiceSaveTest {
         serviciosPortatil = new ServiciosPortatilImpl(daoPortatilTest);
     }
 
-    /**
+    *//**
      * Clases de equivalencia
      * Que el recurso guarde
      * Que el recurso ya exista
      * Que la consulta suelte error
-     */
+     *//*
 
     @Test
     public void given_DataPortatil_when_NoExist_then_SaveCorrectly() {
@@ -46,12 +46,12 @@ public class PortatilServiceSaveTest {
             // boolean test = serviciosPortatil.save(portatil);
             //ASSERT
             // assertTrue(test);
-        } catch (PersistenceException /*| ExcepcionServiciosRecurso*/ e) {
+        } catch (PersistenceException *//*| ExcepcionServiciosRecurso*//* e) {
             throw new RuntimeException(e);
         }
     }
 
-    @Test/*(expected = ExcepcionServiciosRecurso.class)*/
+    @Test*//*(expected = ExcepcionServiciosRecurso.class)*//*
     public void given_DataPortatil_when_Exist_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso{
         Portatil portatil = new Portatil("1234", "1", 2, "1", "123", 1,  2,
                 "DISPONIBLE", "8GB RAM", "SSD 250GB","Intel 9 12Gen", "1920x1080", "Lenovo");
@@ -59,5 +59,5 @@ public class PortatilServiceSaveTest {
         //ACT
         // boolean test = serviciosPortatil.save(portatil);
         //ASSERT
-    }
+    }*/
 }

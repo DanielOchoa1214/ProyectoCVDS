@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface PortatilMapper {
-    void setNewPortatil(@Param("recurso") Recurso recurso);
-    List<Portatil> getResource(@Param("name") String name, @Param("location") String location, @Param("type") TipoBusqueda type,
-                               @Param("capacity") int capacity);
+    void setNewPortatil(@Param("recurso") Portatil recurso);
+    List<Portatil> getResource(@Param("recurso") Portatil recurso);
 }

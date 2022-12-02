@@ -8,5 +8,5 @@ import java.util.List;
 public interface DAORecurso<T> {
     boolean save(T recurso) throws PersistenceException;
 
-    List<T> load(String name, String location, TipoBusqueda genre, int capacity) throws PersistenceException;
+    List<T> load(T recurso) throws PersistenceException;
 }

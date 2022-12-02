@@ -1,6 +1,6 @@
 package edu.eci.proyectocvds.test.ServicesTest.LibroServicesTest;
 import edu.eci.proyectocvds.entities.Libro;
-import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
+import edu.eci.proyectocvds.managedbeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.errors.PersistenceException;
 import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
@@ -60,9 +60,9 @@ public class LibroServiceUpdateTest {
         ArrayList<Libro> list = new ArrayList<>();
         list.add(libro_1);
         list.add(libro_2);
-        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.Libro, 2)).thenReturn(list);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
         //ACT
-        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.Libro, 2);
+        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.LIBRO, 2);
         //ASSERT
         assertEquals(2, test.size());
     }
@@ -74,10 +74,10 @@ public class LibroServiceUpdateTest {
                 1, 2, "DISPONIBLE", "yo", false, 1);
         ArrayList<Libro> list = new ArrayList<>();
         list.add(libro);
-        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.Libro, 2)).thenReturn(list);
-        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.Portatil, 2)).thenThrow(new PersistenceException("Mal_Query"));
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.PORTATIL, 2)).thenThrow(new PersistenceException("Mal_Query"));
         //ACT
-        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.Portatil, 2);
+        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.PORTATIL, 2);
         //ASSERT
     }
 

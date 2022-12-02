@@ -82,39 +82,39 @@ CREATE PROCEDURE insert_portatil(
         end $$
 
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo vectorial', 'Pasillo 4 Estanteria 3', 'Libro', 'AJF-267', 'Libro de calculo usado en cursos de CALV', 10, 14, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('AJF-267', 'Tu madre', true, 300, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('AJF-267', 'Tu madre', true, 300, 'ACADEMICO');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('Calculo vectorial', 'Pasillo 4 Estanteria 3', 'Libro', 'AJF-268', 'Libro de calculo usado en cursos de CALV', 10, 14, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('AJF-268', 'Tu madre', true, 300, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('AJF-268', 'Tu madre', true, 300, 'ACADEMICO');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('Calculo vectorial', 'Pasillo 4 Estanteria 3', 'Libro', 'AJF-269', 'Libro de calculo usado en cursos de CALV', 10, 14, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('AJF-269', 'Tu madre', false, 300, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('AJF-269', 'Tu madre', false, 300, 'ACADEMICO');
 
 
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo Integral', 'Pasillo 4 Estanteria 4', 'Libro', 'DGR-738', 'Libro de calculo usado en cursos de CALI', 10, 17, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('DGR-738', 'Tu padre', true, 500, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('DGR-738', 'Tu padre', true, 500, 'ACADEMICO');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo Integral', 'Pasillo 4 Estanteria 4', 'Libro', 'DGR-634', 'Libro de calculo usado en cursos de CALI', 10, 17, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('DGR-634', 'Tu padre', true, 500, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('DGR-634', 'Tu padre', true, 500, 'ACADEMICO');
 
 
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo diferencial', 'Pasillo 4 Estanteria 2', 'Libro', 'ALS-956', 'Libro de calculo usado en cursos de CALD', 10, 19, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('ALS-956', 'Tu hermano', true, 1000, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('ALS-956', 'Tu hermano', true, 1000, 'ACADEMICO');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo diferencial', 'Pasillo 4 Estanteria 2', 'Libro', 'ALS-957', 'Libro de calculo usado en cursos de CALD', 10, 19, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('ALS-957', 'Tu hermano', true, 1000, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('ALS-957', 'Tu hermano', true, 1000, 'ACADEMICO');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo diferencial', 'Pasillo 4 Estanteria 2', 'Libro', 'ALS-958', 'Libro de calculo usado en cursos de CALD', 10, 19, 'RESERVADO');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('ALS-958', 'Tu hermano', false, 1000, 'Academico');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('ALS-958', 'Tu hermano', false, 1000, 'ACADEMICO');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('calculo diferencial', 'Pasillo 4 Estanteria 2', 'Libro', 'ALS-959', 'Libro de calculo usado en cursos de CALD', 10, 19, 'DISPONIBLE');
 INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('ALS-959', 'Tu hermano', true, 1000, 'Academico');
 
 
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('juego de tronos', 'Pasillo 10 Estanteria 5', 'Libro', 'HGL-230', 'Libro para gente culta que ama la literatura', 13, 17, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-230', 'Jorge Martinez', true, 3000, 'Fantasia');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-230', 'Jorge Martinez', true, 3000, 'FANTASIA');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('juego de tronos', 'Pasillo 10 Estanteria 5', 'Libro', 'HGL-231', 'Libro para gente culta que ama la literatura', 13, 17, 'RESERVADO');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-231', 'Jorge Martinez', true, 3000, 'Fantasia');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-231', 'Jorge Martinez', true, 3000, 'FANTASIA');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('juego de tronos', 'Pasillo 10 Estanteria 5', 'Libro', 'HGL-232', 'Libro para gente culta que ama la literatura', 13, 17, 'RESERVADO');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-232', 'Jorge Martinez', false, 3000, 'Fantasia');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-232', 'Jorge Martinez', false, 3000, 'FANTASIA');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('juego de tronos', 'Pasillo 10 Estanteria 5', 'Libro', 'HGL-233', 'Libro para gente culta que ama la literatura', 13, 17, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-233', 'Jorge Martinez', false, 3000, 'Fantasia');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-233', 'Jorge Martinez', false, 3000, 'FANTASIA');
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('juego de tronos', 'Pasillo 10 Estanteria 5', 'Libro', 'HGL-234', 'Libro para gente culta que ama la literatura', 13, 17, 'DISPONIBLE');
-INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-234', 'Jorge Martinez', false, 3000, 'Fantasia');
+INSERT INTO LIBRO (id, author, hard_cover, pages, genre) VALUES ('HGL-234', 'Jorge Martinez', false, 3000, 'FANTASIA');
 
 
 INSERT INTO RECURSO (name, location, type, id, info, booking_schedule_start, booking_schedule_end, resource_state) values ('portatil', 'Pedir el ventanilla', 'Portatil', 'PSK-520', 'Portatil de todo uso para quienes quieran sufrir un poco mas en la universidad', 7, 17, 'RESERVADO');

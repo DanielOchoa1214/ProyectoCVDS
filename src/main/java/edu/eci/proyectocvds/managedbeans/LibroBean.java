@@ -1,4 +1,4 @@
-package edu.eci.proyectocvds.managedBeans;
+package edu.eci.proyectocvds.managedbeans;
 
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.*;
@@ -80,7 +80,7 @@ public class LibroBean {
     }
 
     private void updateSearchingBooks(TipoBusqueda tipoBusqueda){
-        searchingBooks = tipoBusqueda.equals(TipoBusqueda.Libro) || tipoBusqueda.equals(TipoBusqueda.Todo);
+        searchingBooks = tipoBusqueda.equals(TipoBusqueda.LIBRO) || tipoBusqueda.equals(TipoBusqueda.TODO);
     }
 
     public void info() {

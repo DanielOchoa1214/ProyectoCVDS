@@ -2,7 +2,7 @@ package edu.eci.proyectocvds.services;
 
 import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
 import edu.eci.proyectocvds.errors.IntegrityException;
-import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
+import edu.eci.proyectocvds.managedbeans.TipoBusqueda;
 
 import java.util.List;
 

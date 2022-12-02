@@ -1,4 +1,4 @@
-package edu.eci.proyectocvds.managedBeans;
+package edu.eci.proyectocvds.managedbeans;
 
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.EstadoRecurso;
@@ -80,7 +80,7 @@ public class PortatilBean {
     }
 
     private void updateSearchingPortatiles(TipoBusqueda tipoBusqueda){
-        searchingPortatiles = tipoBusqueda.equals(TipoBusqueda.Portatil) || tipoBusqueda.equals(TipoBusqueda.Todo);
+        searchingPortatiles = tipoBusqueda.equals(TipoBusqueda.PORTATIL) || tipoBusqueda.equals(TipoBusqueda.TODO);
     }
 
     private String createNewId(String id){

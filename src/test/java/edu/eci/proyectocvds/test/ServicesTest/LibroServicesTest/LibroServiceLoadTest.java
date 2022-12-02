@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LibroServiceLoadTest {
-    @Mock
+/*    @Mock
     DAORecurso<Libro> daoLibroTest;
 
     ServicioRecurso<Libro> serviciosLibro;
@@ -39,7 +39,7 @@ public class LibroServiceLoadTest {
      * La consulta suelte error
      */
 
-    @Test
+   /* @Test
     public void given_DataBook_when_NoExistMatch_then_ReturnEmptyList() throws  PersistenceException, ExcepcionServiciosRecurso {
         //ARRANGE
         Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
@@ -82,5 +82,5 @@ public class LibroServiceLoadTest {
         //ACT
         List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.PORTATIL, 2);
         //ASSERT
-    }
+    }*/
 }

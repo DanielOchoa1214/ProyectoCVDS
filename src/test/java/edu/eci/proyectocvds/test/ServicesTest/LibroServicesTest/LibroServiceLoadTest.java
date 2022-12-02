@@ -40,16 +40,16 @@ public class LibroServiceLoadTest {
 
     @Test
     public void given_DataBook_when_NoExistMatch_then_ReturnEmptyList() throws  PersistenceException, ExcepcionServiciosRecurso {
-            //ARRANGE
-            Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
-                    1, 2, "DISPONIBLE", "yo", false, 1);
-            ArrayList<Libro> list = new ArrayList<>();
-            list.add(libro);
-            Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
-            //ACT
-            List<Libro> test = serviciosLibro.load("124", "pos1", TipoBusqueda.LIBRO, 2);
-            //ASSERT
-            assertEquals(0, test.size());
+        //ARRANGE
+        Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
+                1, 2, "DISPONIBLE", "yo", false, 1);
+        ArrayList<Libro> list = new ArrayList<>();
+        list.add(libro);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
+        //ACT
+        List<Libro> test = serviciosLibro.load("124", "pos1", TipoBusqueda.LIBRO, 2);
+        //ASSERT
+        assertEquals(0, test.size());
     }
 
     @Test

@@ -34,7 +34,7 @@ public class LibroBean {
 
     public boolean saveLibro(String name, String location, String capacity, String id, String info,
                           String bookingScheduleStart, String bookingScheduleEnd, String autor,
-                          boolean hardCover, String pages) throws Exception{
+                          boolean hardCover, String pages){
         try {
             int cap = (int) Double.parseDouble(capacity);
             int start =  bookingScheduleStart.equals("") ? 0 : Integer.parseInt(bookingScheduleStart);

@@ -1,14 +1,12 @@
 package edu.eci.proyectocvds.test.ServicesTest.LibroServicesTest;
 
 import edu.eci.proyectocvds.entities.Libro;
-import edu.eci.proyectocvds.entities.Recurso;
-import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
+import edu.eci.proyectocvds.managedbeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
-import edu.eci.proyectocvds.persistence.PersistenceException;
-import edu.eci.proyectocvds.services.ExcepcionServiciosRecurso;
+import edu.eci.proyectocvds.errors.PersistenceException;
+import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
 import edu.eci.proyectocvds.services.ServicioRecurso;
 import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
-import org.apache.ibatis.jdbc.Null;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -44,13 +42,13 @@ public class LibroServiceLoadTest {
     public void given_DataBook_when_NoExistMatch_then_ReturnEmptyList() {
         try {
             //ARRANGE
-            Libro libro = new Libro("1234", "1", "Academico", 2, "123", "1234",
+            Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
                     1, 2, "DISPONIBLE", "yo", false, 1);
             ArrayList<Libro> list = new ArrayList<>();
             list.add(libro);
-            Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.Libro, 2)).thenReturn(list);
+            Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
             //ACT
-            List<Libro> test = serviciosLibro.load("124", "pos1", TipoBusqueda.Libro, 2);
+            List<Libro> test = serviciosLibro.load("124", "pos1", TipoBusqueda.LIBRO, 2);
             //ASSERT
             assertEquals(0, test.size());
         } catch (PersistenceException | ExcepcionServiciosRecurso e) {
@@ -61,16 +59,16 @@ public class LibroServiceLoadTest {
     @Test
     public void given_DataBook_when_ExistMatch_then_ReturnList() throws PersistenceException, ExcepcionServiciosRecurso {
         //ARRANGE
-        Libro libro_1 = new Libro("1234", "pos1", "Academico", 2, "123", "1234",
+        Libro libro_1 = new Libro("1234", "pos1", "ACADEMICO", 2, "123", "1234",
                 1, 2, "DISPONIBLE", "yo", false, 1);
-        Libro libro_2 = new Libro("1234", "pos1", "Academico", 2, "123", "1234",
+        Libro libro_2 = new Libro("1234", "pos1", "ACADEMICO", 2, "123", "1234",
                 1, 2, "DISPONIBLE", "yo", false, 1);
         ArrayList<Libro> list = new ArrayList<>();
         list.add(libro_1);
         list.add(libro_2);
-        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.Libro, 2)).thenReturn(list);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
         //ACT
-        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.Libro, 2);
+        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.LIBRO, 2);
         //ASSERT
         assertEquals(2, test.size());
     }
@@ -78,14 +76,14 @@ public class LibroServiceLoadTest {
     @Test(expected = ExcepcionServiciosRecurso.class)
     public void given_DataBook_when_IncorrectQuery_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso {
         //ARRANGE
-        Libro libro = new Libro("1234", "pos1", "Academico", 2, "123", "1234",
+        Libro libro = new Libro("1234", "pos1", "ACADEMICO", 2, "123", "1234",
                 1, 2, "DISPONIBLE", "yo", false, 1);
         ArrayList<Libro> list = new ArrayList<>();
         list.add(libro);
-        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.Libro, 2)).thenReturn(list);
-        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.Portatil, 2)).thenThrow(new PersistenceException("Mal_Query"));
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
+        Mockito.when(daoLibroTest.load("1234", "pos1", TipoBusqueda.PORTATIL, 2)).thenThrow(new PersistenceException("Mal_Query"));
         //ACT
-        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.Portatil, 2);
+        List<Libro> test = serviciosLibro.load("1234", "pos1", TipoBusqueda.PORTATIL, 2);
         //ASSERT
     }
 }

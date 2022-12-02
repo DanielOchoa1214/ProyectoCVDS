@@ -1,12 +1,13 @@
 package edu.eci.proyectocvds.entities;
 
+import java.util.Objects;
+
 public class Libro extends Recurso{
 
     private String author;
     private boolean hardCover;
     private int pages;
     private Genero genero;
-
 
     public Libro(String name, String location, String genre, int capacity, String id, String info, int bookingScheduleStart, int bookingScheduleEnd, String resourceState, String author, boolean hardCover, int pages){
         this.name = name;
@@ -66,5 +67,10 @@ public class Libro extends Recurso{
 
     private boolean equals(Libro r){
         return this.id.equals(r.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(author, hardCover, pages, genero);
     }
 }

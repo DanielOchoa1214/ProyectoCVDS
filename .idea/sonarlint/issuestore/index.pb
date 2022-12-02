@@ -1,6 +1,7 @@
 
 C
 azure-pipelines.yml,4/0/40ebc6823f24f296c0cd3fddd6ccda69b74ff2e4
+<<<<<<< HEAD
 g
 7src/main/java/edu/eci/proyectocvds/entities/Genero.java,b/9/b920148d09f4ab19d086bc2f92ffb14ccbd1c6fd
 Q
@@ -23,3 +24,10 @@ n
 >src/main/java/edu/eci/proyectocvds/managedBeans/LibroBean.java,b\6\b64ef00e08d3d31824676c1f64dc8ff46898556d
 ‚
 Rsrc/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/MyBatisDAOPortatil.java,4\a\4a7cf53e9d27f79ba736da4b581c31007d3f5d37
+=======
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+‚
+Rsrc/main/java/edu/eci/proyectocvds/persistence/mybatisimpl/MyBatisDAOPortatil.java,4/a/4a7cf53e9d27f79ba736da4b581c31007d3f5d37
+>>>>>>> e94b0b67c34edc135f4dc1d35f64cc9a95776d79

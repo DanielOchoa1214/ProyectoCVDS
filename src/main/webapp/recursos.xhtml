@@ -4,12 +4,16 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:o="http://omnifaces.org/ui"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      lang="en">
 <h:head>
     <title>Recursos de la Biblioteca</title>
     <link rel="stylesheet" href="insertRecurso.css"/>
 </h:head>
 <h:body>
+    <p:messages id="messages" showDetail="true" closable="true">
+        <p:autoUpdate/>
+    </p:messages>
     <div class="form-div">
         <h2 class="register-title">¿Que tipo de recurso quieres ingresar?</h2>
         <div class="form-choice-div">
@@ -51,7 +55,9 @@
             </label>
             <label>
                 Numero de libros ingresados:
-                <p:inputText id="capacidad_libro" class="form-inputs" binding="#{bookCapacity}"/>
+                <p:inputNumber id="capacidad_libro" class="form-inputs" binding="#{bookCapacity}" validatorMessage="El numbero de libros ingresados debe ser minimo 1" value="1">
+                    <f:validateRegex pattern="[+-]?([1-9]*[.])?[0-9]+"/>
+                </p:inputNumber>
             </label>
             <label>
                 Identificador del libro:
@@ -59,9 +65,6 @@
                     <f:validateRegex pattern="^[A-Z]{3}-[0-9]{3}$"/>
                 </p:inputText>
             </label>
-            <p:messages class="message-error">
-                <p:autoUpdate/>
-            </p:messages>
             <label>
                 Hora de inicio de horario de reservas:
                 <p:inputText id="horario_inicio_libro" class="form-inputs" binding="#{bookBookingScheduleStart}"/>
@@ -110,8 +113,10 @@
                 <p:inputText id="info_portatil" class="form-inputs" binding="#{laptopInfo}"/>
             </label>
             <label>
-                Numero de portatil ingresados:
-                <p:inputText id="capacidad_portatil" class="form-inputs" binding="#{laptopCapacity}"/>
+                Numero de portatiles ingresados:
+                <p:inputNumber id="capacidad_portatil" class="form-inputs" binding="#{laptopCapacity}" validatorMessage="El numbero de portatiles ingresados debe ser minimo 1" value="1">
+                    <f:validateRegex pattern="[+-]?([1-9]*[.])?[0-9]+"/>
+                </p:inputNumber>
             </label>
             <label>
                 Identificador del portatil:
@@ -119,9 +124,6 @@
                     <f:validateRegex pattern="^[A-Z]{3}-[0-9]{3}$"/>
                 </p:inputText>
             </label>
-            <p:messages class="message-error">
-                <p:autoUpdate/>
-            </p:messages>
             <label>
                 Hora de inicio de horario de reservas:
                 <p:inputText id="horario_inicio_portatil" class="form-inputs" binding="#{laptopBookingScheduleStart}"/>

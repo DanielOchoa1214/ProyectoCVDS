@@ -1,15 +1,11 @@
 package edu.eci.proyectocvds.test.ServicesTest.PortatilServiceTest;
-import edu.eci.proyectocvds.entities.Libro;
 import edu.eci.proyectocvds.entities.Portatil;
-import edu.eci.proyectocvds.entities.Recurso;
-import edu.eci.proyectocvds.managedBeans.TipoBusqueda;
+import edu.eci.proyectocvds.managedbeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
-import edu.eci.proyectocvds.persistence.PersistenceException;
-import edu.eci.proyectocvds.services.ExcepcionServiciosRecurso;
+import edu.eci.proyectocvds.errors.PersistenceException;
+import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
 import edu.eci.proyectocvds.services.ServicioRecurso;
-import edu.eci.proyectocvds.services.impl.ServiciosLibroImpl;
 import edu.eci.proyectocvds.services.impl.ServiciosPortatilImpl;
-import org.apache.ibatis.jdbc.Null;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -41,9 +37,9 @@ public class PortatilServiceLoadTest {
                     "DISPONIBLE", "8GB RAM", "SSD 250GB","Intel 9 12Gen", "1920x1080", "Lenovo");
             ArrayList<Portatil> list = new ArrayList<>();
             list.add(portatil);
-            Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.Portatil, 2)).thenReturn(list);
+            Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.PORTATIL, 2)).thenReturn(list);
             //ACT
-            List<Portatil> test = serviciosPortatil.load("124", "pos1", TipoBusqueda.Portatil, 2);
+            List<Portatil> test = serviciosPortatil.load("124", "pos1", TipoBusqueda.PORTATIL, 2);
             //ASSERT
             assertEquals(0, test.size());
     }
@@ -58,9 +54,9 @@ public class PortatilServiceLoadTest {
         ArrayList<Portatil> list = new ArrayList<>();
         list.add(portatil_1);
         list.add(portatil_2);
-        Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.Libro, 2)).thenReturn(list);
+        Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenReturn(list);
         //ACT
-        List<Portatil> test = serviciosPortatil.load("1234", "pos1", TipoBusqueda.Libro, 2);
+        List<Portatil> test = serviciosPortatil.load("1234", "pos1", TipoBusqueda.LIBRO, 2);
         //ASSERT
         assertEquals(2, test.size());
     }
@@ -72,10 +68,10 @@ public class PortatilServiceLoadTest {
                 "DISPONIBLE", "8GB RAM", "SSD 250GB","Intel 9 12Gen", "1920x1080", "Lenovo");
         ArrayList<Portatil> list = new ArrayList<>();
         list.add(portatil);
-        Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.Portatil, 2)).thenReturn(list);
-        Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.Libro, 2)).thenThrow(new PersistenceException("Mal_Query"));
+        Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.PORTATIL, 2)).thenReturn(list);
+        Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.LIBRO, 2)).thenThrow(new PersistenceException("Mal_Query"));
         //ACT
-        List<Portatil> test = serviciosPortatil.load("1234", "pos1", TipoBusqueda.Libro, 2);
+        List<Portatil> test = serviciosPortatil.load("1234", "pos1", TipoBusqueda.LIBRO, 2);
         //ASSERT
     }
 }

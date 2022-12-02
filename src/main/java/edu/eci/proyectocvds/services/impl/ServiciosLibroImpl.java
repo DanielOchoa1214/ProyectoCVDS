@@ -36,7 +36,7 @@ public class ServiciosLibroImpl implements ServicioRecurso<Libro> {
     public List<Libro> load(Libro recurso) throws ExcepcionServiciosRecurso {
         try {
             return daoLibro.load(recurso);
-        } catch (PersistenceException ex) {
+        } catch (Exception ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
     }

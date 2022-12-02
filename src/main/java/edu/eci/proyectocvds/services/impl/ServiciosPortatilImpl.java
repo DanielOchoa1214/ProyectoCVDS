@@ -36,7 +36,7 @@ public class ServiciosPortatilImpl implements ServicioRecurso<Portatil> {
     public List<Portatil> load(Portatil recurso) throws ExcepcionServiciosRecurso {
         try {
             return daoPortatil.load(recurso);
-        } catch (PersistenceException ex) {
+        } catch (Exception ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }
     }

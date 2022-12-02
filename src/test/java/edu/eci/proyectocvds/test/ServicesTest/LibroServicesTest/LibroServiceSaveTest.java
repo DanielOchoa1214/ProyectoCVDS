@@ -1,6 +1,8 @@
 package edu.eci.proyectocvds.test.ServicesTest.LibroServicesTest;
 
 import edu.eci.proyectocvds.entities.Libro;
+import edu.eci.proyectocvds.entities.Recurso;
+import edu.eci.proyectocvds.errors.IntegrityException;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.errors.PersistenceException;
 import edu.eci.proyectocvds.errors.ExcepcionServiciosRecurso;
@@ -31,31 +33,78 @@ public class LibroServiceSaveTest {
      * Clases de equivalencia
      * Que el recurso guarde
      * Que el recurso ya exista
+     * Que el recurso no posea: name, author, location, genre, id, info
      */
 
     @Test
-    public void given_DataBook_when_NoExist_then_SaveCorrectly() {
-        try {
+    public void given_Book_when_NoExist_then_SaveCorrectly() throws ExcepcionServiciosRecurso, IntegrityException, PersistenceException {
             //ARRANGE
             Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
                     1, 2, "DISPONIBLE", "yo", false, 1);
             Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
             //ACT
-            //boolean test = serviciosLibro.save(libro);
+            boolean test = serviciosLibro.save(libro);
             //ASSERT
-            //assertTrue(test);
-        } catch (PersistenceException /*| ExcepcionServiciosRecurso*/ e) {
-            throw new RuntimeException(e);
-        }
+            assertTrue(test);
     }
 
-    @Test/*(expected = ExcepcionServiciosRecurso.class)*/
-    public void given_DataBook_when_Exist_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso{
-            Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",  1, 2,
-                    "DISPONIBLE", "yo", false, 1);
-            Mockito.when(daoLibroTest.save(libro)).thenThrow(new PersistenceException("Ya_Existe"));
-            //ACT
-            //boolean test = serviciosLibro.save(libro);
-            //ASSERT
+    @Test(expected = ExcepcionServiciosRecurso.class)
+    public void given_Book_when_Exist_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso, IntegrityException{
+        Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",  1, 2,
+                "DISPONIBLE", "yo", false, 1);
+        Mockito.when(daoLibroTest.save(libro)).thenThrow(new PersistenceException("Ya_Existe"));
+        //ACT
+        boolean test = serviciosLibro.save(libro);
+        //ASSERT
+    }
+
+    @Test(expected = IntegrityException.class)
+    public void given_Book_When_NoName_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso, IntegrityException {
+        Libro libro = new Libro("", "1", "ACADEMICO", 2, "123", "1234",  1, 2,
+                "DISPONIBLE", "yo", false, 1);
+        Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
+        //ACT
+        boolean test = serviciosLibro.save(libro);
+        //ASSERT
+    }
+
+    @Test(expected = IntegrityException.class)
+    public void given_Book_When_NoLocation_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso, IntegrityException {
+        Libro libro = new Libro("asdf", "", "ACADEMICO", 2, "123", "1234",  1, 2,
+                "DISPONIBLE", "yo", false, 1);
+        Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
+        //ACT
+        boolean test = serviciosLibro.save(libro);
+        //ASSERT
+    }
+
+    @Test(expected = IntegrityException.class)
+    public void given_Book_When_NoId_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso, IntegrityException {
+        Libro libro = new Libro("asd", "1", "ACADEMICO", 2, "", "1234",  1, 2,
+                "DISPONIBLE", "yo", false, 1);
+        Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
+        //ACT
+        boolean test = serviciosLibro.save(libro);
+        //ASSERT
+    }
+
+    @Test(expected = IntegrityException.class)
+    public void given_Book_When_NoInfo_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso, IntegrityException {
+        Libro libro = new Libro("asdf", "1", "ACADEMICO", 2, "123", "",  1, 2,
+                "DISPONIBLE", "yo", false, 1);
+        Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
+        //ACT
+        boolean test = serviciosLibro.save(libro);
+        //ASSERT
+    }
+
+    @Test(expected = IntegrityException.class)
+    public void given_Book_When_NoAuthor_then_ThrowException() throws PersistenceException, ExcepcionServiciosRecurso, IntegrityException {
+        Libro libro = new Libro("asdf", "1", "ACADEMICO", 2, "123", "1234",  1, 2,
+                "DISPONIBLE", "", false, 1);
+        Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
+        //ACT
+        boolean test = serviciosLibro.save(libro);
+        //ASSERT
     }
 }

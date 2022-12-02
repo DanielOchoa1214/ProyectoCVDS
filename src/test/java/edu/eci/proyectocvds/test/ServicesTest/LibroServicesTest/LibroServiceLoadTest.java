@@ -34,13 +34,12 @@ public class LibroServiceLoadTest {
     /*
      * Clases de equivalencia
      * No exista ningun recurso
-     * Que algun recurso que exista
+     * Que algun recurso exista
      * La consulta suelte error
      */
 
     @Test
-    public void given_DataBook_when_NoExistMatch_then_ReturnEmptyList() {
-        try {
+    public void given_DataBook_when_NoExistMatch_then_ReturnEmptyList() throws  PersistenceException, ExcepcionServiciosRecurso {
             //ARRANGE
             Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
                     1, 2, "DISPONIBLE", "yo", false, 1);
@@ -51,9 +50,6 @@ public class LibroServiceLoadTest {
             List<Libro> test = serviciosLibro.load("124", "pos1", TipoBusqueda.LIBRO, 2);
             //ASSERT
             assertEquals(0, test.size());
-        } catch (PersistenceException | ExcepcionServiciosRecurso e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @Test

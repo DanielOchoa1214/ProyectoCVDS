@@ -38,14 +38,14 @@ public class LibroServiceSaveTest {
 
     @Test
     public void given_Book_when_NoExist_then_SaveCorrectly() throws ExcepcionServiciosRecurso, IntegrityException, PersistenceException {
-            //ARRANGE
-            Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
-                    1, 2, "DISPONIBLE", "yo", false, 1);
-            Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
-            //ACT
-            boolean test = serviciosLibro.save(libro);
-            //ASSERT
-            assertTrue(test);
+        //ARRANGE
+        Libro libro = new Libro("1234", "1", "ACADEMICO", 2, "123", "1234",
+                1, 2, "DISPONIBLE", "yo", false, 1);
+        Mockito.when(daoLibroTest.save(libro)).thenReturn(true);
+        //ACT
+        boolean test = serviciosLibro.save(libro);
+        //ASSERT
+        assertTrue(test);
     }
 
     @Test(expected = ExcepcionServiciosRecurso.class)

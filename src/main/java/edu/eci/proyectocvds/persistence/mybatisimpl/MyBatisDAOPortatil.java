@@ -24,9 +24,9 @@ public class MyBatisDAOPortatil implements DAORecurso<Portatil> {
     }
 
     @Override
-    public List<Portatil> load(String name, String location, TipoBusqueda type, int capacity) throws PersistenceException {
+    public List<Portatil> load(Portatil recurso) throws PersistenceException {
         try{
-            return portatilMapper.getResource(name, location, type, capacity);
+            return portatilMapper.getResource(recurso);
         }
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);

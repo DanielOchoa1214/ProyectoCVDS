@@ -33,9 +33,9 @@ public class ServiciosLibroImpl implements ServicioRecurso<Libro> {
     }
 
     @Override
-    public List<Libro> load(String name, String location, TipoBusqueda type, int capacity) throws ExcepcionServiciosRecurso {
+    public List<Libro> load(Libro recurso) throws ExcepcionServiciosRecurso {
         try {
-            return daoLibro.load(name, location, type, capacity);
+            return daoLibro.load(recurso);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosRecurso("Error al realizar la consulta:"+ ex.getLocalizedMessage(), ex);
         }

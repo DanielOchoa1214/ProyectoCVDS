@@ -24,6 +24,12 @@ public class Libro extends Recurso{
         this.pages = pages;
     }
 
+    public Libro(String name, String location, int capacity) {
+        this.name = name;
+        this.location = location;
+        this.capacity = capacity;
+    }
+
     public int getPages() {
         return pages;
     }

@@ -9,10 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface LibroMapper {
-    void setNewLibro(@Param("recurso") Recurso recurso);
+    void setNewLibro(@Param("recurso") Libro recurso);
 
-    List<Libro> getResource(@Param("name") String name, @Param("location") String location, @Param("type") TipoBusqueda type,
-                            @Param("capacity") int capacity);
-
-    void updateResourceState(@Param("id") String id, @Param("estadoRecurso") EstadoRecurso estadoRecurso);
+    List<Libro> getResource(@Param("recurso") Libro recurso);
 }

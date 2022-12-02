@@ -26,9 +26,9 @@ public class MyBatisDAOLibro implements DAORecurso<Libro> {
     }
 
     @Override
-    public List<Libro> load(String name, String location, TipoBusqueda genre, int capacity) throws PersistenceException {
+    public List<Libro> load(Libro recurso) throws PersistenceException {
         try{
-            return libroMapper.getResource(name, location, genre, capacity);
+            return libroMapper.getResource(recurso);
         }
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);

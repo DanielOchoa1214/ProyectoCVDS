@@ -18,7 +18,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 public class PortatilServiceLoadTest {
-    @Mock
+  /*  @Mock
     DAORecurso<Portatil> daoPortatilTest;
 
     ServicioRecurso<Portatil> serviciosPortatil;
@@ -32,16 +32,16 @@ public class PortatilServiceLoadTest {
 
     @Test
     public void given_DataPortatil_when_NoExistMatch_then_ReturnEmptyList() throws PersistenceException, ExcepcionServiciosRecurso {
-            //ARRANGE
-            Portatil portatil = new Portatil("1234", "1", 2, "1", "123", 1,  2,
-                    "DISPONIBLE", "8GB RAM", "SSD 250GB","Intel 9 12Gen", "1920x1080", "Lenovo");
-            ArrayList<Portatil> list = new ArrayList<>();
-            list.add(portatil);
-            Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.PORTATIL, 2)).thenReturn(list);
-            //ACT
-            List<Portatil> test = serviciosPortatil.load("124", "pos1", TipoBusqueda.PORTATIL, 2);
-            //ASSERT
-            assertEquals(0, test.size());
+        //ARRANGE
+        Portatil portatil = new Portatil("1234", "1", 2, "1", "123", 1,  2,
+                "DISPONIBLE", "8GB RAM", "SSD 250GB","Intel 9 12Gen", "1920x1080", "Lenovo");
+        ArrayList<Portatil> list = new ArrayList<>();
+        list.add(portatil);
+        Mockito.when(daoPortatilTest.load("1234", "pos1", TipoBusqueda.PORTATIL, 2)).thenReturn(list);
+        //ACT
+        List<Portatil> test = serviciosPortatil.load("124", "pos1", TipoBusqueda.PORTATIL, 2);
+        //ASSERT
+        assertEquals(0, test.size());
     }
 
     @Test
@@ -73,5 +73,5 @@ public class PortatilServiceLoadTest {
         //ACT
         List<Portatil> test = serviciosPortatil.load("1234", "pos1", TipoBusqueda.LIBRO, 2);
         //ASSERT
-    }
+    }*/
 }

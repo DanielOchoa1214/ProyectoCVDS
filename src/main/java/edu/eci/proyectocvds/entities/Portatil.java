@@ -26,6 +26,12 @@ public class Portatil extends Recurso{
         this.brand = brand;
     }
 
+    public Portatil(String name, String location, int capacity){
+        this.name = name;
+        this.location = location;
+        this.capacity = capacity;
+    }
+
     public String getRam() {
         return ram;
     }

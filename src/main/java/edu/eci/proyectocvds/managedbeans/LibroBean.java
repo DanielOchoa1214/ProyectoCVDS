@@ -60,7 +60,8 @@ public class LibroBean {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
             updateSearchingBooks(TipoBusqueda.valueOf(tipoBusqueda));
             String lowerName = name.toLowerCase();
-            searchedLibros =  service.load(lowerName, location, TipoBusqueda.valueOf(tipoBusqueda), cap);
+            Libro searching = new Libro(name, location, cap);
+            searchedLibros =  service.load(searching);
             return true;
         } catch (Exception e){
             return  sendFail(e);

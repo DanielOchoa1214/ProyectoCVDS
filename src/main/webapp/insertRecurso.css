@@ -1,7 +1,7 @@
 #messages {
     z-index: 1234;
     position: fixed;
-    top: calc(100vh - 7rem);
+    bottom: 0%;
     max-width: 25%
 }
 

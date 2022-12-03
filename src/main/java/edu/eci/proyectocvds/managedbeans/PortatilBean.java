@@ -58,7 +58,7 @@ public class PortatilBean {
             int cap = capacity.equals("") ? 0 : Integer.parseInt(capacity);
             updateSearchingPortatiles(TipoBusqueda.valueOf(tipoBusqueda));
             String lowerName = name.toLowerCase();
-            Portatil searching = new Portatil(name, location, cap);
+            Portatil searching = new Portatil(lowerName, location, cap);
             searchedPortatiles =  service.load(searching);
             return true;
         }catch (Exception e){

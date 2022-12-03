@@ -1,3 +1,14 @@
+#messages {
+    z-index: 1234;
+    position: fixed;
+    top: calc(100vh - 7rem);
+    max-width: 25%
+}
+
+#messages .ui-messages-error-detail{
+    font-size: 0.8rem !important;
+}
+
 .form-inputs {
     max-width: 15rem;
 }
@@ -5,7 +16,8 @@
 .form-choice-div {
     display:flex;
     margin-inline: auto;
-    padding: 10px;
+    justify-content: space-between;
+    gap: 2rem;
     margin-block: 2rem;
 }
 
@@ -69,8 +81,8 @@
     min-width: 10%;
 }
 
-.register-btn{
-    margin: 2rem auto 1rem auto!important;
+.register-btn {
+    margin: 2rem auto 1rem auto !important;
     max-width: 15rem;
 }
 

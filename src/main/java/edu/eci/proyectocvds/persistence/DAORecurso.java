@@ -1,7 +1,6 @@
 package edu.eci.proyectocvds.persistence;
 
 import edu.eci.proyectocvds.errors.PersistenceException;
-import edu.eci.proyectocvds.managedbeans.TipoBusqueda;
 
 import java.util.List;
 

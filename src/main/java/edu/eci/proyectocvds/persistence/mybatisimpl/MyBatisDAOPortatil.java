@@ -2,7 +2,6 @@ package edu.eci.proyectocvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
 import edu.eci.proyectocvds.entities.Portatil;
-import edu.eci.proyectocvds.managedbeans.TipoBusqueda;
 import edu.eci.proyectocvds.persistence.DAORecurso;
 import edu.eci.proyectocvds.errors.PersistenceException;
 import edu.eci.proyectocvds.persistence.mybatisimpl.mappers.PortatilMapper;
